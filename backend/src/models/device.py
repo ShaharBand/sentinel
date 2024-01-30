@@ -24,6 +24,10 @@ class Device(ABC):
         pass
 
     @abstractmethod
+    def remove_from_db(self) -> bool:
+        pass
+
+    @abstractmethod
     def ping(self) -> bool:
         pass
 

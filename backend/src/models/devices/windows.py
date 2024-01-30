@@ -24,7 +24,7 @@ class WindowsDevice(Device, ABC):
 
     def insert_into_db(self) -> bool:
         # Attempt to insert data into the database
-        inserted_id = db.device.insert(
+        inserted_id = db.devices.insert(
             name=self.data.name,
             description=self.data.description,
             address=str(self.data.address),
@@ -41,7 +41,7 @@ class WindowsDevice(Device, ABC):
 
     def update_in_db(self) -> bool:
         # Attempt to update data in the database based on the device's name
-        updated_rows = db(db.device.name == self.data.name).update(
+        updated_rows = db(db.devices.name == self.data.name).update(
             description=self.data.description,
             address=str(self.data.address),
             os_type=self.data.os_type,
@@ -51,6 +51,17 @@ class WindowsDevice(Device, ABC):
         # Check if the update was successful
         if updated_rows > 0:
             db.commit()  # Commit changes to the database
+            return True
+        else:
+            return False
+
+    def remove_from_db(self) -> bool:
+        # Attempt to delete the record from the database
+        deleted_rows = db(db.devices.name == self.data.name).delete()
+
+        # Check if the deletion was successful
+        if deleted_rows:
+            db.commit()
             return True
         else:
             return False

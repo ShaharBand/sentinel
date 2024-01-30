@@ -8,6 +8,5 @@ db.define_table('devices',
                 Field('description', 'string', length=256),
                 Field('address', 'string', length=128),
                 Field('os_type', 'string', length=128),
-                Field('last_scan_date', 'datetime'),
-                migrate=False
+                Field('last_scan_date', 'datetime')
                 )
