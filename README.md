@@ -20,7 +20,11 @@ A user-friendly web application responsible to streamline and monitor the manage
 
 ### Frontend:
 
-ReactJS, ViteJS, TypeScript, TailwindCSS.
+[ReactJS](https://github.com/facebook/react),
+[ViteJS](https://github.com/vitejs/vite),
+[TypeScript](https://github.com/microsoft/TypeScript),
+[TailwindCSS](https://github.com/tailwindlabs/tailwindcss).
+
 
 ## Getting Started:
 
