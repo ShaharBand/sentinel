@@ -1,6 +1,7 @@
 from pydal import DAL, Field
+from utils.config import DB_URI
 
-db = DAL('postgres://postgres:123456@localhost:5432/sentinel')
+db = DAL(DB_URI)
 
 db.define_table('devices',
                 Field('name', 'string', length=128, required=True),
