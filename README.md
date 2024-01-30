@@ -13,7 +13,10 @@ A user-friendly web application responsible to streamline and monitor the manage
 
 ### Backend:
 
-FastAPI, Pydantic, Pydal, PostgreSQL, Socket.IO.
+[FastAPI](https://github.com/tiangolo/fastapi),
+[Pydantic](https://github.com/samuelcolvin/pydantic),
+[Pydal](https://github.com/web2py/pydal),
+[PostgreSQL](https://github.com/postgres/postgres).
 
 ### Frontend:
 
