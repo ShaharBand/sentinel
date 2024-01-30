@@ -1,3 +1,4 @@
+# Application Configuration:
 VERSION = "0.0.1"
 
 # Database Configuration:

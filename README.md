@@ -1,3 +1,8 @@
+
+<div align="center">
+  <img src="./logo.png" width="250px" alt="Sentinel Logo" title="Sentinel Logo">
+</div>
+
 # Sentinel
 A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
 

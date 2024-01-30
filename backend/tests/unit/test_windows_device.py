@@ -15,7 +15,6 @@ class DevicesServiceTest(unittest.TestCase):
                                                last_scan_date=datetime.now().replace(microsecond=0))
 
         windows_device.data.description = "hi there"
-
         self.assertEqual(windows_device.data.description, "hi there")
 
 
