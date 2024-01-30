@@ -1,5 +1,5 @@
 from pydal import DAL, Field
-from utils.config import DB_URI
+from backend.src.utils.config import DB_URI
 
 db = DAL(DB_URI)
 

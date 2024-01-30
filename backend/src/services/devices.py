@@ -1,7 +1,7 @@
 from typing import List
 
-from dal.devices import db
-from models.device import DeviceData
+from backend.src.dal.devices import db
+from backend.src.models.device import DeviceData
 
 
 """

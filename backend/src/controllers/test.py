@@ -1,7 +1,7 @@
 import datetime
 
-from models.device import Device
-from models.devices.windows import WindowsDevice
+from backend.src.models.device import Device
+from backend.src.models.devices.windows import WindowsDevice
 
 device: Device = WindowsDevice(name="test",
                                description="bingo dingo",

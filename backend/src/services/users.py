@@ -1,6 +1,6 @@
 from typing import List
 
-from models.user import UserData
+from backend.src.models.user import UserData
 
 
 def get_all_users() -> List:
