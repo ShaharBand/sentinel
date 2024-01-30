@@ -1,7 +1,7 @@
 from pydal import DAL, Field
 from backend.src.utils.config import DB_URI
 
-db = DAL(DB_URI)
+db = DAL(DB_URI, migrate=False)
 
 db.define_table('users',
                 Field('username', 'string', length=128, required=True),
