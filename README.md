@@ -13,7 +13,7 @@ A user-friendly web application responsible to streamline and monitor the manage
 
 ### Backend:
 
-FastAPI, Pydantic, PyDal, PostgreSQL, Socket.IO.
+FastAPI, Pydantic, Pydal, PostgreSQL, Socket.IO.
 
 ### Frontend:
 
