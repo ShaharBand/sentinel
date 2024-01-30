@@ -4,6 +4,10 @@
 </div>
 
 # Sentinel
+
+[![Downloads](https://img.shields.io/github/downloads/ShaharBand/Sentinel/total.svg)](https://github.com/your-username/your-repository/releases)
+[![GitHub repo size](https://img.shields.io/github/repo-size/ShaharBand/Sentinel.svg)](https://github.com/your-username/your-repository)
+
 A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
 
 
