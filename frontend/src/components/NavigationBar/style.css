@@ -4,6 +4,7 @@
 
 .page-container {
     display: flex;
+    margin: 10px;
 }
 
 .content {
