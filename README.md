@@ -8,6 +8,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/ShaharBand/Sentinel.svg)](https://github.com/ShaharBand/Sentinel)
 
 A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
+<br><br>
 
 ## Technologies:
 
@@ -24,60 +25,66 @@ A user-friendly web application responsible to streamline and monitor the manage
 [ViteJS](https://github.com/vitejs/vite),
 [TypeScript](https://github.com/microsoft/TypeScript),
 [TailwindCSS](https://github.com/tailwindlabs/tailwindcss).
-
+<br><br>
 
 ## Getting Started:
 
-1. Clone the repository:
-
+**1. Clone the repository:**
 ```commandline
 https://github.com/ShaharBand/Sentinel.git
 ```
+<br>
 
-2. Install Backend Dependencies:
+**2. Install Backend Dependencies:**
 
 Navigate to the `backend` directory and install the backend dependencies using the following command:
-
 ```commandline
 cd backend
 pip install -r requirements.txt
 ```
+<br>
 
-3. Install NPM and Node.js:
+**3. Install NPM and Node.js:**
 
 Before installing the Node Package Manager (NPM), you need to install Node.js. 
 You can download the latest version of Node.js from the official Node.js website.
+<br><br>
 
-4. Install Frontend Dependencies:
+**4. Install Frontend Dependencies:**
+
 Navigate to the frontend directory and install the frontend dependencies using the following command:
 ```commandline
 cd frontend
 npm install
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This command installs the necessary Node.js packages specified in your project's `package.json` file.
+This command installs the necessary Node.js packages specified in your project's `package.json` file.
+<br><br>
 
-4. Modify the configuration settings
+**5. Modify the configuration settings:**
 
 Update the configuration settings in `config.py` located in the backend directory. 
+<br><br>
 
-5. Run Backend
+**6. Run Backend**
 
 In the `backend` directory, run the FastAPI backend using the following command:
 ```commandline
 uvicorn main:app --reload
 ```
+<br>
 
-6. Run Frontend:
+**7. Run Frontend:**
 
 In the `frontend` directory, run the Vite.js frontend using the following command:
 ```commandline
 npm run dev
 ```
-
+<br>
 
 ## Contributions:
 
 We welcome contributions to this project! Please feel free to fork the repository and create pull requests.
+<br><br>
 
 ## License:
 
