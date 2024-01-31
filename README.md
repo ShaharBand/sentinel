@@ -54,7 +54,7 @@ Navigate to the frontend directory and install the frontend dependencies using t
 cd frontend
 npm install
 ```
-This command installs the necessary Node.js packages specified in your project's `package.json` file.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This command installs the necessary Node.js packages specified in your project's `package.json` file.
 
 4. Modify the configuration settings
 
