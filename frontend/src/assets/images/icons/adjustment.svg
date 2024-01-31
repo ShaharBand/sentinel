@@ -1,0 +1,36 @@
+<svg width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d_4_3737)">
+        <path d="M20 7.99994L26 7.99994" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M20 9.99994L20 5.99994" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 7.99994H16" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        <path d="M12 14.9999L6 14.9999" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 12.9999L12 16.9999" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M16 19.9999L16 23.9999" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M26 14.9999L16 14.9999" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M16 21.9999L26 21.9999" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M6 21.9999H12" stroke="#D9D9D9" stroke-width="2.25" stroke-miterlimit="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+    </g>
+    <defs>
+        <filter id="filter0_d_4_3737" x="-3" y="0" width="38" height="38" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4_3737" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4_3737" result="shape" />
+        </filter>
+    </defs>
+</svg>
