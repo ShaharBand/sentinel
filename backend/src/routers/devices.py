@@ -1,14 +1,13 @@
-from fastapi import FastAPI
+from fastapi import APIRouter
 
-app = FastAPI()
-
-
-@app.get("/")
-async def read_root():
-    return "hello world !"
+router = APIRouter()
 
 
-if __name__ == "__main__":
-    import uvicorn
+@router.get("/devices/", tags=["devices"])
+async def read_devices():
+    pass
 
-    uvicorn.run("devices:app", reload=True, host="127.0.0.1", port=80)
+
+@router.get("/devices/{device}", tags=["devices"])
+async def read_device(device: str):
+    pass
