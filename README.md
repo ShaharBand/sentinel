@@ -69,7 +69,7 @@ Update the configuration settings in `config.py` located in the backend director
 
 In the `backend` directory, run the FastAPI backend using the following command:
 ```commandline
-uvicorn main:app --reload
+python main.py
 ```
 <br>
 
