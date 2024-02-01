@@ -1,36 +1,13 @@
 :root {
   /* Containers */
-  --bg-color: #232228;
-  --primary-color: #222222;
-  --secondary-color: #343333;
+  --bg-color: #868d97;
+  --primary-color: #242529;
+  --secondary-color: #37373f;
   --light-color: #4B97E8;
-  --primary-stroke-color: #2F2F2F;
 
   /* Texts */
-  --grey: rgba(255, 255, 255, 0.49);
-  --grey2: #90A2B8;
+  --grey: #a2a2a2;
   --white: #FEFFFF;
-  --dark-color: #495976;
-  --accent-color: #8C8DF7;
-
-  /* Indicators */
-  --green: #61FF71;
-  --red: #FA2F2F;
-  --orange: #DC560A;
-  --light-orange: #EDB629;
-  --yellow: #D8CF08;
-  --blue: #6C69FE;
-
-  /* Special Buttons */
-  --btn-orange: #F09A34;
-  --btn-blue: #007FF3;
-  --btn-green: #04B400;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--white);
-  font-family: 'Inter-Regular';
 }
 
 a {
@@ -42,6 +19,7 @@ a:hover {
 }
 
 body {
+  background-color: var(--bg-color);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -49,4 +27,6 @@ body {
 
 * {
   min-width: 0;
+  color: var(--white);
+  font-family: 'Inter-Regular';
 }
