@@ -6,11 +6,12 @@
 
 [![Downloads](https://img.shields.io/github/downloads/ShaharBand/Sentinel/total.svg)](https://github.com/ShaharBand/Sentinel/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/ShaharBand/Sentinel.svg)](https://github.com/ShaharBand/Sentinel)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
 <br><br>
 
-## Technologies:
+## 🖥️ Technologies:
 
 ### Backend:
 
@@ -26,7 +27,7 @@ A user-friendly web application responsible to streamline and monitor the manage
 [TypeScript](https://github.com/microsoft/TypeScript).
 <br><br>
 
-## Getting Started:
+## 🌱 Getting Started:
 
 **1. Clone the repository:**
 
@@ -90,7 +91,7 @@ npm run dev
 
 <br>
 
-## Contributions:
+## 👨‍💻 Contributions:
 
 We welcome contributions to this project! Please feel free to fork the repository and create pull requests.
 <br><br>
