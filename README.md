@@ -6,7 +6,7 @@
 
 [![Downloads](https://img.shields.io/github/downloads/ShaharBand/Sentinel/total.svg)](https://github.com/ShaharBand/Sentinel/releases)
 [![GitHub repo size](https://img.shields.io/github/repo-size/ShaharBand/Sentinel.svg)](https://github.com/ShaharBand/Sentinel)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]([https://opensource.org/licenses/MIT](https://github.com/ShaharBand/Sentinel/tree/base_abstract_version?tab=License-1-ov-file))
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]([https://opensource.org/licenses/MIT](https://github.com/ShaharBand/Sentinel/License)
 
 A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
 <br><br>
