@@ -1,8 +1,8 @@
 from pydal import DAL, Field
 
-from backend.src.utils.config import config
+from backend.src.utils.config import db_uri
 
-db = DAL(config.DB_URI, migrate=False)
+db = DAL(db_uri, migrate=False)
 
 db.define_table('devices',
                 Field('name', 'string', length=128, required=True),

@@ -1,4 +1,3 @@
-import subprocess
 from abc import ABC
 from datetime import datetime
 
@@ -28,6 +27,10 @@ class WindowsDevice(Device[DeviceData], ABC):
         return self._data
 
     def insert_into_db(self) -> bool:
+        """
+        Insert the Windows device data into the database.
+        Returns True if successful, False otherwise.
+        """
         inserted_id = db.devices.insert(
             name=self.data.name,
             description=self.data.description,
@@ -39,6 +42,10 @@ class WindowsDevice(Device[DeviceData], ABC):
         return bool(inserted_id)
 
     def update_in_db(self) -> bool:
+        """
+        Update the Windows device data in the database.
+        Returns True if successful, False otherwise.
+        """
         query = (db.devices.name == self.data.name)
         updated_rows = db(query).update(
             description=self.data.description,
@@ -50,15 +57,21 @@ class WindowsDevice(Device[DeviceData], ABC):
         return updated_rows > 0
 
     def remove_from_db(self) -> bool:
+        """
+        Remove the Windows device data from the database.
+        Returns True if successful, False otherwise.
+        """
         query = (db.devices.name == self.data.name)
         deleted_rows = db(query).delete()
         db.commit()
         return bool(deleted_rows)
 
     def ping(self) -> bool:
+        # TODO: Implement ping logic
         pass
 
     def scan(self) -> bool:
+        # TODO: Implement scan logic
         pass
 
     def __str__(self):

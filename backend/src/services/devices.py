@@ -14,4 +14,5 @@ def find_device_by_name(name: str, os_type: str) -> Device | None:
 
 
 def get_all_devices() -> list[Device] | None:
+    # TODO: Add logic to retrieve all devices
     pass

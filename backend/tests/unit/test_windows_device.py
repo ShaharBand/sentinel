@@ -7,7 +7,6 @@ from backend.src.models.devices.windows import WindowsDevice
 
 class DevicesServiceTest(unittest.TestCase):
     def test_windows_device_data(self):
-        # Create a device
         windows_device: Device = WindowsDevice(name="test device",
                                                description="test device description",
                                                address="2.2.2.2",

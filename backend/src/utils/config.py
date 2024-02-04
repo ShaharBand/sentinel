@@ -1,3 +1,4 @@
+from functools import lru_cache
 from pydantic_settings import BaseSettings
 
 
@@ -14,20 +15,28 @@ class AppConfig(BaseSettings):
     DB_PORT: str = "5432"
     DB_NAME: str = "sentinel"
 
-    @property
-    def DB_URI(self) -> str:
-        return f'postgres://{self.DB_USERNAME}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
+
+class AppConfigManager:
+    _config = AppConfig()
+
+    @classmethod
+    @lru_cache()
+    def get_config(cls) -> AppConfig:
+        return cls._config
+
+    @classmethod
+    @lru_cache()
+    def get_db_uri(cls) -> str:
+        db_config = cls.get_config()
+        return f'postgres://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}'
 
 
-config = AppConfig()
+config_manager = AppConfigManager()
+config = config_manager.get_config()
+db_uri = config_manager.get_db_uri()
 
 if __name__ == '__main__':
     print(f"IP Address: {config.IP}")
     print(f"Port: {config.PORT}")
     print(f"Version: {config.VERSION}")
-    print(f"DB Username: {config.DB_USERNAME}")
-    print(f"DB Password: {config.DB_PASSWORD}")
-    print(f"DB Host: {config.DB_HOST}")
-    print(f"DB Port: {config.DB_PORT}")
-    print(f"DB Name: {config.DB_NAME}")
-    print(f"DB URI: {config.DB_URI}")
+    print(f"DB URI: {db_uri}")
