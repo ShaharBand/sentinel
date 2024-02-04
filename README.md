@@ -12,7 +12,7 @@ A user-friendly web application responsible to streamline and monitor the manage
 <br><br>
 
 ## 🖥️ Technologies:
-Agent Implementation: Lightweight agents in Python (in the future not implemented yet).
+Agents Implementation: not implemented yet.
 
 ### Backend:
 
