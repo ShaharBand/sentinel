@@ -1,7 +1,10 @@
 from abc import ABC, abstractmethod
+from typing import TypeVar, Generic
 
 from pydantic import BaseModel, StrictStr, IPvAnyAddress
 from datetime import datetime
+
+T = TypeVar('T', bound=BaseModel)
 
 
 class DeviceData(BaseModel):
@@ -12,8 +15,11 @@ class DeviceData(BaseModel):
     last_scan_date: datetime
 
 
-class Device(ABC):
-    data: DeviceData
+class Device(Generic[T], ABC):
+    @property
+    @abstractmethod
+    def data(self) -> T:
+        pass
 
     @abstractmethod
     def insert_into_db(self) -> bool:
@@ -33,8 +39,4 @@ class Device(ABC):
 
     @abstractmethod
     def scan(self) -> bool:
-        pass
-
-    @abstractmethod
-    def get_data(self) -> dict:
         pass

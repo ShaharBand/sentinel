@@ -3,6 +3,8 @@ from pydantic_settings import BaseSettings
 
 class AppConfig(BaseSettings):
     # Application Configuration
+    IP: str = "127.0.0.1"
+    PORT: int = 5000
     VERSION: str = "0.0.1"
 
     # Database Configuration
@@ -12,17 +14,16 @@ class AppConfig(BaseSettings):
     DB_PORT: str = "5432"
     DB_NAME: str = "sentinel"
 
-    # Computed property for DB_URI
     @property
     def DB_URI(self) -> str:
         return f'postgres://{self.DB_USERNAME}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
 
 
-# Create an instance of AppConfig
 config = AppConfig()
 
 if __name__ == '__main__':
-    # Access the configuration values
+    print(f"IP Address: {config.IP}")
+    print(f"Port: {config.PORT}")
     print(f"Version: {config.VERSION}")
     print(f"DB Username: {config.DB_USERNAME}")
     print(f"DB Password: {config.DB_PASSWORD}")

@@ -16,68 +16,49 @@ class WindowsData(DeviceData):
     last_scan_date: datetime
 
 
-class WindowsDevice(Device, ABC):
-    data: WindowsData
+class WindowsDevice(Device[DeviceData], ABC):
+    def __init__(self, device_data: WindowsData = None, **kwargs):
+        if device_data is not None:
+            self._data = device_data
+        else:
+            self._data = WindowsData(**kwargs)
 
-    def __init__(self, **args):
-        self.data = WindowsData(**args)
+    @property
+    def data(self) -> WindowsData:
+        return self._data
 
     def insert_into_db(self) -> bool:
-        # Attempt to insert data into the database
         inserted_id = db.devices.insert(
             name=self.data.name,
             description=self.data.description,
-            address=str(self.data.address),
+            address=self.data.address,
             os_type=self.data.os_type,
             last_scan_date=self.data.last_scan_date
         )
-
-        # Check if the insertion was successful
-        if inserted_id:
-            db.commit()
-            return True
-        else:
-            return False
+        db.commit()
+        return bool(inserted_id)
 
     def update_in_db(self) -> bool:
-        # Attempt to update data in the database based on the device's name
-        updated_rows = db(db.devices.name == self.data.name).update(
+        query = (db.devices.name == self.data.name)
+        updated_rows = db(query).update(
             description=self.data.description,
-            address=str(self.data.address),
+            address=self.data.address,
             os_type=self.data.os_type,
             last_scan_date=self.data.last_scan_date
         )
-
-        # Check if the update was successful
-        if updated_rows > 0:
-            db.commit()  # Commit changes to the database
-            return True
-        else:
-            return False
+        db.commit()
+        return updated_rows > 0
 
     def remove_from_db(self) -> bool:
-        # Attempt to delete the record from the database
-        deleted_rows = db(db.devices.name == self.data.name).delete()
-
-        # Check if the deletion was successful
-        if deleted_rows:
-            db.commit()
-            return True
-        else:
-            return False
+        query = (db.devices.name == self.data.name)
+        deleted_rows = db(query).delete()
+        db.commit()
+        return bool(deleted_rows)
 
     def ping(self) -> bool:
-        try:
-            result = subprocess.run(["ping", "-n", "1", str(self.data.address)], capture_output=True, text=True,
-                                    timeout=5)
-            return "Reply from" in result.stdout
-        except subprocess.TimeoutExpired:
-            return False
-
-    def scan(self) -> bool:
         pass
 
-    def get_data(self) -> dict:
+    def scan(self) -> bool:
         pass
 
     def __str__(self):

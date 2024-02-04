@@ -1,4 +1,5 @@
 from pydal import DAL, Field
+
 from backend.src.utils.config import config
 
 db = DAL(config.DB_URI, migrate=False)

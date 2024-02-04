@@ -3,16 +3,11 @@ from datetime import datetime
 
 
 class UserData(BaseModel):
-    # Credentials
     username: StrictStr
     password: StrictStr
-
-    # Profile Data
     first_name: StrictStr
     last_name: StrictStr
     security_group: StrictStr
-
-    # Log Data
     registration_date: datetime
     last_login_ip: IPvAnyAddress
     last_login_date: datetime

@@ -1,5 +1,3 @@
-from typing import List
-
 from backend.src.dal.devices import db
 from backend.src.models.device import Device
 from backend.src.models.devices.windows import WindowsDevice
@@ -12,9 +10,8 @@ def find_device_by_name(name: str, os_type: str) -> Device | None:
     if device_record:
         if "windows" in device_record.os_type.lower():
             return WindowsDevice(**device_record)
-    else:
-        return None
+    return None
 
 
-def get_all_devices() -> List:
+def get_all_devices() -> list[Device] | None:
     pass
