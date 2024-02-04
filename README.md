@@ -12,6 +12,7 @@ A user-friendly web application responsible to streamline and monitor the manage
 <br><br>
 
 ## 🖥️ Technologies:
+Agent Implementation: Lightweight agents in Python (in the future not implemented yet).
 
 ### Backend:
 
@@ -26,9 +27,10 @@ A user-friendly web application responsible to streamline and monitor the manage
 [ViteJS](https://github.com/vitejs/vite),
 [TypeScript](https://github.com/microsoft/TypeScript),
 Material UI (soon).
+
 <br><br>
 
-Agent Implementation: Lightweight agents in Python (in the future not implemented yet).
+
 
 ## 🌱 Getting Started:
 
