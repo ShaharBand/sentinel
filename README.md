@@ -24,7 +24,8 @@ A user-friendly web application responsible to streamline and monitor the manage
 
 [ReactJS](https://github.com/facebook/react),
 [ViteJS](https://github.com/vitejs/vite),
-[TypeScript](https://github.com/microsoft/TypeScript).
+[TypeScript](https://github.com/microsoft/TypeScript),
+Material UI (soon).
 <br><br>
 
 ## 🌱 Getting Started:
