@@ -28,6 +28,8 @@ A user-friendly web application responsible to streamline and monitor the manage
 Material UI (soon).
 <br><br>
 
+Agent Implementation: Lightweight agents in Python (in the future not implemented yet).
+
 ## 🌱 Getting Started:
 
 **1. Clone the repository:**
