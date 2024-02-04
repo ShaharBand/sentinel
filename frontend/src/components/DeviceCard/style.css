@@ -16,26 +16,3 @@
     letter-spacing: 0.65px;
     color: var(--white);
 }
-
-/* 
-
-position: absolute;
-width: 286px;
-height: 0px;
-left: 13px;
-top: 33px;
-
-
-/* 88.88.88.88 */
-/*
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 17px;
-display: flex;
-align-items: center;
-text-align: center;
-letter-spacing: 0.65px;
-
-color: rgba(255, 255, 255, 0.49);

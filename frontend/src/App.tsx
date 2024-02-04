@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "./fonts.css";
 import "./App.css";
+import "@fontsource/roboto";
 
 import NotFound from "./views/NotFound";
 import DevicesPage from "./views/DevicesPage/DevicesPage";

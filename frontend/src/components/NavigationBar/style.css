@@ -61,7 +61,19 @@
 .logo-container .logo-label {
     color: var(--white);
     font-size: 1.2rem;
-    font-family: 'Inter-SemiBold';
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.nav-link p {
+    margin-left: 15px;
 }
