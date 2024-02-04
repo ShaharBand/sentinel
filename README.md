@@ -26,7 +26,7 @@ Agents Implementation: not implemented yet.
 [ReactJS](https://github.com/facebook/react),
 [ViteJS](https://github.com/vitejs/vite),
 [TypeScript](https://github.com/microsoft/TypeScript),
-Material UI (soon).
+[Material UI](https://github.com/mui/material-ui).
 
 <br><br>
 
