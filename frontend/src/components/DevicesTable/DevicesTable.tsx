@@ -1,20 +1,24 @@
 import { Typography } from "@mui/material";
-import DeviceCard from "../DeviceCard/DeviceCard";
+import FileDownloadRoundedIcon from "@mui/icons-material/FileDownloadRounded";
+import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
+import "./style.css";
 
 const DevicesTable = () => {
   return (
     <div className="table-container">
-      <Typography variant="h4">Devices</Typography>
-      <span>3,000 devices.</span>
-      <span>filter icon</span>
-      <span>export icon</span>
-
-      <DeviceCard
-        name="Device Name"
-        tags={["tag1", "tag2", "tag3"]}
-        agents={["agent1", "agent2", "agent3"]}
-        address="88.88.88.88"
-      />
+      <div className="table-top-row">
+        <div className="table-header">
+          <Typography variant="h5">Devices</Typography>
+          <Typography variant="subtitle2" className="subtitle">
+            3,000 devices.
+          </Typography>
+        </div>
+        <div className="table-tools">
+          <TuneRoundedIcon />
+          <FileDownloadRoundedIcon />
+          <span>Report</span>
+        </div>
+      </div>
     </div>
   );
 };
