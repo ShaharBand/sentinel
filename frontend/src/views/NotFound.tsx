@@ -1,11 +1,5 @@
-import NavigationBar from "../components/NavigationBar/NavigationBar";
-
 const NotFound = () => {
-  return (
-    <>
-      <NavigationBar />
-    </>
-  );
+  return <>404</>;
 };
 
 export default NotFound;

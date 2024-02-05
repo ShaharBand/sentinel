@@ -1,27 +1,3 @@
-:root {
-    --sidebar-width: 200px;
-    --page-content-margin: 20px;
-}
-
-.page-container {
-    background-color: var(--primary-color);
-    box-sizing: border-box;
-    border-radius: 2em;
-    display: flex;
-    margin: var(--page-content-margin);
-    height: calc(100vh - 2*var(--page-content-margin));
-}
-
-.content-container {
-    flex-grow: 1;
-    margin-left: calc(var(--sidebar-width) + var(--page-content-margin) * 2);
-    border-left: var(--secondary-color) 1px solid;
-}
-
-.content {
-    margin: calc(var(--page-content-margin) * 2) calc(var(--page-content-margin) * 4);
-}
-
 .navbar-container {
     display: flex;
     flex-direction: column;
@@ -34,15 +10,67 @@
     position: fixed;
     top: var(--page-content-margin);
     left: var(--page-content-margin);
+    height: calc(100vh - var(--page-content-margin)*6);
 }
 
-.navbar-container a {
-    color: var(--grey);
-    margin-top: 20px;
+.navlinks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
 }
 
-.navbar-container a img {
+.navlinks-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.nav-link {
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+.nav-link.selected {
+    background-color: var(--secondary-color);
+}
+
+.nav-link.selected p {
+    color: var(--white);
+}
+
+.nav-link.selected svg {
+    fill: var(--white);
+}
+
+.navbar-container svg {
     width: 20px;
+    fill: var(--grey);
+}
+
+.nav-link p {
+    margin-left: 15px;
+    color: var(--grey);
+}
+
+.navlinks-bottom svg {
+    fill: var(--white);
+}
+
+.navlinks-bottom p {
+    color: var(--white);
 }
 
 .logo-container {
@@ -50,30 +78,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--page-content-margin);
+    margin: calc(var(--page-content-margin)*1) 0 calc(var(--page-content-margin)*3);
+    margin-inline: var(--page-content-margin);
 }
 
 .logo-container .logo-img {
     width: 30px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .logo-container .logo-label {
     color: var(--white);
     font-size: 1.2rem;
-    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-}
-
-.nav-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-}
-
-.nav-link p {
-    margin-left: 15px;
 }
