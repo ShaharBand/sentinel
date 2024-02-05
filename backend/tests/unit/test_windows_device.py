@@ -1,6 +1,6 @@
 from datetime import datetime
-from backend.src.models.device import Device
-from backend.src.models.devices.windows import WindowsDevice
+from src.models.device import Device
+from src.models.devices.windows import WindowsDevice
 
 
 def test_windows_device_data():
