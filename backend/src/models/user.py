@@ -20,10 +20,6 @@ class User:
     def __init__(self, **args):
         self.data = UserData(**args)
 
-    def insert_to_db(self):
+    def save_to_db(self):
         # TODO: Add logic to insert user data into db
-        pass
-
-    def update_db(self):
-        # TODO: Add logic to update user data into db
         pass
