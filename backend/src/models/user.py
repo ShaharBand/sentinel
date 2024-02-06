@@ -21,5 +21,5 @@ class User:
         self.data = UserData(**args)
 
     def save_to_db(self):
-        # TODO: Add logic to insert user data into db
+        # TODO: Add logic to update/insert user data into db
         pass
