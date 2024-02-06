@@ -2,9 +2,9 @@ import uvicorn
 
 from fastapi import FastAPI
 
-from backend.src.routers import users_router
-from backend.src.routers import devices_router
-from backend.src.utils.config import config
+from src.routers import users_router
+from src.routers import devices_router
+from src.utils.config import config
 
 app = FastAPI()
 

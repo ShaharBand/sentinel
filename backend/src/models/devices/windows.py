@@ -3,8 +3,8 @@ from datetime import datetime
 
 from pydantic import StrictStr, IPvAnyAddress
 
-from backend.src.dal.devices import db
-from backend.src.models.device import Device, DeviceData
+from src.dal.devices import db
+from src.models.device import Device, DeviceData
 
 
 class WindowsData(DeviceData):

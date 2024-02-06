@@ -1,4 +1,4 @@
-from backend.src.models.user import UserData
+from src.models.user import UserData
 
 
 def get_user_by_name() -> UserData | None:

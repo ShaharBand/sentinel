@@ -1,6 +1,6 @@
-from backend.src.dal.devices import db
-from backend.src.models.device import Device
-from backend.src.models.devices.windows import WindowsDevice
+from src.dal.devices import db
+from src.models.device import Device
+from src.models.devices.windows import WindowsDevice
 
 
 def find_device_by_name(name: str, os_type: str) -> Device | None:

@@ -1,8 +1,8 @@
 import pytest
 from datetime import datetime
 
-from backend.src.models.devices.windows import WindowsDevice
-from backend.src.services.devices import find_device_by_name
+from src.models.devices.windows import WindowsDevice
+from src.services.devices import find_device_by_name
 
 
 @pytest.fixture

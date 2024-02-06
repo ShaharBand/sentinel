@@ -19,6 +19,12 @@ const DevicesTable = () => {
           <span>Report</span>
         </div>
       </div>
+
+      <div className="table-content">
+        <Typography>
+          shahar-pc, id:1, 0.0.0.0, windows, agent: a 1.2, available, more
+        </Typography>
+      </div>
     </div>
   );
 };
