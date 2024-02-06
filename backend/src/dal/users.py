@@ -2,6 +2,8 @@ from pydal import DAL, Field
 
 from src.utils.config import db_uri
 
+# TODO: mock db
+
 db = DAL(db_uri, migrate=False)
 
 db.define_table('users',

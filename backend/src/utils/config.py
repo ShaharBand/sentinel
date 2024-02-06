@@ -1,4 +1,5 @@
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings
 
 
@@ -9,6 +10,7 @@ class AppConfig(BaseSettings):
     VERSION: str = "0.0.1"
 
     # Database Configuration
+    MOCK_DB: bool = False
     DB_USERNAME: str = "postgres"
     DB_PASSWORD: str = "123456"
     DB_HOST: str = "localhost"
@@ -39,4 +41,5 @@ if __name__ == '__main__':
     print(f"IP Address: {config.IP}")
     print(f"Port: {config.PORT}")
     print(f"Version: {config.VERSION}")
+    print(f"MOCK_DB: {config.MOCK_DB}")
     print(f"DB URI: {db_uri}")
