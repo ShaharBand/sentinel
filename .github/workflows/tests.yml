@@ -50,4 +50,5 @@ jobs:
           
       - name: Run tests
         run: |
+          export PYTHONPATH="$PWD/backend/src:$PYTHONPATH"
           python -m pytest  
