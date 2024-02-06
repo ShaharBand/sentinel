@@ -39,7 +39,7 @@ class WindowsDevice(Device[DeviceData], ABC):
         """
         Retrieve the ID of the Windows device from the database.
         """
-        # TODO: for multiple names support i need to change this logic
+        # TODO: for multiple names support i need to change this logic to id
         query = (db.devices.name == self.data.name)
         device_record = db(query).select().first()
         return device_record.id if device_record else None
