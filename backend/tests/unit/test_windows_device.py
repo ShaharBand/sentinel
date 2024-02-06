@@ -1,10 +1,11 @@
 from datetime import datetime
-from src.models.device import Device
-from src.models.devices.windows import WindowsDevice
+from src.models.devices.device import Device
+from src.models.devices.windows_device import WindowsDevice
 
 
 def test_windows_device_data():
     windows_device: Device = WindowsDevice(
+        id=1,
         name="test device",
         description="test device description",
         address="2.2.2.2",

@@ -21,12 +21,17 @@ class Device(Generic[T], ABC):
     def data(self) -> T:
         pass
 
+    @property
     @abstractmethod
-    def insert_into_db(self) -> bool:
+    def id(self) -> int | None:
         pass
 
     @abstractmethod
-    def update_in_db(self) -> bool:
+    def _get_id_from_db(self) -> int | None:
+        pass
+
+    @abstractmethod
+    def save_to_db(self) -> bool:
         pass
 
     @abstractmethod

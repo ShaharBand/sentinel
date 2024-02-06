@@ -5,6 +5,7 @@ from src.utils.config import db_uri
 db = DAL(db_uri, migrate=False)
 
 db.define_table('users',
+                Field('id', 'id'),
                 Field('username', 'string', length=128, required=True),
                 Field('password', 'password', length=128, required=True),
                 Field('first_name', 'string', length=128),

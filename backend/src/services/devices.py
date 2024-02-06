@@ -1,34 +1,31 @@
 from src.dal.devices import db
-from src.models.device import Device
-from src.models.devices.windows import WindowsDevice
-
-# TODO: device_factory.py to be more open closed principle rather than each time telling device type based on OS.
+from src.models.devices.device import Device
+from src.models.devices.device_factory import DeviceFactory
 
 
-def find_device_by_name(name: str, os_type: str) -> Device | None:
-    query = (db.devices.name == name) & (db.devices.os_type == os_type)
+def find_device_by_id(device_id: int) -> Device | None:
+    query = (db.devices.id == device_id)
     device_record = db(query).select().first()
+    return DeviceFactory.create_device({**device_record}) if device_record else None
 
-    if device_record:
-        if "windows" in device_record.os_type.lower():
-            return WindowsDevice(**device_record)
-    return None
+
+def find_device_by_name(name: str) -> list[Device] | None:
+    query = (db.devices.name == name)
+    device_records = db(query).select()
+
+    devices = []
+    for device_record in device_records:
+        devices.append(DeviceFactory.create_device({**device_record}))
+
+    return devices if devices else None
 
 
 def get_all_devices() -> list[Device] | None:
-    devices = []
     query = db.devices.id > 0
     device_records = db(query).select()
 
+    devices = []
     for device_record in device_records:
-        if "windows" in device_record.os_type.lower():
-            devices.append(WindowsDevice(**device_record))
-        # elif "linux" in device_record.os_type.lower():
-        #     devices.append(LinuxDevice(**device_record))
-        # elif "mac" in device_record.os_type.lower():
-        #     devices.append(MacDevice(**device_record))
+        devices.append(DeviceFactory.create_device({**device_record}))
 
-    if devices:
-        return devices
-    return None
-
+    return devices if devices else None
