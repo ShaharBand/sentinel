@@ -8,7 +8,7 @@ from src.utils.config import db_uri, config
 @lru_cache()
 def setup_db():
     if config.MOCK_DB:
-        database = DAL('sqlite://:memory:', migrate=False)
+        database = DAL('sqlite://mock.db')
     else:
         database = DAL(db_uri, migrate=False)
 
