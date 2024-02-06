@@ -19,6 +19,7 @@
 }
 
 .content {
+    overflow-x: hidden;
     height: calc(100vh - var(--page-content-margin)*6);
     margin: calc(var(--page-content-margin)*2);
 

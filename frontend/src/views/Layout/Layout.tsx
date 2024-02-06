@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => (
     <NavigationBar />
     <div className="content-container">
       <div className="content">
-        <TopBar title="Overview" />
+        <TopBar title={title} />
         {children}
       </div>
     </div>

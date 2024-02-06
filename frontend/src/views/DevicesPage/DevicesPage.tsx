@@ -1,10 +1,10 @@
-import DevicesTable from "../../components/DevicesTable/DevicesTable";
+import DevicesTableContainer from "../../components/DevicesTable/DevicesTableContainer";
 import Layout from "../Layout/Layout";
 
 const DevicesPage = () => {
   return (
     <Layout title="Overview">
-      <DevicesTable />
+      <DevicesTableContainer />
     </Layout>
   );
 };

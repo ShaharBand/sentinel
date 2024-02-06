@@ -36,3 +36,7 @@
 .table-tools svg {
     margin-right: 10px;
 }
+
+.table-content {
+    height: 100%;
+}

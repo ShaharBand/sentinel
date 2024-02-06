@@ -2,8 +2,9 @@ import { Typography } from "@mui/material";
 import FileDownloadRoundedIcon from "@mui/icons-material/FileDownloadRounded";
 import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
 import "./style.css";
+import MyTable from "../DevicesTable";
 
-const DevicesTable = () => {
+const DevicesTableContainer = () => {
   return (
     <div className="table-container">
       <div className="table-top-row">
@@ -21,12 +22,10 @@ const DevicesTable = () => {
       </div>
 
       <div className="table-content">
-        <Typography>
-          shahar-pc, id:1, 0.0.0.0, windows, agent: a 1.2, available, more
-        </Typography>
+        <MyTable />
       </div>
     </div>
   );
 };
 
-export default DevicesTable;
+export default DevicesTableContainer;

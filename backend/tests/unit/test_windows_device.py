@@ -10,7 +10,6 @@ from src.models.devices.windows_device import WindowsDevice
 
 def test_windows_device_data():
     windows_device: Device = WindowsDevice(
-        id=1,
         name="test device",
         description="test device description",
         address="2.2.2.2",

@@ -23,4 +23,4 @@ def setup_db():
     return database
 
 
-db = setup_db()  # TODO: class to fetch db because the current implementation is weird on imports.
+db = setup_db()  # TODO: class/env var to fetch db because the current implementation is weird on imports.
