@@ -33,6 +33,9 @@ jobs:
 
       - name: Change to backend/ folder
         run: cd backend/
+
+      - name: Print current working directory
+        run: pwd
         
       # Install dependencies
       - name: Install dependencies
@@ -41,6 +44,9 @@ jobs:
           pip install --no-cache-dir -r requirements.txt
           pip install flake8 pytest
 
+      - name: Print current working directory
+        run: pwd
+        
       - name: Lint with flake8
         run: |
           # Stop the build if there are Python syntax errors or undefined names
