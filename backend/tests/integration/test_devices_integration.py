@@ -1,11 +1,11 @@
 import pytest
 from datetime import datetime
 
+from src.utils.config import config
+config.MOCK_DB = True
+
 from src.models.devices.device_factory import DeviceFactory
 from src.services.devices import find_device_by_name, find_device_by_id
-from src.utils.config import config
-
-config.MOCK_DB = True
 
 
 @pytest.fixture

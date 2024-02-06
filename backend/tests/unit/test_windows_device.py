@@ -1,9 +1,11 @@
 from datetime import datetime
+
+from src.utils.config import config
+config.MOCK_DB = True
+
 from src.models.devices.device import Device
 from src.models.devices.windows_device import WindowsDevice
-from src.utils.config import config
 
-config.MOCK_DB = True
 
 
 def test_windows_device_data():
