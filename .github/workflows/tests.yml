@@ -31,6 +31,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Navigate to root project directory
+        run: cd $GITHUB_WORKSPACE
+  
+      - name: Add root directory to PYTHONPATH
+        run: |
+          export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}"
+
+      - name: Change to backend/ folder
+        run: cd backend/
+        
       # Install dependencies
       - name: Install dependencies
         run: |
@@ -47,4 +57,4 @@ jobs:
           
       - name: Run tests
         run: |
-           pytest backend/tests    
+           pytest   
