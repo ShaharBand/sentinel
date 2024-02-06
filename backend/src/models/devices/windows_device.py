@@ -64,7 +64,7 @@ class WindowsDevice(Device[DeviceData], ABC):
             return updated_rows > 0
         else:
             inserted_id = db.devices.insert(**dict(self.data))
-            self._id = inserted_id
+            self._id = inserted_id  # TODO: once id implementation is changed i need to change this
             db.commit()
 
             return bool(inserted_id)

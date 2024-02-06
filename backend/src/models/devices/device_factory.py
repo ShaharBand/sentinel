@@ -8,8 +8,9 @@ class DeviceFactory:
         os_type = device_record.get('os_type', '').lower()
         if "windows" in os_type:
             return WindowsDevice(**device_record)
-        # elif "linux" in os_type:
-        #     return LinuxDevice(**device_record)
-        # elif "mac" in os_type:
-        #     return MacDevice(**device_record)
+        # TODO: implement more types of devices in the future:
+        #       elif "linux" in os_type:
+        #           return LinuxDevice(**device_record)
+        #       elif "mac" in os_type:
+        #           return MacDevice(**device_record)
         return None
