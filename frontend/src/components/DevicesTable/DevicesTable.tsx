@@ -1,7 +1,23 @@
 import React, { useState } from "react";
-import { DataGrid, GridColDef, GridFilterModel } from "@mui/x-data-grid";
+import { DataGrid, GridCellParams, GridColDef } from "@mui/x-data-grid";
 
-const MyTable: React.FC = () => {
+import "./style.css";
+
+const getStatusClassName = (status: string) => {
+  if (status === "Available") return "available-status";
+  if (status === "Unavailable") return "unavailable-status";
+  // Add more conditions if needed
+  return "";
+};
+
+const renderStatusCell = (params: GridCellParams) => {
+  const { value } = params;
+  const statusValue = value as string;
+  const className = getStatusClassName(statusValue);
+  return <div className={className}>{statusValue}</div>;
+};
+
+const DevicesTable: React.FC = () => {
   const [rows, setRows] = useState([
     {
       id: 1,
@@ -94,37 +110,47 @@ const MyTable: React.FC = () => {
     // Add more data as needed
   ]);
 
-  const [filterModel, setFilterModel] = useState<GridFilterModel>({
-    items: [
-      { columnField: "name", operatorValue: "contains", value: "" },
-      { columnField: "description", operatorValue: "contains", value: "" },
-      { columnField: "ipAddress", operatorValue: "contains", value: "" },
-      { columnField: "os", operatorValue: "contains", value: "" },
-      { columnField: "status", operatorValue: "contains", value: "" },
-    ],
-  });
-
   return (
     <div style={{ height: "inherit", width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        filterModel={filterModel}
-        onFilterModelChange={(model) => setFilterModel(model)}
+        className="custom-datagrid"
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 9,
+            },
+          },
+        }}
+        pageSizeOptions={[9]}
+        disableRowSelectionOnClick
         pagination
-        pageSize={10}
       />
     </div>
   );
 };
 
-export default MyTable;
+export default DevicesTable;
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
-  { field: "name", headerName: "Name", width: 150 },
-  { field: "description", headerName: "Description", width: 150 },
-  { field: "ipAddress", headerName: "IP Address", width: 150 },
-  { field: "os", headerName: "Operating System", width: 150 },
-  { field: "status", headerName: "Status", width: 150 },
+  { field: "name", headerName: "Name", width: 170 },
+  { field: "description", headerName: "Description", width: 200 },
+  { field: "ipAddress", headerName: "IP Address", width: 120 },
+  { field: "os", headerName: "Operating System", width: 160 },
+  {
+    field: "status",
+    headerName: "Status",
+    width: 170,
+    renderCell: renderStatusCell,
+  },
+  {
+    field: "options",
+    headerName: "Options",
+    width: 100,
+    renderCell: (params: GridCellParams) => {
+      return <a className="hyper-link">More</a>;
+    },
+  },
 ];

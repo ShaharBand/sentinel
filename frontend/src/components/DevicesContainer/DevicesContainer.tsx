@@ -1,10 +1,9 @@
 import { Typography } from "@mui/material";
 import FileDownloadRoundedIcon from "@mui/icons-material/FileDownloadRounded";
-import TuneRoundedIcon from "@mui/icons-material/TuneRounded";
+import DevicesTable from "../DevicesTable/DevicesTable";
 import "./style.css";
-import MyTable from "../DevicesTable";
 
-const DevicesTableContainer = () => {
+const DevicesContainer = () => {
   return (
     <div className="table-container">
       <div className="table-top-row">
@@ -15,17 +14,16 @@ const DevicesTableContainer = () => {
           </Typography>
         </div>
         <div className="table-tools">
-          <TuneRoundedIcon />
           <FileDownloadRoundedIcon />
           <span>Report</span>
         </div>
       </div>
 
       <div className="table-content">
-        <MyTable />
+        <DevicesTable />
       </div>
     </div>
   );
 };
 
-export default DevicesTableContainer;
+export default DevicesContainer;

@@ -1,13 +1,19 @@
 :root {
   /* Containers */
-  --bg-color: #868d97;
-  --primary-color: #242529;
-  --secondary-color: #37373f;
-  --light-color: #4B97E8;
+  --bg-color: #888d99;
+  --primary-color: #22222a;
+  --secondary-color: #37373e;
+  --accent-color: #a7a7ff;
 
   /* Texts */
   --grey: #a2a2a2;
   --white: #FEFFFF;
+
+  /* Indicators */
+  --red: #ef233c;
+  --green: #06d6a0;
+  --orange: #ffb4a2;
+  --blue: #90e0ef;
 }
 
 a {
