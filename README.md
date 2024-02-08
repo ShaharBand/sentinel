@@ -12,7 +12,9 @@
 [![last commit](https://img.shields.io/github/last-commit/ShaharBand/Sentinel.svg)](https://github.com/ShaharBand/Sentinel/commits/main)
 [![Tests](https://github.com/ShaharBand/Sentinel/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/ShaharBand/Sentinel/actions/workflows/tests.yml)
 
-A user-friendly web application responsible to streamline and monitor the management of the local network computer devices.
+A user-friendly Command & Control (C&C) web platform for remote monitoring, management, and task automation across multiple devices.
+Equipped with agents, it enables users to seamlessly execute scripted tasks on target devices, empowering efficient data retrieval and remote actions.
+
 <br><br>
 
 ## 🖥️ Technologies:
