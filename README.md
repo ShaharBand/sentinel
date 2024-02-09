@@ -15,7 +15,7 @@
 A user-friendly Command & Control (C&C) web platform for remote monitoring, management, and task automation across multiple devices.
 Equipped with agents, it enables users to seamlessly execute scripted tasks on target devices, empowering efficient data retrieval and remote actions.
 
-<br><br>
+<br>
 
 ## 🖥️ Technologies:
 Agents Implementation: not implemented yet.
@@ -34,9 +34,7 @@ Agents Implementation: not implemented yet.
 [TypeScript](https://github.com/microsoft/TypeScript),
 [Material UI](https://github.com/mui/material-ui).
 
-<br><br>
-
-
+<br>
 
 ## 🌱 Getting Started:
 
@@ -45,7 +43,6 @@ Agents Implementation: not implemented yet.
 ```commandline
 https://github.com/ShaharBand/Sentinel.git
 ```
-
 <br>
 
 **2. Install Backend Dependencies:**
@@ -56,16 +53,13 @@ Navigate to the `backend` directory and install the backend dependencies using t
 cd backend
 pip install -r requirements.txt
 ```
-
 <br>
 
-**3. Install NPM and Node.js:**
+**3. Install Frontend Dependencies:**
 
 Before installing the Node Package Manager (NPM), you need to install Node.js.
 You can download the latest version of Node.js from the official Node.js website.
-<br><br>
-
-**4. Install Frontend Dependencies:**
+<br>
 
 Navigate to the frontend directory and install the frontend dependencies using the following command:
 
@@ -73,33 +67,30 @@ Navigate to the frontend directory and install the frontend dependencies using t
 cd frontend
 npm install
 ```
-
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
-**5. Modify the configuration settings:**
+**4. Modify the configuration settings:**
 
 Update the configuration settings in `config.py` located in the backend directory.
 <br><br>
 
-**6. Run Backend**
+**5. Run Backend**
 
 In the `backend` directory, run the FastAPI backend using the following command:
 
 ```commandline
 python main.py
 ```
-
 <br>
 
-**7. Run Frontend:**
+**6. Run Frontend:**
 
 In the `frontend` directory, run the Vite.js frontend using the following command:
 
 ```commandline
 npm run dev
 ```
-
 <br>
 
 ## 👨‍💻 Contributions:
