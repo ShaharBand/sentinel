@@ -22,12 +22,12 @@ class AppConfigManager:
     _config = AppConfig()
 
     @classmethod
-    @lru_cache()
+    @lru_cache(maxsize=1)
     def get_config(cls) -> AppConfig:
         return cls._config
 
     @classmethod
-    @lru_cache()
+    @lru_cache(maxsize=1)
     def get_db_uri(cls) -> str:
         db_config = cls.get_config()
         return f'postgres://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}'
