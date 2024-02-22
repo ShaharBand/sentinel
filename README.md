@@ -18,6 +18,7 @@ Equipped with agents, it enables users to seamlessly execute scripted tasks on t
 <br>
 
 ## 🖥️ Technologies:
+
 Agents Implementation: not implemented yet.
 
 ### Backend:
@@ -25,7 +26,7 @@ Agents Implementation: not implemented yet.
 [FastAPI](https://github.com/tiangolo/fastapi),
 [PostgreSQL](https://github.com/postgres/postgres),
 [Pydantic](https://github.com/samuelcolvin/pydantic),
-[Pydal](https://github.com/web2py/pydal).
+[SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy).
 
 ### Frontend:
 
@@ -43,6 +44,7 @@ Agents Implementation: not implemented yet.
 ```commandline
 https://github.com/ShaharBand/Sentinel.git
 ```
+
 <br>
 
 **2. Install Backend Dependencies:**
@@ -53,6 +55,7 @@ Navigate to the `backend` directory and install the backend dependencies using t
 cd backend
 pip install -r requirements.txt
 ```
+
 <br>
 
 **3. Install Frontend Dependencies:**
@@ -67,6 +70,7 @@ Navigate to the frontend directory and install the frontend dependencies using t
 cd frontend
 npm install
 ```
+
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
@@ -82,6 +86,7 @@ In the `backend` directory, run the FastAPI backend using the following command:
 ```commandline
 python main.py
 ```
+
 <br>
 
 **6. Run Frontend:**
@@ -91,6 +96,7 @@ In the `frontend` directory, run the Vite.js frontend using the following comman
 ```commandline
 npm run dev
 ```
+
 <br>
 
 ## 👨‍💻 Contributions:
