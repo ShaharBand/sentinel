@@ -1,11 +1,26 @@
 import pytest
 from datetime import datetime
 
-from src.utils.config import config
-config.MOCK_DB = True
 
 from src.models.devices.device_factory import DeviceFactory
 from src.services.devices import find_device_by_name, find_device_by_id
+
+
+# TODO: some notes for myself
+"""
+   good example https://hackernoon.com/building-a-to-do-list-app-with-python-data-access-layer-with-sqlalchemy
+   
+   example usage of the new dal implementation:
+    with schema.Schema.create_transaction as tx:
+        user_repo = UsersRepo(tx)
+        new_user_id = user_repo.insert({
+            'name': 'John Doe',
+            'email': 'john@example.com',
+            # Other user data
+        })
+    
+    refactor needed for the test based on the new dal, reviewer please skip the test files.
+"""
 
 
 @pytest.fixture

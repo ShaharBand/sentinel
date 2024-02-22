@@ -10,7 +10,6 @@ class AppConfig(BaseSettings):
     VERSION: str = "0.0.1"
 
     # Database Configuration
-    MOCK_DB: bool = False
     DB_USERNAME: str = "postgres"
     DB_PASSWORD: str = "123456"
     DB_HOST: str = "localhost"
@@ -30,16 +29,15 @@ class AppConfigManager:
     @lru_cache(maxsize=1)
     def get_db_uri(cls) -> str:
         db_config = cls.get_config()
-        return f'postgres://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}'
+        uri = f'postgresql+psycopg2://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}'
+        return uri
 
 
-config_manager = AppConfigManager()
-config = config_manager.get_config()
-db_uri = config_manager.get_db_uri()
+db_uri = AppConfigManager().get_db_uri()
+config = AppConfigManager().get_config()
 
 if __name__ == '__main__':
     print(f"IP Address: {config.IP}")
     print(f"Port: {config.PORT}")
     print(f"Version: {config.VERSION}")
-    print(f"MOCK_DB: {config.MOCK_DB}")
     print(f"DB URI: {db_uri}")

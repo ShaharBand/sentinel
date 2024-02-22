@@ -1,4 +1,4 @@
-from src.dal.devices import db
+from src.dal.tables.devices import db
 from src.models.devices.device import Device
 from src.models.devices.device_factory import DeviceFactory
 

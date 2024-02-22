@@ -3,7 +3,7 @@ from datetime import datetime
 
 from pydantic import StrictStr, IPvAnyAddress
 
-from src.dal.devices import db
+from src.dal.tables.devices import db
 from src.models.devices.device import Device, DeviceData
 
 
