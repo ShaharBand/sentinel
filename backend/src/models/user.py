@@ -1,25 +1,18 @@
-from pydantic import BaseModel, StrictStr, IPvAnyAddress
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 
-class UserData(BaseModel):
-    id: int
-    username: StrictStr
-    password: StrictStr
-    first_name: StrictStr
-    last_name: StrictStr
-    security_group: StrictStr
-    registration_date: datetime
-    last_login_ip: IPvAnyAddress
-    last_login_date: datetime
+class User(Base):
+    __tablename__ = 'users'
 
-
-class User:
-    data: UserData
-
-    def __init__(self, **args):
-        self.data = UserData(**args)
-
-    def save_to_db(self):
-        # TODO: Add logic to update/insert user data into db
-        pass
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String(50))
+    password = Column(String(50))
+    first_name = Column(String(50))
+    last_name = Column(String(50))
+    security_group = Column(String(50))
+    registration_date = Column(DateTime)
+    last_login_date = Column(DateTime)
+    last_login_ip = Column(String(50))

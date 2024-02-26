@@ -1,20 +1,30 @@
+import pytest
 from datetime import datetime
 
-from src.utils.config import config_manager
-config_manager.get_config().MOCK_DB = True
-
-from src.models.devices.device import Device
+from src.models.device import Device
 from src.models.devices.windows_device import WindowsDevice
 
 
-def test_windows_device_data():
-    windows_device: Device = WindowsDevice(
-        name="test device",
-        description="test device description",
-        address="2.2.2.2",
+@pytest.fixture
+def windows_device():
+    return WindowsDevice(
+        name="Device 1",
+        description="Description of Device 1",
+        address="192.168.1.1",
         os_type="Windows",
         last_scan_date=datetime.now().replace(microsecond=0)
     )
 
-    windows_device.data.description = "hi there"
-    assert windows_device.data.description == "hi there"
+
+def test_windows_device_data(windows_device):
+    assert isinstance(windows_device, Device)
+
+
+def test_change_description(windows_device):
+    original_description = windows_device.description
+
+    new_description = "New description"
+    windows_device.description = new_description
+
+    assert windows_device.description == new_description
+    assert windows_device.description != original_description

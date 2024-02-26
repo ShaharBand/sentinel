@@ -1,2 +1,12 @@
-# TODO: a linux device class model
-# TODO: the main difference between windows devices and linux will be the scan and ping process.
+from src.models.device import Device
+
+
+class LinuxDevice(Device):
+    def data(self) -> str:
+        pass
+
+    def ping(self) -> bool:
+        pass
+
+    def scan(self) -> bool:
+        pass

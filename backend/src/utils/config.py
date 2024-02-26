@@ -35,9 +35,3 @@ class AppConfigManager:
 
 db_uri = AppConfigManager().get_db_uri()
 config = AppConfigManager().get_config()
-
-if __name__ == '__main__':
-    print(f"IP Address: {config.IP}")
-    print(f"Port: {config.PORT}")
-    print(f"Version: {config.VERSION}")
-    print(f"DB URI: {db_uri}")

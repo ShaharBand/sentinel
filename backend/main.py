@@ -2,8 +2,7 @@ import uvicorn
 
 from fastapi import FastAPI
 
-from src.routers import users_router
-from src.routers import devices_router
+from src.routers import *
 from src.utils.config import config
 
 app = FastAPI()

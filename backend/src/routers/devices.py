@@ -1,15 +1,17 @@
 from fastapi import APIRouter
 
+from src.controllers.devices import *
+
 router = APIRouter()
 
 
 @router.get("/devices/", tags=["devices"])
 async def read_devices():
-    # TODO: Add logic to retrieve and return all devices
-    pass
+    devices = devices_list()
+    return devices
 
 
-@router.get("/devices/{device}", tags=["devices"])
-async def read_device(device: str):
-    # TODO: Add logic to retrieve and return a device based on the provided device name
-    pass
+@router.get("/devices/{device_id}", tags=["devices"])
+async def read_device(device_id: int):
+    device = device_data(device_id)
+    return device
