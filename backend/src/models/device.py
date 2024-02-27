@@ -1,32 +1,25 @@
-from abc import ABC, abstractmethod
-
-from sqlalchemy import Column, Integer, String, DateTime
-from sqlalchemy.orm import declarative_base
-
-Base = declarative_base()
+from src.dal.entities.device import Device
+from src.dal.repositories.device import DeviceRepository
 
 
-class Device(Base):
-    __tablename__ = 'devices'
+class DeviceModel:
+    def __init__(self):
+        self.device_repo = DeviceRepository()
 
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    address = Column(String, nullable=False)
-    os_type = Column(String, nullable=False)
-    last_scan_date = Column(DateTime, nullable=True)
+    def create_device(self, device_data: dict) -> Device:
+        return self.device_repo.create_device(device_data)
 
-    @abstractmethod
-    def data(self) -> str:
-        pass
+    def get_device_by_id(self, device_id: int) -> Device:
+        return self.device_repo.get_device_by_id(device_id)
 
-    @abstractmethod
-    def ping(self) -> bool:
-        pass
+    def get_all_devices(self) -> list[Device]:
+        return self.device_repo.get_all_devices()
 
-    @abstractmethod
-    def scan(self) -> bool:
-        pass
+    def get_devices_by_os_type(self, os_type: str) -> list[Device]:
+        return self.device_repo.get_devices_by_os_type(os_type)
 
-    def __str__(self):
-        return f'Device(id={self.id}, name={self.name})'
+    def update_device(self, device_id: int, updated_data: dict) -> bool:
+        return self.device_repo.update_device(device_id, updated_data)
+
+    def remove_device_by_id(self, device_id: int) -> bool:
+        return self.device_repo.remove_device_by_id(device_id)

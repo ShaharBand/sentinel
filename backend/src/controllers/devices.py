@@ -1,11 +1,14 @@
-from src.dal.devices import get_all_devices, get_device_by_id
+from src.models.device import DeviceModel
 
 
-def devices_list():
-    devices = get_all_devices()
-    return devices
+class DeviceController:
+    def __init__(self):
+        self.device_model = DeviceModel()
 
+    def get_all_devices(self):
+        devices = self.device_model.get_all_devices()
+        return devices
 
-def device_data(device_id: int):
-    device = get_device_by_id(device_id)
-    return device
+    def get_device(self, device_id: int):
+        device = self.device_model.get_device_by_id(device_id)
+        return device

@@ -1,7 +1,10 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 from src.utils.config import db_uri
+
+Base = declarative_base()
+
 
 class Database:
     def __init__(self):
@@ -18,3 +21,4 @@ class Database:
             if exc_type:
                 self.session.rollback()
             self.session.close()
+
