@@ -1,30 +1,32 @@
-from src.dal.db import Database
+from beanie import PydanticObjectId
+
 from src.dal.entities.user import User
 
 
 class UserRepository:
-    def __init__(self):
-        self.db = Database()
+    @staticmethod
+    async def create_user(user_data: dict) -> User:
+        new_user = User(**user_data)
+        await new_user.insert()
+        return new_user
 
-    def create_user(self, user_data: User) -> User:
-        with self.db as session:
-            new_user = User(**user_data.dict())
-            session.add(new_user)
-            session.commit()
-            return new_user
+    @staticmethod
+    async def get_user_by_username(username: str) -> User:
+        user = await User.find_one(User.username == username)
+        return user
 
-    def get_user_by_username(self, username: str) -> User:
-        with self.db as session:
-            return session.query(User).filter_by(username=username).first()
+    @staticmethod
+    async def get_user_by_uuid(user_uuid: PydanticObjectId) -> User:
+        user = await User.get(user_uuid)
+        return user
 
-    def update_user_password(self, user: User, new_password: str) -> bool:
-        with self.db as session:
-            user.password = new_password
-            session.commit()
-            return True
+    @staticmethod
+    async def update_user_password(user: User, new_password: str) -> bool:
+        user.password = new_password
+        await user.update()
+        return True
 
-    def delete_user(self, user: User) -> bool:
-        with self.db as session:
-            session.delete(user)
-            session.commit()
-            return True
+    @staticmethod
+    async def delete_user(user: User) -> bool:
+        await user.delete()
+        return True

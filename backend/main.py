@@ -2,10 +2,17 @@ import uvicorn
 
 from fastapi import FastAPI
 
+from src.middleware.db_connection import init_db
 from src.routers import *
 from src.utils.config import config
 
 app = FastAPI()
+
+
+@app.on_event("startup")
+async def startup_event():
+    await init_db()
+
 
 app.include_router(users_router, prefix="/api")
 app.include_router(devices_router, prefix="/api")

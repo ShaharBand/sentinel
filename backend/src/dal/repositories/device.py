@@ -1,4 +1,5 @@
-from src.dal.db import Database
+from beanie import PydanticObjectId
+
 from src.dal.entities.device import Device
 from src.dal.entities.devices import *
 
@@ -10,61 +11,51 @@ DEVICE_CLASS_MAP = {
 
 class DeviceFactory:
     @staticmethod
-    def create_device(device_data: dict) -> tuple[Device, object]:
+    def create_device(device_data: dict) -> Device:
         os_type = device_data.pop('os_type').lower()
         if os_type in DEVICE_CLASS_MAP:
-            device_class = DEVICE_CLASS_MAP[os_type]
-            os_specific_data = {key: value for key, value in device_data.items() if hasattr(device_class, key)}
-            device_data = {key: value for key, value in device_data.items() if key not in os_specific_data}
-
-            os_instance = device_class(**os_specific_data)
-            new_device_common = Device(**device_data)
-            return new_device_common, os_instance
-        return Device(**device_data), None
+            device = DEVICE_CLASS_MAP[os_type](**device_data)
+            return device
+        return Device(**device_data)
 
 
 class DeviceRepository:
-    def __init__(self):
-        self.db = Database()
+    @staticmethod
+    async def create_device(device_data: dict) -> Device:
+        new_device = DeviceFactory.create_device(device_data)
+        await new_device.insert()
+        return new_device
 
-    def create_device(self, device_data: dict) -> Device:
-        with self.db as session:
-            new_device, os_instance = DeviceFactory.create_device(device_data)
-            session.add(new_device)
-            session.add(os_instance)
-            session.commit()
-            return new_device
+    @staticmethod
+    async def get_device_by_id(device_id: PydanticObjectId) -> Device:
+        return await Device.get(device_id)
 
-    def get_device_by_id(self, device_id: int) -> Device:
-        with self.db as session:
-            return session.query(Device).filter_by(id=device_id).first()
+    @staticmethod
+    async def get_all_devices() -> list[Device]:
+        return await Device.find().to_list()
 
-    def get_all_devices(self) -> list[Device]:
-        with self.db as session:
-            return session.query(Device).all() or []
-
-    def get_devices_by_os_type(self, os_type: str) -> list[Device]:
-        with self.db as session:
-            if os_type.lower() in DEVICE_CLASS_MAP:
-                device_class = DEVICE_CLASS_MAP[os_type.lower()]
-                return session.query(device_class).all()
+    @staticmethod
+    async def get_devices_by_os_type(os_type: str) -> list[Device]:
+        # TODO: testing this will be required i am not sure
+        if os_type.lower() in DEVICE_CLASS_MAP:
+            device_class = DEVICE_CLASS_MAP[os_type.lower()]
+            return await device_class.find().to_list()
         return []
 
-    def update_device(self, device_id: int, updated_data: dict) -> bool:
-        with self.db as session:
-            device = session.query(Device).filter_by(id=device_id).first()
-            if device:
-                for key, value in updated_data.items():
-                    setattr(device, key, value)
-                session.commit()
-                return True
+    @staticmethod
+    async def update_device(device_id: PydanticObjectId, updated_data: dict) -> bool:
+        device = await Device.get(device_id)
+        if device:
+            for key, value in updated_data.items():
+                setattr(device, key, value)
+            await device.update()
+            return True
         return False
 
-    def remove_device_by_id(self, device_id: int) -> bool:
-        with self.db as session:
-            device = session.query(Device).filter_by(id=device_id).first()
-            if device:
-                session.delete(device)
-                session.commit()
-                return True
+    @staticmethod
+    async def remove_device_by_id(device_id: PydanticObjectId) -> bool:
+        device = await Device.get(device_id)
+        if device:
+            await device.delete()
+            return True
         return False

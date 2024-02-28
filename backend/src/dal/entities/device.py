@@ -1,32 +1,24 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
-from sqlalchemy.orm import relationship
+from datetime import datetime
 
-from src.dal.db import Base
+from beanie import Document
+from pydantic import Field, StrictStr, IPvAnyAddress
 
-
-class Device(Base):
-    __tablename__ = 'devices'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, nullable=False)
-    address = Column(String, nullable=False)
-    os_type = Column(String, nullable=False)
-    description = Column(String, nullable=False)
-    last_update = Column(DateTime, nullable=True)
-
-    os_id = Column(Integer, ForeignKey('os.id'))
-    os = relationship("OS", back_populates=__tablename__)
-
-    def __repr__(self):
-        return f'Device(id={self.id}, name={self.name}, address={self.address}, os_type={self.os_type})'
+from src.utils.datetime_utils import default_datetime
 
 
-class OS(Base):
-    __tablename__ = 'os'
+class Device(Document):
+    name: StrictStr
+    os_type: StrictStr
+    ip_address: IPvAnyAddress
+    description: StrictStr
+    last_update: datetime = Field(default_factory=default_datetime)
+    registration_date: datetime = Field(default_factory=default_datetime)
 
-    id = Column(Integer, primary_key=True)
-    type = Column(String)
-    devices = relationship("Device", back_populates=__tablename__)
+    class Meta:
+        collection_name = "device"
 
     def __repr__(self):
-        return f"<OS(id={self.id}, type={self.type})>"
+        return f'Device(id={self.id}, name={self.name}, os_type={self.os_type}, ip_address={self.ip_address})'
+
+
+

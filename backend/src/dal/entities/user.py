@@ -1,19 +1,19 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from datetime import datetime
 
-from src.dal.db import Base
+from beanie import Document
+from pydantic import Field, StrictStr, SecretStr, IPvAnyAddress
+
+from src.utils.datetime_utils import default_datetime
 
 
-class User(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    username = Column(String(50))
-    password = Column(String(50))
-    first_name = Column(String(50))
-    last_name = Column(String(50))
-    registration_date = Column(DateTime)
-    last_login_date = Column(DateTime)
-    last_login_ip = Column(String(50))
+class User(Document):
+    username: StrictStr
+    password: SecretStr
+    first_name: StrictStr
+    last_name: StrictStr
+    last_ip: IPvAnyAddress
+    last_seen: datetime = Field(default_factory=default_datetime)
+    registration_date: datetime = Field(default_factory=default_datetime)
 
     def __repr__(self):
-        return f"<User(id={self.id}, username='{self.username}', full_name='{self.first_name} {self.last_name}')>"
+        return f"<User(id={self.id}, username='{self.username}', last_seen='{self.last_seen}')>"

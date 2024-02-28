@@ -1,17 +1,8 @@
-from sqlalchemy import Column, String, Integer
-from sqlalchemy.orm import relationship
+from pydantic import StrictStr
 
-from src.dal.db import Base
+from src.dal.entities.device import Device
 
 
-class LinuxDevice(Base):
-    __tablename__ = 'linux_devices'
-    id = Column(Integer, primary_key=True)
-    device = relationship("Device", backref=__tablename__)
-
-    # Linux-specific attributes
-    linux_distribution = Column(String, nullable=False)
-    linux_kernel_version = Column(String, nullable=False)
-
-    def __repr__(self):
-        return f'LinuxDevice(id={self.id}, linux_distribution={self.linux_distribution}, linux_kernel_version={self.linux_kernel_version})'
+class LinuxDevice(Device):
+    linux_distribution: StrictStr
+    linux_kernel_version: StrictStr
