@@ -2,7 +2,7 @@ import uvicorn
 
 from fastapi import FastAPI
 
-from src.middleware.db_connection import init_db
+from src.middleware.db import init_db
 from src.routers import *
 from src.utils.config import config
 
