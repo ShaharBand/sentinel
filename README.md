@@ -24,9 +24,9 @@ Agents Implementation: not implemented yet.
 ### Backend:
 
 [FastAPI](https://github.com/tiangolo/fastapi),
-[PostgreSQL](https://github.com/postgres/postgres),
+[MongoDB](https://github.com/mongodb/mongo),
 [Pydantic](https://github.com/samuelcolvin/pydantic),
-[SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy).
+[Beanie](https://github.com/roman-right/beanie).
 
 ### Frontend:
 
