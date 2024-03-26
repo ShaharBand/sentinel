@@ -1,6 +1,8 @@
 from pymongo import MongoClient
-from config import config
 
+from src.config.manager import AppConfigManager
+
+config = AppConfigManager.get_db_config()
 DB_CLIENT = "mongodb://localhost:27017/"
 client = MongoClient(DB_CLIENT)
 
