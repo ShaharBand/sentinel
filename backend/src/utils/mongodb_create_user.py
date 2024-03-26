@@ -1,14 +1,14 @@
 from pymongo import MongoClient
 
-from src.config.manager import AppConfigManager
+from src.config.manager import ConfigManager
 
-config = AppConfigManager.get_db_config()
+db_config = ConfigManager.get_db_config()
 DB_CLIENT = "mongodb://localhost:27017/"
 client = MongoClient(DB_CLIENT)
 
 # DB Access
-database = client[config.DB_NAME]
-database.command('createUser', config.DB_USERNAME, pwd=config.DB_PASSWORD, roles=['readWrite'])
+database = client[db_config.DB_NAME]
+database.command('createUser', db_config.DB_USERNAME, pwd=db_config.DB_PASSWORD, roles=['readWrite'])
 client.close()
 
-print(f"User: {config.DB_USERNAME} has been created with the password '{config.DB_PASSWORD}'.")
+print(f"User: {db_config.DB_USERNAME} has been created with the password '{db_config.DB_PASSWORD}'.")

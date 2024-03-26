@@ -5,7 +5,7 @@ from src.config.db import IntegrationDBConfig, ProductionDBConfig, DBConfig
 from src.config.environment import Environment
 
 
-class AppConfigManager:
+class ConfigManager:
     @classmethod
     @lru_cache(maxsize=1)
     def get_app_config(cls) -> AppConfig:
