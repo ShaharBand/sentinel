@@ -9,7 +9,7 @@ class User(Document):
     password: SecretStr
     first_name: StrictStr
     last_name: StrictStr
-    last_ip: IPvAnyAddress
+    last_used_ip: IPvAnyAddress
     last_seen: datetime
     registration_date: datetime
 
