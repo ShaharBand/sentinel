@@ -1,6 +1,10 @@
-from beanie import PydanticObjectId
+from typing import TYPE_CHECKING
 
-from src.dal.entities.device import Device
+if TYPE_CHECKING:
+    from beanie import PydanticObjectId
+
+    from src.dal.entities.device import Device
+
 from src.dal.repositories.device import DeviceRepository
 
 

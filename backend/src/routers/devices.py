@@ -1,4 +1,7 @@
-from beanie import PydanticObjectId
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from beanie import PydanticObjectId
 from fastapi import APIRouter
 
 from src.controllers.devices import DeviceController

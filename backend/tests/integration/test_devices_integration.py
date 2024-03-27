@@ -1,7 +1,5 @@
 import pytest
 
-from src.models.device import DeviceModel
-
 
 @pytest.fixture
 def device_fixture():

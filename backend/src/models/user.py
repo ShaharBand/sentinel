@@ -1,4 +1,8 @@
-from src.dal.entities.user import User
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from src.dal.entities.user import User
+
 from src.dal.repositories.user import UserRepository
 
 
