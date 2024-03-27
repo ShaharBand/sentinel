@@ -104,6 +104,6 @@ npm run dev
 We welcome contributions to this project! Please feel free to fork the repository and create pull requests.
 <br><br>
 
-## License:
+## 💼 License:
 
 This project is licensed under the MIT License.
