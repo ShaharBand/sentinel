@@ -1,9 +1,7 @@
 from datetime import datetime
 
 from beanie import Document
-from pydantic import Field, StrictStr, IPvAnyAddress
-
-from src.utils.datetime_utils import default_datetime
+from pydantic import StrictStr, IPvAnyAddress
 
 
 class Device(Document):
@@ -11,8 +9,8 @@ class Device(Document):
     os_type: StrictStr
     ip_address: IPvAnyAddress
     description: StrictStr
-    last_update: datetime = Field(default_factory=default_datetime)
-    registration_date: datetime = Field(default_factory=default_datetime)
+    last_update: datetime
+    registration_date: datetime
 
     class Meta:
         collection_name = "device"
