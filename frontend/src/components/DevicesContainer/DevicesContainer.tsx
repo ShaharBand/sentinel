@@ -1,11 +1,16 @@
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import FileDownloadRoundedIcon from "@mui/icons-material/FileDownloadRounded";
+
+import { getClasses } from "./style";
+
 import DevicesTable from "../DevicesTable/DevicesTable";
-import "./style.css";
+
+const theme = useTheme();
+const classes = getClasses(theme);
 
 const DevicesContainer = () => {
   return (
-    <div className="table-container">
+    <div className={classes.TableContainer}>
       <div className="table-top-row">
         <div className="table-header">
           <Typography variant="h5">Devices</Typography>
