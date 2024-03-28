@@ -4,11 +4,11 @@ if TYPE_CHECKING:
     from beanie import PydanticObjectId
 
 from src.dal.entities.device import Device
-from src.dal.entities.devices import *
+import src.dal.entities.devices as devices
 
 DEVICE_NAME_TO_TYPE = {
-    "windows": WindowsDevice,
-    "linux": LinuxDevice,
+    "windows": devices.WindowsDevice,
+    "linux": devices.LinuxDevice,
 }
 
 
@@ -50,7 +50,7 @@ class DeviceRepository:
         device = await Device.get(device_id)
         if device:
             for key, value in updated_data.items():
-                setattr(device, key, value)
+                device[key] = value
             await device.update()
             return True
         return False
