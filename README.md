@@ -33,7 +33,8 @@ Agents Implementation: not implemented yet.
 [ReactJS](https://github.com/facebook/react),
 [ViteJS](https://github.com/vitejs/vite),
 [TypeScript](https://github.com/microsoft/TypeScript),
-[Material UI](https://github.com/mui/material-ui).
+[Material UI](https://github.com/mui/material-ui),
+[EmotionJS](https://github.com/emotion-js/emotion).
 
 <br>
 
