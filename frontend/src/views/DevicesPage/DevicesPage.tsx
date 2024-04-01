@@ -1,20 +1,19 @@
-import DevicesContainer from "../../components/DevicesContainer/DevicesContainer";
-import DevicesOSPieChart from "../../components/DevicesOSPieChart/DevicesOSPieChart";
-import Layout from "../Layout/Layout";
-import "./style.css";
+import { FC } from "react";
+import { Box, useTheme } from "@mui/material";
+import { getClasses } from "./style";
 
-const DevicesPage = () => {
+import DevicesContainer from "../../components/DevicesContainer/DevicesContainer";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { TopBar } from "../../components/TopBar/TopBar";
+
+export const DevicesPage: FC = () => {
+  const theme = useTheme();
+  const classes = getClasses(theme);
+
   return (
-    <Layout title="Overview">
-      <div className="layout">
-        <DevicesContainer />
-        <div className="column">
-          <DevicesOSPieChart />
-          <DevicesOSPieChart />
-        </div>
-      </div>
-    </Layout>
+    <Box className={classes.container}>
+      <TopBar />
+      <NavBar />
+    </Box>
   );
 };
-
-export default DevicesPage;
