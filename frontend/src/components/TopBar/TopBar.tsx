@@ -1,16 +1,16 @@
 import { FC, useContext } from "react";
 import { getClasses } from "./style";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import {
-  Divider,
+  Box,
+  IconButton,
   Stack,
   ToggleButton,
-  ToggleButtonGroup,
   Typography,
   useTheme,
 } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { ColorModeContext } from "../../context/ThemeContext/ThemeContext";
@@ -20,13 +20,8 @@ export const TopBar: FC<{}> = ({}) => {
   const classes = getClasses(theme);
 
   const { toggleColorMode, mode } = useContext(ColorModeContext);
-  const handleAlignment = (
-    _: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null
-  ) => {
-    if (newAlignment !== null) {
-      toggleColorMode();
-    }
+  const handleToggleColorMode = () => {
+    toggleColorMode();
   };
 
   return (
@@ -35,20 +30,31 @@ export const TopBar: FC<{}> = ({}) => {
         <Typography className={classes.title} variant="h4" noWrap>
           Overview
         </Typography>
-        <Stack className={classes.colorStack}>
-          <ToggleButtonGroup
-            value={mode}
-            exclusive
-            onChange={handleAlignment}
-            aria-label="text alignment"
+        <Stack className={classes.rightSideStack} direction="row-reverse">
+          <Box className={classes.buttonWrapper}>
+            <IconButton>
+              <PersonIcon className={classes.ButtonIcon} />
+            </IconButton>
+          </Box>
+
+          <Box
+            alignItems="center"
+            justifyContent="center"
+            className={classes.buttonWrapper}
           >
-            <ToggleButton value="light" aria-label="left aligned">
-              <LightModeIcon />
+            <ToggleButton
+              value={mode}
+              onClick={handleToggleColorMode}
+              className={classes.ButtonIcon}
+              aria-label="Toggle dark mode"
+            >
+              {mode === "light" ? (
+                <LightModeIcon className={classes.ButtonIcon} />
+              ) : (
+                <DarkModeIcon className={classes.ButtonIcon} />
+              )}
             </ToggleButton>
-            <ToggleButton value="dark" aria-label="right aligned">
-              <DarkModeIcon />
-            </ToggleButton>
-          </ToggleButtonGroup>
+          </Box>
         </Stack>
       </Toolbar>
     </AppBar>

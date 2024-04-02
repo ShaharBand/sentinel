@@ -10,9 +10,11 @@ export const getClasses = (theme: Theme) => ({
     borderRadius: "0 20px 0 0",
     background: theme.palette.primary.main,
   }),
-  colorStack: css({
+  rightSideStack: css({
     position: "fixed",
+    alignItems: "center",
     right: "40px",
+    gap: "10px",
   }),
   content: css({
     marginLeft: "20px",
@@ -23,5 +25,18 @@ export const getClasses = (theme: Theme) => ({
     letterSpacing: "1px",
     fontSize: "1.6rem",
     fontWeight: "500",
+  }),
+  ButtonIcon: css({
+    color: theme.palette.primary.contrastText,
+    border: "none",
+  }),
+  buttonWrapper: css({
+    border: "1px solid",
+    borderRadius: "0.5rem",
+    height: "45px",
+    width: "45px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }),
 });

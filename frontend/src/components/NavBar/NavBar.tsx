@@ -39,7 +39,7 @@ export const NavBar: FC<{}> = ({}) => {
           { text: "Settings", icon: <SettingsRoundedIcon /> },
         ].map((item, index) => (
           <ListItem key={index}>
-            <ListItemButton>
+            <ListItemButton className={classes.navItem}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -49,7 +49,7 @@ export const NavBar: FC<{}> = ({}) => {
       <List className={classes.bottomList}>
         {[{ text: "Logout", icon: <ExitToAppIcon /> }].map((item, index) => (
           <ListItem key={index}>
-            <ListItemButton>
+            <ListItemButton className={classes.navItem}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

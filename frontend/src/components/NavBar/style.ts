@@ -30,7 +30,10 @@ export const getClasses = (theme: Theme) => ({
   }),
   bottomList: css({
     position: "fixed",
-    bottom: "20px",
+    bottom: "30px",
     width: "inherit",
+  }),
+  navItem: css({
+    borderRadius: "1rem",
   }),
 });

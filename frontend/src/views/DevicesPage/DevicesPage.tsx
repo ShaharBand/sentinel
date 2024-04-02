@@ -2,9 +2,9 @@ import { FC } from "react";
 import { Box, Toolbar, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 
-import DevicesContainer from "../../components/DevicesContainer/DevicesContainer";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { TopBar } from "../../components/TopBar/TopBar";
+import { ContentContainer } from "../../components/ContentContainer/ContentContainer";
 
 export const DevicesPage: FC = () => {
   const theme = useTheme();
@@ -14,7 +14,7 @@ export const DevicesPage: FC = () => {
     <Box className={classes.container}>
       <TopBar />
       <NavBar />
-      <Box component="main">
+      <ContentContainer>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
@@ -44,7 +44,7 @@ export const DevicesPage: FC = () => {
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
-      </Box>
+      </ContentContainer>
     </Box>
   );
 };
