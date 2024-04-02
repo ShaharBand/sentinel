@@ -5,6 +5,7 @@ import useLocalStorage from "use-local-storage";
 import { ContextProps } from "./types";
 import { darkTheme } from "./darkTheme";
 import { lightTheme } from "./lightTheme";
+import "@fontsource/roboto";
 
 export const ColorModeContext = createContext({
   toggleColorMode: () => {},
@@ -29,7 +30,7 @@ export const ThemeContext: FC<ContextProps> = ({ children }) => {
           ...(mode === "light" ? lightTheme : darkTheme),
         },
         typography: {
-          fontFamily: '"Quicksand", sans-serif',
+          fontFamily: "Roboto",
           fontWeightMedium: 600,
         },
       }),
@@ -50,6 +51,9 @@ export const ThemeContext: FC<ContextProps> = ({ children }) => {
           "*::-webkit-scrollbar-track": {
             backgroundColor: "#E7E7E7",
             borderRadius: "8px",
+          },
+          body: {
+            backgroundColor: theme.palette.background.default,
           },
         }}
       />

@@ -3,11 +3,11 @@ import { ThemePalette } from "./types";
 export const darkTheme: ThemePalette = {
   primary: {
     main: "#22222a",
-    contrastText: "#FFFFFF",
+    contrastText: "#FEFFFF",
   },
   secondary: {
     main: "#37373e",
-    contrastText: "#FFFFFF",
+    contrastText: "#FEFFFF",
   },
   accent: {
     main: "#a7a7ff",

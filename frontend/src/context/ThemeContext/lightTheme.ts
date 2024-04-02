@@ -2,8 +2,8 @@ import { ThemePalette } from "./types";
 
 export const lightTheme: ThemePalette = {
   primary: {
-    main: "#484b6a",
-    contrastText: "#ffffff",
+    main: "#e4e5f1",
+    contrastText: "#000000",
   },
   secondary: {
     main: "#9394a5",
@@ -14,11 +14,11 @@ export const lightTheme: ThemePalette = {
     contrastText: "#000000",
   },
   text: {
-    primary: "#e4e5f1",
+    primary: "#000000",
     secondary: "#121212",
   },
   background: {
-    default: "#fafafa",
+    default: "#888d99",
   },
   error: {
     main: "#ef233c",

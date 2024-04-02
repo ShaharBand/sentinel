@@ -3,31 +3,34 @@ import { Theme } from "@mui/material";
 import { drawerWidth } from "./constants";
 
 export const getClasses = (theme: Theme) => ({
-  navDrawer: css({
-    width: `${drawerWidth}px`,
-    flexShrink: 0,
-    boxSizing: "border-box",
-    backgroundColor: theme.palette.primary.main,
-    padding: "20px 0 20px",
-  }),
+  navDrawer: css({}),
 
   drawerPaper: css({
     margin: "10px",
-    width: `${drawerWidth}px`,
+    maxHeight: "calc(100% - 20px)",
+    width: `${drawerWidth}px`.toString(),
+    borderRadius: "2rem 0 0 2rem",
     backgroundColor: theme.palette.primary.main,
-  }).toString(),
+  }),
 
   logoImage: css({
     width: "30px",
     marginRight: "20px",
-    marginLeft: "-10px",
   }),
-  logoContainer: css({
-    width: "200px",
-  }),
-
-  topBar: css({
+  logoBar: css({
     height: "8rem",
     lineHeight: "30px",
+    paddingLeft: "30px",
+  }),
+  headline: css({
+    textTransform: "uppercase",
+    letterSpacing: "3px",
+    fontSize: "1.25rem",
+    fontWeight: "500",
+  }),
+  bottomList: css({
+    position: "fixed",
+    bottom: "20px",
+    width: "inherit",
   }),
 });
