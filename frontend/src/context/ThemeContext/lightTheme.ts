@@ -6,12 +6,13 @@ export const lightTheme: ThemePalette = {
     contrastText: "#000000",
   },
   secondary: {
-    main: "#9394a5",
+    main: "#F4F4FF",
     contrastText: "#ffffff",
   },
   accent: {
-    main: "#d2d3db",
-    contrastText: "#000000",
+    main: "#a7a7ff",
+    dark: "#9191FF",
+    contrastText: "#FFFFFF",
   },
   text: {
     primary: "#000000",

@@ -17,6 +17,7 @@ export interface ThemePalette {
   };
   accent: {
     main: string;
+    dark: string;
     contrastText: string;
   };
   text: {

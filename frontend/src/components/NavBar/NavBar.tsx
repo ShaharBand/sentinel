@@ -6,9 +6,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import PhonelinkRoundedIcon from "@mui/icons-material/PhonelinkRounded";
-import TerminalRoundedIcon from "@mui/icons-material/TerminalRounded";
-import LayersRoundedIcon from "@mui/icons-material/LayersRounded";
+import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
+import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
+import PendingActionsRoundedIcon from "@mui/icons-material/PendingActionsRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { HEADLINE } from "./constants";
@@ -33,9 +33,9 @@ export const NavBar: FC<{}> = ({}) => {
 
       <List>
         {[
-          { text: "Devices", icon: <PhonelinkRoundedIcon /> },
-          { text: "Agents", icon: <TerminalRoundedIcon /> },
-          { text: "Actions", icon: <LayersRoundedIcon /> },
+          { text: "Devices", icon: <DevicesRoundedIcon /> },
+          { text: "Agents", icon: <SmartToyRoundedIcon /> },
+          { text: "Actions", icon: <PendingActionsRoundedIcon /> },
           { text: "Settings", icon: <SettingsRoundedIcon /> },
         ].map((item, index) => (
           <ListItem key={index}>

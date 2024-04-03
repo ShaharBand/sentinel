@@ -11,6 +11,7 @@ export const darkTheme: ThemePalette = {
   },
   accent: {
     main: "#a7a7ff",
+    dark: "#9191FF",
     contrastText: "#FFFFFF",
   },
   text: {
