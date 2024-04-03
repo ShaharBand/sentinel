@@ -4,9 +4,9 @@ import { Theme } from "@mui/material";
 export const getClasses = (theme: Theme) => ({
   stackContainer: css({
     alignItems: "center",
-    width: "20%",
     gap: "10px",
     marginBottom: "20px",
+    marginRight: "5%",
   }),
   iconBox: css({
     backgroundColor: theme.palette.secondary.main,
@@ -24,7 +24,6 @@ export const getClasses = (theme: Theme) => ({
     height: "60px",
     display: "flex",
     justifyContent: "space-between",
-    minWidth: "70%",
   }),
   offsetStack: css({
     display: "flex",
