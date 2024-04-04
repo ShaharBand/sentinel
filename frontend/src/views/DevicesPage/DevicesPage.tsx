@@ -14,6 +14,8 @@ import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import TaskIcon from "@mui/icons-material/Task";
 import { ReportCard } from "../../components/ReportCard/ReportCard";
 import { DevicesTable } from "../../components/DevicesTable/DevicesTable";
+import DeviceOSPieChart from "../../components/DeviceOSPieChart/DeviceOSPieChart";
+import DeviceCoverageGraph from "../../components/DeviceCoverageGraph/DeviceCoverageGraph";
 
 export const DevicesPage: FC = () => {
   const theme = useTheme();
@@ -62,7 +64,11 @@ export const DevicesPage: FC = () => {
           />
         </Stack>
         <ReportCard />
-        <DevicesTable />
+        <Stack direction="row">
+          <DevicesTable />
+          <DeviceOSPieChart />
+          <DeviceCoverageGraph />
+        </Stack>
       </ContentContainer>
     </Box>
   );
