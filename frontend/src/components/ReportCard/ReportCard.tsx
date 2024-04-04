@@ -24,7 +24,7 @@ export const ReportCard: FC<{}> = ({}) => {
         <WarningAmberIcon className={classes.iconWarning} />
         <Typography>there are 21 new devices recorded.</Typography>
       </Stack>
-      <Button className={classes.reportButton}>Download Report</Button>
+      <Button className={classes.reportButton}>Download</Button>
     </Stack>
   );
 };

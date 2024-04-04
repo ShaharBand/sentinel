@@ -25,7 +25,7 @@ export const lightTheme: ThemePalette = {
     main: "#ef233c",
   },
   partialError: {
-    main: "#ffb4a2",
+    main: "#FFA500",
   },
   valid: {
     main: "#06d6a0",
