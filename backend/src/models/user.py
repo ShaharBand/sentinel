@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 
+from src.dal.repositories.user import UserRepository
+
 if TYPE_CHECKING:
     from src.dal.entities.user import User
-
-from src.dal.repositories.user import UserRepository
 
 
 class UserModel:

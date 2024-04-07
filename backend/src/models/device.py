@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
+from src.dal.repositories.device import DeviceRepository
+
 if TYPE_CHECKING:
     from beanie import PydanticObjectId
 
     from src.dal.entities.device import Device
-
-from src.dal.repositories.device import DeviceRepository
 
 
 class DeviceModel:

@@ -66,8 +66,10 @@ export const DevicesPage: FC = () => {
         <ReportCard />
         <Stack direction="row">
           <DevicesTable />
-          <DeviceOSPieChart />
-          <DeviceCoverageGraph />
+          <Stack direction="column" className={classes.graphsContainer}>
+            <DeviceOSPieChart />
+            <DeviceCoverageGraph />
+          </Stack>
         </Stack>
       </ContentContainer>
     </Box>

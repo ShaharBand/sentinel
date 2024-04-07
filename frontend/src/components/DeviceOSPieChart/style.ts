@@ -4,9 +4,8 @@ import { Theme } from "@mui/material";
 export const getClasses = (theme: Theme) => ({
   chartBox: css({
     backgroundColor: theme.palette.secondary.main,
-    width: "20%",
     borderRadius: "0.5rem",
-    height: "calc((80vh - 20px - 8rem)/2)",
+    height: "calc((80vh - 40px - 8rem)/2)",
     marginLeft: "20px",
   }),
   chartTitle: css({

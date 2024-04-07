@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 
+from src.dal.entities.user import User
+
 if TYPE_CHECKING:
     from beanie import PydanticObjectId
-
-from src.dal.entities.user import User
 
 
 class UserRepository:

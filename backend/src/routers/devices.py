@@ -1,13 +1,14 @@
 from typing import TYPE_CHECKING
 
+from fastapi import APIRouter
+
+from src.controllers.devices import DeviceController
+
 if TYPE_CHECKING:
     from beanie import PydanticObjectId
 
     from src.dal.entities.device import Device
 
-from fastapi import APIRouter
-
-from src.controllers.devices import DeviceController
 
 router = APIRouter(prefix="/devices",
                    tags=["devices"],

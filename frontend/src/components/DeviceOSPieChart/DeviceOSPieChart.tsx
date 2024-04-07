@@ -12,14 +12,12 @@ const DeviceOSPieChart = () => {
         { name: "iOS", value: 15, label: "iOS" },
         { name: "Android", value: 10, label: "Android" },
       ],
-      innerRadius: 45,
-      outerRadius: 80,
+      innerRadius: "40%",
+      outerRadius: "80%",
       paddingAngle: 5,
       cornerRadius: 5,
       startAngle: 0,
       endAngle: 360,
-      cx: 100,
-      cy: 150,
     },
   ];
   const theme = useTheme();
