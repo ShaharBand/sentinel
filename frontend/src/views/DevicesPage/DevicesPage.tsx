@@ -23,7 +23,7 @@ export const DevicesPage: FC = () => {
 
   return (
     <Box className={classes.container}>
-      <TopBar />
+      <TopBar title="Overview" />
       <NavBar />
       <ContentContainer>
         <Stack direction="row">

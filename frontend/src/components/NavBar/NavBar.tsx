@@ -33,13 +33,29 @@ export const NavBar: FC<{}> = ({}) => {
 
       <List>
         {[
-          { text: "Devices", icon: <DevicesRoundedIcon /> },
-          { text: "Agents", icon: <SmartToyRoundedIcon /> },
-          { text: "Actions", icon: <PendingActionsRoundedIcon /> },
-          { text: "Settings", icon: <SettingsRoundedIcon /> },
+          {
+            text: "Devices",
+            icon: <DevicesRoundedIcon />,
+            url: "/devices",
+          },
+          {
+            text: "Agents",
+            icon: <SmartToyRoundedIcon />,
+            url: "/agents",
+          },
+          {
+            text: "Actions",
+            icon: <PendingActionsRoundedIcon />,
+            url: "/actions",
+          },
+          {
+            text: "Settings",
+            icon: <SettingsRoundedIcon />,
+            url: "/settings",
+          },
         ].map((item, index) => (
           <ListItem key={index}>
-            <ListItemButton className={classes.navItem}>
+            <ListItemButton className={classes.navItem} href={item.url}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>

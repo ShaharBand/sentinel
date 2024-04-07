@@ -14,8 +14,9 @@ import PersonIcon from "@mui/icons-material/Person";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { ColorModeContext } from "../../context/ThemeContext/ThemeContext";
+import { TopBarProps } from "./types";
 
-export const TopBar: FC<{}> = ({}) => {
+export const TopBar: FC<TopBarProps> = ({ title }) => {
   const theme = useTheme();
   const classes = getClasses(theme);
 
@@ -28,7 +29,7 @@ export const TopBar: FC<{}> = ({}) => {
     <AppBar className={classes.topBar} elevation={0}>
       <Toolbar className={classes.content}>
         <Typography className={classes.title} variant="h4" noWrap>
-          Overview
+          {title}
         </Typography>
         <Stack className={classes.rightSideStack} direction="row-reverse">
           <Box className={classes.buttonWrapper}>
