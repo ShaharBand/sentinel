@@ -4,7 +4,7 @@ from fastapi import APIRouter
 
 from src.controllers.devices import DeviceController
 
-if TYPE_CHECKING:
+if not TYPE_CHECKING:
     from beanie import PydanticObjectId
 
     from src.dal.entities.device import Device

@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 from src.dal.entities.device import Device
 import src.dal.entities.devices as devices
 
-if TYPE_CHECKING:
+if not TYPE_CHECKING:
     from beanie import PydanticObjectId
 
 DEVICE_NAME_TO_TYPE = {

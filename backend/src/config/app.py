@@ -1,9 +1,12 @@
+import os
+
 from pydantic_settings import BaseSettings
 
 from src.config.environment import Environment
 
 
 class AppConfig(BaseSettings):
-    IP: str = "127.0.0.1"
-    PORT: int = 5000
-    ENVIRONMENT: Environment = Environment.integration
+    ip: str = "127.0.0.1"
+    port: int = 5000
+    environment: Environment = Environment.integration
+    workers: int = os.cpu_count() * 2 + 1

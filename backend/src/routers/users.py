@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 from fastapi import APIRouter
 
-if TYPE_CHECKING:
+if not TYPE_CHECKING:
     from src.dal.entities.user import User
 
 router = APIRouter(prefix="/users",
