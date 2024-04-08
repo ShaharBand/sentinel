@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
-import { Link, Box, Stack, Typography, useTheme } from "@mui/material";
+import { Link, Card, Stack, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 
 export const DevicesTable: FC<{}> = ({}) => {
@@ -209,8 +209,8 @@ export const DevicesTable: FC<{}> = ({}) => {
   ];
 
   return (
-    <Box className={classes.tableBox}>
+    <Card className={classes.tableBox}>
       <DataGrid className={classes.dataGrid} rows={rows} columns={columns} />
-    </Box>
+    </Card>
   );
 };

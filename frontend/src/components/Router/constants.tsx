@@ -10,6 +10,18 @@ export const PAGES = {
     path: "devices/",
     element: <DevicesPage />,
   },
+  agents: {
+    path: "agents/",
+    element: <DevicesPage />,
+  },
+  actions: {
+    path: "actions/",
+    element: <DevicesPage />,
+  },
+  settings: {
+    path: "settings/",
+    element: <DevicesPage />,
+  },
   deviceDetail: {
     path: "devices/:id",
     element: <DeviceDetailPage />,

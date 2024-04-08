@@ -44,13 +44,11 @@ export const ThemeContext: FC<ContextProps> = ({ children }) => {
             width: "0.5em",
           },
           "*::-webkit-scrollbar-thumb": {
-            backgroundColor: theme.palette.secondary.main,
-            borderRadius: "8px",
+            backgroundColor: "grey",
           },
 
           "*::-webkit-scrollbar-track": {
             backgroundColor: "#E7E7E7",
-            borderRadius: "8px",
           },
           body: {
             backgroundColor: theme.palette.background.default,

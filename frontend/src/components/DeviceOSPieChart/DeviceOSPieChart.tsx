@@ -1,5 +1,5 @@
 import { PieChart } from "@mui/x-charts/PieChart";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Card, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 
 const DeviceOSPieChart = () => {
@@ -24,12 +24,12 @@ const DeviceOSPieChart = () => {
   const classes = getClasses(theme);
 
   return (
-    <Box className={classes.chartBox}>
+    <Card className={classes.chartCard}>
       <Typography variant="h6" className={classes.chartTitle}>
         OS Distribution
       </Typography>
       <PieChart series={series} />
-    </Box>
+    </Card>
   );
 };
 

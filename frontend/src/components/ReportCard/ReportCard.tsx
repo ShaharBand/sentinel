@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, Stack, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 
 import SummarizeIcon from "@mui/icons-material/Summarize";
@@ -9,7 +9,7 @@ export const ReportCard: FC<{}> = ({}) => {
   const theme = useTheme();
   const classes = getClasses(theme);
   return (
-    <Stack direction="row" className={classes.stackContainer}>
+    <Card className={classes.cardContainer}>
       <Stack direction="row">
         <Box className={classes.iconBox}>
           <SummarizeIcon />
@@ -25,6 +25,6 @@ export const ReportCard: FC<{}> = ({}) => {
         <Typography>there are 21 new devices recorded.</Typography>
       </Stack>
       <Button className={classes.reportButton}>Download</Button>
-    </Stack>
+    </Card>
   );
 };

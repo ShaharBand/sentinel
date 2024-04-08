@@ -7,4 +7,7 @@ export const getClasses = (theme: Theme) => ({
     overflowY: "hidden",
     margin: "10px",
   }),
+  layoutStack: css({
+    gap: "20px",
+  }),
 });

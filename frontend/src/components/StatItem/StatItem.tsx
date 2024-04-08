@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack, Tooltip, Typography, useTheme } from "@mui/material";
+import { Card, Stack, Tooltip, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 import { StatItemProps } from "./types";
 
@@ -17,13 +17,13 @@ export const StatItem: FC<StatItemProps> = ({
   const classes = getClasses(theme);
   return (
     <Stack direction="row" className={classes.stackContainer}>
-      <Box className={classes.iconBox}>{icon}</Box>
+      <Card className={classes.iconCard}>{icon}</Card>
 
       <Stack className={classes.contentStack} direction="column">
         <Tooltip title={description} arrow>
           <Typography variant="h6">{title}</Typography>
         </Tooltip>
-        <Stack direction="row" className={classes.offsetStack}>
+        <Stack direction="row" className={classes.statStack}>
           <Typography>{value}</Typography>
           <Stack direction="row" spacing={1}>
             {offset !== 0 &&

@@ -6,15 +6,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
-import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
-import PendingActionsRoundedIcon from "@mui/icons-material/PendingActionsRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import { HEADLINE } from "./constants";
 import { getClasses } from "./style";
-import logo from "../../assets/images/logo.png";
 import { FC } from "react";
+import logo from "../../assets/images/logo.png";
+import { HEADLINE } from "./constants";
+import { bottomNavItems, navItems } from "./navItems";
 
 export const NavBar: FC<{}> = ({}) => {
   const theme = useTheme();
@@ -32,28 +28,7 @@ export const NavBar: FC<{}> = ({}) => {
       </Toolbar>
 
       <List>
-        {[
-          {
-            text: "Devices",
-            icon: <DevicesRoundedIcon />,
-            url: "/devices",
-          },
-          {
-            text: "Agents",
-            icon: <SmartToyRoundedIcon />,
-            url: "/agents",
-          },
-          {
-            text: "Actions",
-            icon: <PendingActionsRoundedIcon />,
-            url: "/actions",
-          },
-          {
-            text: "Settings",
-            icon: <SettingsRoundedIcon />,
-            url: "/settings",
-          },
-        ].map((item, index) => (
+        {navItems.map((item, index) => (
           <ListItem key={index}>
             <ListItemButton className={classes.navItem} href={item.url}>
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -63,7 +38,7 @@ export const NavBar: FC<{}> = ({}) => {
         ))}
       </List>
       <List className={classes.bottomList}>
-        {[{ text: "Logout", icon: <ExitToAppIcon /> }].map((item, index) => (
+        {bottomNavItems.map((item, index) => (
           <ListItem key={index}>
             <ListItemButton className={classes.navItem}>
               <ListItemIcon>{item.icon}</ListItemIcon>

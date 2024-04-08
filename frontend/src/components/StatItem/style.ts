@@ -3,12 +3,13 @@ import { Theme } from "@mui/material";
 
 export const getClasses = (theme: Theme) => ({
   stackContainer: css({
+    display: "flex",
     alignItems: "center",
     gap: "10px",
     marginBottom: "20px",
     marginRight: "5%",
   }),
-  iconBox: css({
+  iconCard: css({
     backgroundColor: theme.palette.secondary.main,
     padding: "15px",
     display: "flex",
@@ -25,7 +26,7 @@ export const getClasses = (theme: Theme) => ({
     display: "flex",
     justifyContent: "space-between",
   }),
-  offsetStack: css({
+  statStack: css({
     display: "flex",
     justifyContent: "space-between",
   }),
