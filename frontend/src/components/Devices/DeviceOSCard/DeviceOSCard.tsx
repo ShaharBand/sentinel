@@ -1,13 +1,12 @@
 import { Card, Stack, Box, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
-import windows from "../../assets/images/os/windows.png";
+import windows from "../../../assets/images/os/windows.png";
 
-import ios from "../../assets/images/os/ios.png";
-import linux from "../../assets/images/os/linux.png";
-import macos from "../../assets/images/os/macos.png";
-import android from "../../assets/images/os/android.png";
-
-import InfoModal from "../InfoModal/InfoModal";
+import ios from "../../../assets/images/os/ios.png";
+import linux from "../../../assets/images/os/linux.png";
+import macos from "../../../assets/images/os/macos.png";
+import android from "../../../assets/images/os/android.png";
+import InfoModal from "../../InfoModal/InfoModal";
 
 const DeviceOSCard = () => {
   const theme = useTheme();
@@ -19,6 +18,8 @@ const DeviceOSCard = () => {
         <Typography variant="h6">Operating System</Typography>
         <Box className={classes.modalBtn}>
           <InfoModal
+            title="System Info"
+            tooltip="Last scan system info"
             content="Host Name:                 DESKTOP-123456
 OS Name:                   Microsoft Windows 11 Pro
 OS Version:                10.0.001 N/A Build 001

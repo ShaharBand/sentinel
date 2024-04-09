@@ -9,5 +9,6 @@ export const getClasses = (theme: Theme) => ({
   }),
   layoutStack: css({
     gap: "20px",
+    height: "100%",
   }),
 });

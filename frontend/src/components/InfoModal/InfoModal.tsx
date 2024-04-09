@@ -3,6 +3,7 @@ import {
   Card,
   IconButton,
   Modal,
+  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -11,7 +12,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { getClasses } from "./style";
 import { InfoModalProps } from "./types";
 
-const InfoModal: React.FC<InfoModalProps> = ({ content }) => {
+const InfoModal: React.FC<InfoModalProps> = ({ title, content, tooltip }) => {
   const theme = useTheme();
   const classes = getClasses(theme);
 
@@ -22,7 +23,9 @@ const InfoModal: React.FC<InfoModalProps> = ({ content }) => {
   return (
     <Box>
       <IconButton onClick={handleOpen}>
-        <InfoIcon />
+        <Tooltip title={tooltip} arrow>
+          <InfoIcon />
+        </Tooltip>
       </IconButton>
 
       <Modal
@@ -33,7 +36,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ content }) => {
       >
         <Card className={classes.modalCard}>
           <Typography id="modal-modal-title" variant="h6">
-            Operating System Info
+            {title}
           </Typography>
           <Typography id="modal-modal-description">
             <pre>{content}</pre>

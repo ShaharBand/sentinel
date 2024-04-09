@@ -5,9 +5,10 @@ import { getClasses } from "./style";
 import { NavBar } from "../../components/NavBar/NavBar";
 import { TopBar } from "../../components/TopBar/TopBar";
 import { ContentContainer } from "../../components/ContentContainer/ContentContainer";
-import { DeviceDesciptionCard } from "../../components/DeviceDesciptionCard/DeviceDesciptionCard";
-import DeviceOSCard from "../../components/DeviceOSCard/DeviceOSCard";
-import DevicePerformanceCard from "../../components/DevicePerformanceCard/DevicePerformanceCard";
+import { DeviceDesciptionCard } from "../../components/Devices/DeviceDesciptionCard/DeviceDesciptionCard";
+import DeviceOSCard from "../../components/Devices/DeviceOSCard/DeviceOSCard";
+import DevicePerformanceCard from "../../components/Devices/DevicePerformanceCard/DevicePerformanceCard";
+import DeviceNetworkCard from "../../components/Devices/DeviceNetworkCard/DeviceNetworkCard";
 
 export const DeviceDetailPage: FC = () => {
   const theme = useTheme();
@@ -21,12 +22,11 @@ export const DeviceDetailPage: FC = () => {
         <Stack direction="row" className={classes.layoutStack}>
           <DeviceDesciptionCard />
           <DeviceOSCard />
+          <DevicePerformanceCard />
         </Stack>
         <Stack direction="row" className={classes.layoutStack}>
-          <DevicePerformanceCard />
-          <DevicePerformanceCard />
-          <DevicePerformanceCard />
-          <DevicePerformanceCard />
+          <DeviceNetworkCard />
+          <DeviceNetworkCard />
         </Stack>
       </ContentContainer>
     </Box>

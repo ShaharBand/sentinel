@@ -8,7 +8,6 @@ export const getClasses = (theme: Theme) => ({
     backgroundColor: theme.palette.secondary.main,
     borderRadius: "0.5rem",
     padding: "10px 20px 10px 20px",
-    height: "calc((80vh -40px - 8rem)/3)",
   }),
   contentBox: css({
     display: "flex",

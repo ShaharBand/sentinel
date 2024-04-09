@@ -12,10 +12,10 @@ import NetworkPingRoundedIcon from "@mui/icons-material/NetworkPingRounded";
 import LeakAddRoundedIcon from "@mui/icons-material/LeakAddRounded";
 import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
 import TaskIcon from "@mui/icons-material/Task";
-import { ReportCard } from "../../components/ReportCard/ReportCard";
-import { DevicesTable } from "../../components/DevicesTable/DevicesTable";
-import DeviceOSPieChart from "../../components/DeviceOSPieChart/DeviceOSPieChart";
-import DeviceCoverageGraph from "../../components/DeviceCoverageGraph/DeviceCoverageGraph";
+import { ReportCard } from "../../components/Devices/ReportCard/ReportCard";
+import { DevicesTable } from "../../components/Devices/DevicesTable/DevicesTable";
+import DeviceOSPieChart from "../../components/Devices/DeviceOSPieChart/DeviceOSPieChart";
+import DeviceCoverageGraph from "../../components/Devices/DeviceCoverageGraph/DeviceCoverageGraph";
 
 export const DevicesPage: FC = () => {
   const theme = useTheme();
