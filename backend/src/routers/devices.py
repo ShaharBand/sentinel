@@ -11,8 +11,7 @@ if not TYPE_CHECKING:
 
 
 router = APIRouter(prefix="/devices",
-                   tags=["devices"],
-                   responses={404: {"description": "Not found"}})
+                   tags=["devices"])
 device_controller = DeviceController()
 
 

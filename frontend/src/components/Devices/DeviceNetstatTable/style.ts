@@ -13,7 +13,7 @@ export const getClasses = (theme: Theme) => ({
   }),
   tableContainer: css({
     overflowY: "auto",
-    maxHeight: "25rem",
+    maxHeight: "43vh",
   }),
   tableHeader: css({ background: theme.palette.primary.light }),
 });

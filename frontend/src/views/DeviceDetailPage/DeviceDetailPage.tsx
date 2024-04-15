@@ -8,7 +8,8 @@ import { ContentContainer } from "../../components/ContentContainer/ContentConta
 import { DeviceDesciptionCard } from "../../components/Devices/DeviceDesciptionCard/DeviceDesciptionCard";
 import DeviceOSCard from "../../components/Devices/DeviceOSCard/DeviceOSCard";
 import DevicePerformanceCard from "../../components/Devices/DevicePerformanceCard/DevicePerformanceCard";
-import DeviceNetworkCard from "../../components/Devices/DeviceNetworkCard/DeviceNetworkCard";
+import DeviceTapsCard from "../../components/Devices/DeviceTapsCard/DeviceTapsCard";
+import DeviceAgentTapsCard from "../../components/Devices/DeviceAgentTapsCard/DeviceAgentTapsCard";
 
 export const DeviceDetailPage: FC = () => {
   const theme = useTheme();
@@ -25,8 +26,8 @@ export const DeviceDetailPage: FC = () => {
           <DevicePerformanceCard />
         </Stack>
         <Stack direction="row" className={classes.layoutStack}>
-          <DeviceNetworkCard />
-          <DeviceNetworkCard />
+          <DeviceTapsCard />
+          <DeviceAgentTapsCard />
         </Stack>
       </ContentContainer>
     </Box>

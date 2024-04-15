@@ -9,7 +9,7 @@ export const getClasses = (theme: Theme) => ({
     padding: "10px 20px 10px 20px",
     width: "50%",
     display: "flex",
-    height: "100%",
+    height: "50vh",
   }),
   TabsContainer: css({
     "& .MuiTabs-indicator": {

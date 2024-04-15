@@ -19,10 +19,12 @@ app = FastAPI(root_path="/api",
               title=app_metadata.NAME,
               description=app_metadata.DESCRIPTION,
               version=app_metadata.VERSION,
-              lifespan=lifespan)
+              lifespan=lifespan,
+              responses={404: {"description": "Not found"}})
 
 app.include_router(users_router)
 app.include_router(devices_router)
+app.include_router(statistics_router)
 
 
 def run_server():

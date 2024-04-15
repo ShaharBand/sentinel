@@ -6,8 +6,7 @@ if not TYPE_CHECKING:
     from src.dal.entities.user import User
 
 router = APIRouter(prefix="/users",
-                   tags=["users"],
-                   responses={404: {"description": "Not found"}})
+                   tags=["users"])
 
 
 @router.get("/")
