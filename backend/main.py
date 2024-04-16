@@ -1,11 +1,13 @@
 from contextlib import asynccontextmanager
 
-import uvicorn
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.config.manager import ConfigManager
 from src.middleware.db import init_db
-from src.routers import *
+from src.routers.users import router as users_router
+from src.routers.devices import router as devices_router
+from src.routers.statistics import router as statistics_router
 
 
 @asynccontextmanager
@@ -14,6 +16,7 @@ async def lifespan(app: FastAPI):
     yield
 
 app_metadata = ConfigManager.get_metadata()
+app_config = ConfigManager.get_app_config()
 
 app = FastAPI(root_path="/api",
               title=app_metadata.NAME,
@@ -22,19 +25,14 @@ app = FastAPI(root_path="/api",
               lifespan=lifespan,
               responses={404: {"description": "Not found"}})
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=app_config.allowed_origins,
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
+)
+
 app.include_router(users_router)
 app.include_router(devices_router)
 app.include_router(statistics_router)
-
-
-def run_server():
-    app_config = ConfigManager.get_app_config()
-    uvicorn.run("main:app",
-                reload=False,
-                host=app_config.ip,
-                port=app_config.port,
-                workers=app_config.workers)
-
-
-if __name__ == "__main__":
-    run_server()

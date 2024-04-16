@@ -2,7 +2,6 @@ import useSWR from "swr";
 import { Card, Stack, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 import { BarChart } from "@mui/x-charts";
-import { Key } from "react";
 
 const fetcher = async (url: string, ...args: RequestInit[]): Promise<any> => {
   const response = await fetch(url, ...args);
@@ -20,25 +19,32 @@ const DeviceCoverageGraph: React.FC = () => {
     data: chartData,
     error,
     isValidating,
-  } = useSWR("https://restcountries.com/v2/all", fetcher);
+  } = useSWR(
+    "http://localhost:5000/api/statistics/devices/security-software-coverage",
+    fetcher
+  );
 
-  if (error) return <div className="failed">failed to load</div>;
+  if (error) return <div className="failed">{error.toString()}</div>;
   if (isValidating) return <div className="Loading">Loading...</div>;
 
   return (
     <Card className={classes.chartBox}>
-      z
-      <div>
-        {chartData &&
-          chartData.map(
-            (
-              country: { flags: { png: string | undefined } },
-              index: Key | null | undefined
-            ) => (
-              <img key={index} src={country.flags.png} alt="flag" width={100} />
-            )
-          )}
-      </div>
+      <Typography variant="h6" className={classes.chartTitle}>
+        Coverage Distribution
+      </Typography>
+      <Stack className={classes.chartContainer}>
+        {chartData && (
+          <BarChart
+            series={[{ data: chartData.values }]}
+            xAxis={[
+              {
+                scaleType: "band",
+                data: chartData.labels,
+              },
+            ]}
+          />
+        )}
+      </Stack>
     </Card>
   );
 };
