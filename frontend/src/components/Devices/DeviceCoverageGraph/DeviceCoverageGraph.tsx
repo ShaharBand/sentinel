@@ -2,6 +2,7 @@ import useSWR from "swr";
 import { Card, Stack, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 import { BarChart } from "@mui/x-charts";
+import ErrorIcon from "@mui/icons-material/Error";
 
 const fetcher = async (url: string, ...args: RequestInit[]): Promise<any> => {
   const response = await fetch(url, ...args);
@@ -24,17 +25,16 @@ const DeviceCoverageGraph: React.FC = () => {
     fetcher
   );
 
-  if (error) return <div className="failed">{error.toString()}</div>;
-  if (isValidating) return <div className="Loading">Loading...</div>;
-
   return (
     <Card className={classes.chartBox}>
       <Typography variant="h6" className={classes.chartTitle}>
         Coverage Distribution
       </Typography>
       <Stack className={classes.chartContainer}>
-        {chartData && (
-          <BarChart
+        {error && <>{error.toString()}</>}
+        {isValidating && <>Loading...</>}
+        {!error && !isValidating && chartData && (
+          /*<BarChart
             series={[{ data: chartData.values }]}
             xAxis={[
               {
@@ -42,7 +42,14 @@ const DeviceCoverageGraph: React.FC = () => {
                 data: chartData.labels,
               },
             ]}
-          />
+          />*/
+          <>
+            {Object.entries(chartData).map(([software, coverage], index) => (
+              <Typography key={index}>
+                {software}: {coverage}
+              </Typography>
+            ))}
+          </>
         )}
       </Stack>
     </Card>

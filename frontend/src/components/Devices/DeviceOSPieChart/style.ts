@@ -7,9 +7,9 @@ export const getClasses = (theme: Theme) => ({
     borderRadius: "0.5rem",
     height: "calc((80vh - 40px - 8rem)/2)",
     marginLeft: "20px",
+    padding: "10px 20px 10px 20px",
   }),
   chartTitle: css({
-    padding: "10px 20px 10px 20px",
-    marginBottom: "-40px",
+    marginBottom: "-20px",
   }),
 });
