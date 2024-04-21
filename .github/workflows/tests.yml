@@ -28,7 +28,7 @@ jobs:
     steps:
       - name: Trigger MongoDB Setup
         if: runner.os == 'Windows'
-        shell: bash
+        shell: pwsh
         run: |
           # For Windows, use PowerShell's Invoke-RestMethod
           $body = @{
@@ -40,8 +40,9 @@ jobs:
                   DB_PASSWORD = "${env:DB_PASSWORD}"
                   DB_NAME = "${env:DB_NAME}"
               }
-          } | ConvertTo-Json
-          Invoke-RestMethod -Uri "https://api.github.com/repos/${env:OWNER}/${env:REPO}/dispatches" -Method Post -Headers @{ "Authorization" = "token ${env:PAT}"; "Accept" = "application/vnd.github.everest-preview+json"; "Content-Type" = "application/json" } -Body $body
+          }
+          $jsonBody = $body | ConvertTo-Json
+          Invoke-RestMethod -Uri "https://api.github.com/repos/${env:OWNER}/${env:REPO}/dispatches" -Method Post -Headers @{ "Authorization" = "token ${env:PAT}"; "Accept" = "application/vnd.github.everest-preview+json"; "Content-Type" = "application/json" } -Body $jsonBody
           
         env:
           OWNER: ${{ github.repository_owner }}
