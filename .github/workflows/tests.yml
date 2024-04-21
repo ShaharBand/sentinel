@@ -60,6 +60,7 @@ jobs:
               pwd: "$DB_PASSWORD",
               roles: ["readWrite"]
             })
+            db.createCollection('Device');
           EOF
 
       - name: Checkout repo
