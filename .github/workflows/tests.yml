@@ -20,7 +20,24 @@ jobs:
     runs-on: ${{ matrix.platform }}
     timeout-minutes: 20
 
+    env:
+      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
+
     steps:
+      - name: Trigger MongoDB Setup
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT }} 
+          repository: ${{ github.repository }}
+          event-type: setup-mongodb
+
+      - name: Wait for MongoDB setup completion
+        run: sleep 30
+ 
       # Checkout the latest code from the repo
       - name: Checkout repo
         uses: actions/checkout@v3
