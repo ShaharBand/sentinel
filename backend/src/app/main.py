@@ -15,8 +15,9 @@ async def lifespan(app: FastAPI):
     await init_db()
     yield
 
-app_metadata = ConfigManager.get_metadata()
-app_config = ConfigManager.get_app_config()
+config_manager = ConfigManager()
+app_metadata = config_manager.get_metadata()
+app_config = config_manager.get_app_config()
 
 app = FastAPI(root_path="/api",
               title=app_metadata.NAME,
