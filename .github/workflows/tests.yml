@@ -8,32 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup_mongodb:
-    name: MongoDB Setup
-    runs-on: ubuntu-latest
-
-    env:
-      DB_PORT: ${{ secrets.DB_PORT }}
-      DB_USERNAME: ${{ secrets.DB_USERNAME }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-
-    steps:
-      - name: MongoDB Setup
-        run: |
-          docker run -d --rm --name mongodb -p $DB_PORT:27017 \
-            -e MONGO_INITDB_ROOT_USERNAME=$DB_USERNAME \
-            -e MONGO_INITDB_ROOT_PASSWORD=$DB_PASSWORD \
-            mongo
-
-          echo "Waiting for MongoDB to start"
-          sleep 10
-          docker ps -a
-
-          # Create database and user
-          docker exec mongodb mongo admin --eval "db.createUser({user: '$DB_USERNAME', pwd: '$DB_PASSWORD', roles: ['readWrite']})"
-          docker exec mongodb mongo $DB_NAME --eval "db.createUser({user: '$DB_USERNAME', pwd: '$DB_PASSWORD', roles: ['readWrite']})"
-
   test:
     name: Run Tests
     strategy:
@@ -52,9 +26,38 @@ jobs:
       DB_NAME: ${{ secrets.DB_NAME }}
       PAT: ${{ secrets.PAT }}
 
-    needs: setup_mongodb 
+    services:
+      mongodb:
+        image: mongo:latest
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: admin
+          MONGO_INITDB_DATABASE: ${{ secrets.DB_NAME }}
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
+      - name: Install Mongosh
+        run: |
+          sudo apt-get install gnupg
+          wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-7.0.asc
+          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+          sudo apt-get update
+          sudo apt-get install -y mongodb-mongosh
+          mongosh --version
+
+      - name: Initialize MongoDB
+        run: |
+          mongosh --host $DB_HOST:$DB_PORT -u admin -p admin --authenticationDatabase admin <<EOF
+            db = db.getSiblingDB('${DB_NAME}');
+            db.createUser({ user: '${DB_USERNAME}', pwd: '${DB_PASSWORD}', roles: [{ role: 'readWrite', db: '${DB_NAME}' }] });
+          EOF
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
