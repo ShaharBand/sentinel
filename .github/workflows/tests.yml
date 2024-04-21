@@ -32,10 +32,10 @@ jobs:
       - name: Set up MongoDB CLI
         uses: supercharge/mongodb-github-action@1.10.0
         with:           
-            mongodb-username: ${{ secrets.DB_USERNAME }}
-            mongodb-password: ${{ secrets.DB_PASSWORD }} 
-            mongodb-db: ${{ secrets.DB_NAME }}
-            mongodb-port: ${{ secrets.DB_PORT }}
+            mongodb-username: ${{ env.DB_USERNAME }}
+            mongodb-password: ${{ env.DB_PASSWORD }} 
+            mongodb-db: ${{ env.DB_NAME }}
+            mongodb-port: ${{ env.DB_PORT }}
             mongodb-uri: mongodb://${{ env.DB_USERNAME }}:${{ env.DB_PASSWORD }}@${{ env.DB_HOST }}:${{ env.DB_PORT }}/${{ env.DB_NAME }}
 
       - name: Checkout repo
