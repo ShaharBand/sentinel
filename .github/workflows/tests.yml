@@ -10,11 +10,12 @@ on:
 jobs:
   test:
     name: Run Tests
-    runs-on: ubuntu-latest
     strategy:
       matrix:
+        platform: [ ubuntu-latest ]
         python-version: [ '3.10', '3.11', '3.12' ]
-
+ 
+    runs-on: ${{ matrix.platform }}
     timeout-minutes: 20
 
     env:
@@ -27,14 +28,18 @@ jobs:
 
     services:
       mongodb:
-        image: mongo:4.4.6
+        image: mongo:latest
         env:
           MONGO_INITDB_ROOT_USERNAME: admin
           MONGO_INITDB_ROOT_PASSWORD: admin
           MONGO_INITDB_DATABASE: ${{ secrets.DB_NAME }}
         ports:
           - 27017:27017
-        options: --health-cmd "mongo --eval \"db.stats().ok\"" --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Install Mongosh
@@ -49,15 +54,19 @@ jobs:
       - name: Initialize MongoDB
         run: |
           mongosh --host $DB_HOST:$DB_PORT -u admin -p admin --authenticationDatabase admin <<EOF
-            db = db.getSiblingDB('${DB_NAME}');
-            db.createUser({ user: '${DB_USERNAME}', pwd: '${DB_PASSWORD}', roles: [{ role: 'readWrite', db: '${DB_NAME}' }] });
+            use $DB_NAME
+            db.createUser({
+              user: "$DB_USERNAME",
+              pwd: "$DB_PASSWORD",
+              roles: ["readWrite"]
+            })
           EOF
 
       - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set Up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
