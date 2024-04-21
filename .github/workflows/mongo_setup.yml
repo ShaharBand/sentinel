@@ -1,4 +1,4 @@
-name: MongoDB Setup
+name: mongodb setup
 
 on:
   repository_dispatch:
