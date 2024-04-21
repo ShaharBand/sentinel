@@ -16,13 +16,22 @@ jobs:
       DB_PORT: ${{ secrets.DB_PORT }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}
 
     steps:
       - name: MongoDB Setup
         run: |
-          docker run -d -p $DB_PORT:27017 --name mongodb mongo:latest
+          docker run -d --rm --name mongodb -p $DB_PORT:27017 \
+            -e MONGO_INITDB_ROOT_USERNAME=$DB_USERNAME \
+            -e MONGO_INITDB_ROOT_PASSWORD=$DB_PASSWORD \
+            mongo:latest
           echo "Waiting for MongoDB to start"
+          sleep 10
           docker ps -a
+
+          # Create database and user
+          docker exec mongodb mongo admin --eval "db.createUser({user: '$DB_USERNAME', pwd: '$DB_PASSWORD', roles: ['readWrite']})"
+          docker exec mongodb mongo $DB_NAME --eval "db.createUser({user: '$DB_USERNAME', pwd: '$DB_PASSWORD', roles: ['readWrite']})"
 
   test:
     name: Run Tests
@@ -40,9 +49,9 @@ jobs:
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }}
-      PAT: ${{ secrets.PAT }} # Ensure the PAT is accessible here
+      PAT: ${{ secrets.PAT }}
 
-    needs: setup_mongodb # Ensure MongoDB setup is complete before running tests
+    needs: setup_mongodb 
 
     steps:
       - name: Checkout repo
