@@ -15,9 +15,9 @@ DEVICE_NAME_TO_TYPE = {
 class DeviceFactory:
     @staticmethod
     def create_device(device_data: dict) -> Device:
-        os_type = device_data.pop('os_type').lower()
+        os_type = device_data.get('os_type').lower()
         if os_type in DEVICE_NAME_TO_TYPE:
-            device = DEVICE_NAME_TO_TYPE[os_type](**device_data)
+            device = DEVICE_NAME_TO_TYPE.get(os_type)(**device_data)
             return device
         return Device(**device_data)
 
