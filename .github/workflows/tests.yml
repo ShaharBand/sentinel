@@ -41,9 +41,9 @@ jobs:
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }}
-      PAT: ${{ secrets.PAT }} # Ensure the PAT is accessible here
+      PAT: ${{ secrets.PAT }} 
 
-    needs: setup_mongodb # Ensure MongoDB setup is complete before running tests
+    needs: setup_mongodb 
 
     steps:
       - name: Checkout repo
