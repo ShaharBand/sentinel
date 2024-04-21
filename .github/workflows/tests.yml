@@ -11,23 +11,15 @@ jobs:
   setup_mongodb:
     name: MongoDB Setup
     runs-on: ubuntu-latest
-
-    env:
-      DB_HOST: ${{ secrets.DB_HOST }}
-      DB_PORT: ${{ secrets.DB_PORT }}
-      DB_USERNAME: ${{ secrets.DB_USERNAME }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      PAT: ${{ secrets.PAT }}
-        
+         
     services:
       mongodb:
         image: mongo:latest
         ports:
-          - ${{ env.DB_PORT }}:27017
+          - "${{ secrets.DB_PORT }}:27017"
         env:
-          MONGO_INITDB_ROOT_USERNAME: ${{ env.DB_USERNAME }}
-          MONGO_INITDB_ROOT_PASSWORD: ${{ env.DB_PASSWORD }}
+          MONGO_INITDB_ROOT_USERNAME: "${{ secrets.DB_USERNAME }}"
+          MONGO_INITDB_ROOT_PASSWORD: "${{ secrets.DB_PASSWORD }}"
 
     steps:
       - name: MongoDB Setup
