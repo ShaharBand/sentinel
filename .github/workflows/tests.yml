@@ -11,15 +11,20 @@ jobs:
   setup_mongodb:
     name: MongoDB Setup
     runs-on: ubuntu-latest
-         
+
+    env:
+      DB_PORT: ${{ secrets.DB_PORT }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
     services:
       mongodb:
         image: mongo:latest
         ports:
-          - "${{ secrets.DB_PORT }}:27017"
+          - ${{ env.DB_PORT }}:27017
         env:
-          MONGO_INITDB_ROOT_USERNAME: "${{ secrets.DB_USERNAME }}"
-          MONGO_INITDB_ROOT_PASSWORD: "${{ secrets.DB_PASSWORD }}"
+          MONGO_INITDB_ROOT_USERNAME: ${{ env.DB_USERNAME }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ env.DB_PASSWORD }}
 
     steps:
       - name: MongoDB Setup
@@ -37,13 +42,12 @@ jobs:
 
     env:
       DB_HOST: localhost
-      DB_PORT: ${{ secrets.DB_PORT }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }}
-      PAT: ${{ secrets.PAT }} 
+      PAT: ${{ secrets.PAT }} # Ensure the PAT is accessible here
 
-    needs: setup_mongodb 
+    needs: setup_mongodb # Ensure MongoDB setup is complete before running tests
 
     steps:
       - name: Checkout repo
