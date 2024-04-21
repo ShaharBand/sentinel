@@ -26,6 +26,7 @@ jobs:
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }}
+      PAT: ${{ secrets.PAT }} # Ensure the PAT is accessible here
 
     steps:
       - name: Trigger MongoDB Setup
@@ -34,10 +35,15 @@ jobs:
           token: ${{ secrets.PAT }} 
           repository: ${{ github.repository }}
           event-type: setup-mongodb
+        # Debug statement
+        env:
+          DEBUG: "true"
 
       - name: Wait for MongoDB setup completion
         run: sleep 30
- 
+        # Debug statement
+        if: env.DEBUG == 'true'
+
       # Checkout the latest code from the repo
       - name: Checkout repo
         uses: actions/checkout@v3
