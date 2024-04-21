@@ -1,4 +1,3 @@
-# This workflow runs the tests and linters
 name: tests
 
 on:
@@ -6,8 +5,7 @@ on:
     branches: [ "*" ]
   pull_request:
     branches: [ "*" ]
-
-  # Allows you to run this workflow manually from the Actions tab
+ 
   workflow_dispatch:
 
 jobs:
@@ -30,31 +28,30 @@ jobs:
 
     steps:
       - name: Trigger MongoDB Setup
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT }} 
-          repository: ${{ github.repository }}
-          event-type: setup-mongodb
-        # Debug statement
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.PAT }}" \
+            -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Content-Type: application/json" \
+            https://api.github.com/repos/OWNER/REPO/dispatches \
+            --data '{"event_type": "setup-mongodb", "client_payload": {"DB_HOST": "${{ secrets.DB_HOST }}", "DB_PORT": "${{ secrets.DB_PORT }}", "DB_USERNAME": "${{ secrets.DB_USERNAME }}", "DB_PASSWORD": "${{ secrets.DB_PASSWORD }}", "DB_NAME": "${{ secrets.DB_NAME }}"}}'
         env:
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
           DEBUG: "true"
 
       - name: Wait for MongoDB setup completion
-        run: sleep 30
-        # Debug statement
         if: env.DEBUG == 'true'
-
-      # Checkout the latest code from the repo
+        run: sleep 30 
+ 
       - name: Checkout repo
         uses: actions/checkout@v3
-
-      # Setup which version of Python to use
+ 
       - name: Set Up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-        
-      # Install dependencies
+         
       - name: Install dependencies
         run: |
           cd backend/
