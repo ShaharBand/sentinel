@@ -7,7 +7,7 @@ def device_fixture():
 
 
 def test_insert_and_find_device_by_id(device_fixture):
-    #test_device = device_fixture
+    # test_device = device_fixture
 
     pass
     """
