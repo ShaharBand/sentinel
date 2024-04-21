@@ -1,4 +1,4 @@
-name: mongodb setup
+name: MongoDB Setup
 
 on:
   repository_dispatch:
@@ -12,12 +12,11 @@ jobs:
       mongodb:
         image: mongo:latest
         ports:
-          - ${{ secrets.DB_PORT }}:27017
+          - ${{ github.event.client_payload.DB_PORT }}:27017
         env:
-          MONGO_INITDB_ROOT_USERNAME: ${{ secrets.DB_USERNAME }}
-          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          MONGO_INITDB_ROOT_USERNAME: ${{ github.event.client_payload.DB_USERNAME }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ github.event.client_payload.DB_PASSWORD }}
 
     steps:
       - name: Wait for MongoDB to start
         run: docker ps -a
-
