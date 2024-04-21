@@ -32,25 +32,26 @@ jobs:
           if [ "$RUNNER_OS" == "Windows" ]; then
             # For Windows, use PowerShell's Invoke-RestMethod
             $body = @{
-              event_type = "setup-mongodb"
-              client_payload = @{
-                DB_HOST = "${env:DB_HOST}"
-                DB_PORT = "${env:DB_PORT}"
-                DB_USERNAME = "${env:DB_USERNAME}"
-                DB_PASSWORD = "${env:DB_PASSWORD}"
-                DB_NAME = "${env:DB_NAME}"
-              }
+                event_type = "setup-mongodb"
+                client_payload = @{
+                    DB_HOST = "${env:DB_HOST}"
+                    DB_PORT = "${env:DB_PORT}"
+                    DB_USERNAME = "${env:DB_USERNAME}"
+                    DB_PASSWORD = "${env:DB_PASSWORD}"
+                    DB_NAME = "${env:DB_NAME}"
+                }
             } | ConvertTo-Json
             Invoke-RestMethod -Uri "https://api.github.com/repos/${env:OWNER}/${env:REPO}/dispatches" -Method Post -Headers @{ "Authorization" = "token ${env:PAT}"; "Accept" = "application/vnd.github.everest-preview+json"; "Content-Type" = "application/json" } -Body $body
           else
             # For Ubuntu, use curl
             curl -X POST \
-              -H "Authorization: token ${{ secrets.PAT }}" \
-              -H "Accept: application/vnd.github.everest-preview+json" \
-              -H "Content-Type: application/json" \
-              https://api.github.com/repos/${{ github.repository_owner }}/${{ github.event.repository.name }}/dispatches \
-              --data '{"event_type": "setup-mongodb", "client_payload": {"DB_HOST": "${{ secrets.DB_HOST }}", "DB_PORT": "${{ secrets.DB_PORT }}", "DB_USERNAME": "${{ secrets.DB_USERNAME }}", "DB_PASSWORD": "${{ secrets.DB_PASSWORD }}", "DB_NAME": "${{ secrets.DB_NAME }}"}}'
+                -H "Authorization: token ${{ secrets.PAT }}" \
+                -H "Accept: application/vnd.github.everest-preview+json" \
+                -H "Content-Type: application/json" \
+                https://api.github.com/repos/${{ github.repository_owner }}/${{ github.event.repository.name }}/dispatches \
+                --data '{"event_type": "setup-mongodb", "client_payload": {"DB_HOST": "${{ secrets.DB_HOST }}", "DB_PORT": "${{ secrets.DB_PORT }}", "DB_USERNAME": "${{ secrets.DB_USERNAME }}", "DB_PASSWORD": "${{ secrets.DB_PASSWORD }}", "DB_NAME": "${{ secrets.DB_NAME }}"}}'
           fi
+
         env:
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
