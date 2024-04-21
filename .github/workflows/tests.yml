@@ -14,6 +14,7 @@ jobs:
       matrix:
         platform: [ ubuntu-latest ]
         python-version: [ '3.10', '3.11', '3.12' ]
+        mongodb-version: [ '4.2', '4.4', '5.0', '6.0' ]
  
     runs-on: ${{ matrix.platform }}
     timeout-minutes: 20
@@ -26,42 +27,15 @@ jobs:
       DB_NAME: ${{ secrets.DB_NAME }}
       PAT: ${{ secrets.PAT }}
 
-    services:
-      mongodb:
-        image: mongo:4.4.6
-        env:
-          MONGO_INITDB_ROOT_USERNAME: admin
-          MONGO_INITDB_ROOT_PASSWORD: admin
-          MONGO_INITDB_DATABASE: ${{ secrets.DB_NAME }}
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd mongo
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
-      - name: Install Mongosh
-        run: |
-          sudo apt-get install gnupg
-          wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-7.0.asc
-          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
-          sudo apt-get update
-          sudo apt-get install -y mongodb-mongosh
-          mongosh --version
-
-      - name: Initialize MongoDB
-        run: |
-          mongosh --host $DB_HOST:$DB_PORT -u admin -p admin --authenticationDatabase admin <<EOF
-            use $DB_NAME
-            db.createUser({
-              user: "$DB_USERNAME",
-              pwd: "$DB_PASSWORD",
-              roles: ["readWrite"]
-            })
-            db.createCollection('Device');
-          EOF
+      - name: Set up MongoDB CLI
+        uses: supercharge/mongodb-github-action@1.10.0
+        with:           
+          mongodb-username: ${{ env.DB_USERNAME }}
+          mongodb-password: ${{ env.DB_PASSWORD }} 
+          mongodb-db: ${{ env.DB_NAME }}
+          mongodb-port: ${{ env.DB_PORT }}
 
       - name: Checkout repo
         uses: actions/checkout@v3
