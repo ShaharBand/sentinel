@@ -1,0 +1,23 @@
+name: MongoDB Setup
+
+on:
+  repository_dispatch:
+    types: [setup-mongodb]
+
+jobs:
+  setup_mongodb:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - ${{ secrets.DB_PORT }}:27017
+        env:
+          MONGO_INITDB_ROOT_USERNAME: ${{ secrets.DB_USERNAME }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    steps:
+      - name: Wait for MongoDB to start
+        run: docker ps -a
+
