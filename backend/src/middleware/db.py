@@ -8,7 +8,8 @@ from src.dal.entities.device import Device
 
 async def init_db():
     db_config = ConfigManager.get_db_config()
-    db_uri = f'mongodb://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}'
+    db_uri = (f'mongodb://{db_config.DB_USERNAME}:{db_config.DB_PASSWORD}@'
+              f'{db_config.DB_HOST}:{db_config.DB_PORT}/{db_config.DB_NAME}')
 
     client = motor.motor_asyncio.AsyncIOMotorClient(
         db_uri

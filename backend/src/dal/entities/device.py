@@ -17,6 +17,3 @@ class Device(Document):
 
     def __repr__(self):
         return f'Device(id={self.id}, name={self.name}, os_type={self.os_type}, ip_address={self.ip_address})'
-
-
-

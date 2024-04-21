@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from src.dal.entities.devices import WindowsDevice
+from src.dal.entities.devices.windows import WindowsDevice
 from src.middleware.db import init_db
 from src.models.device import DeviceModel
 

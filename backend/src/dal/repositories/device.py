@@ -1,14 +1,15 @@
 from typing import TYPE_CHECKING
 
 from src.dal.entities.device import Device
-import src.dal.entities.devices as devices
+from src.dal.entities.devices.windows import WindowsDevice
+from src.dal.entities.devices.linux import LinuxDevice
 
 if not TYPE_CHECKING:
     from beanie import PydanticObjectId
 
 DEVICE_NAME_TO_TYPE = {
-    "windows": devices.WindowsDevice,
-    "linux": devices.LinuxDevice,
+    "windows": WindowsDevice,
+    "linux": LinuxDevice,
 }
 
 
