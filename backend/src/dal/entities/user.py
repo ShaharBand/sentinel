@@ -1,15 +1,12 @@
 from datetime import datetime
 
 from beanie import Document
-from pydantic import StrictStr, SecretStr, IPvAnyAddress
+from pydantic import StrictStr
 
 
 class User(Document):
     username: StrictStr
-    password: SecretStr
-    first_name: StrictStr
-    last_name: StrictStr
-    last_used_ip: IPvAnyAddress
+    hashed_password: StrictStr
     last_seen: datetime
     registration_date: datetime
 

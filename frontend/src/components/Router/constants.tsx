@@ -1,5 +1,6 @@
 import { DeviceDetailPage } from "../../views/DeviceDetailPage";
 import { DevicesPage } from "../../views/DevicesPage";
+import { LoginPage } from "../../views/LoginPage/LoginPage";
 
 export const PAGES = {
   home: {
@@ -25,5 +26,9 @@ export const PAGES = {
   deviceDetail: {
     path: "devices/:id",
     element: <DeviceDetailPage />,
+  },
+  login: {
+    path: "login/",
+    element: <LoginPage />,
   },
 };

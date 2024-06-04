@@ -1,9 +1,6 @@
-from typing import TYPE_CHECKING
+from beanie import PydanticObjectId
 
 from src.dal.entities.user import User
-
-if TYPE_CHECKING:
-    from beanie import PydanticObjectId
 
 
 class UserRepository:
@@ -12,6 +9,10 @@ class UserRepository:
         new_user = User(**user_data)
         await new_user.insert()
         return new_user
+
+    @staticmethod
+    async def get_all_users() -> list[User]:
+        return await User.find().to_list()
 
     @staticmethod
     async def get_user_by_username(username: str) -> User:
@@ -24,12 +25,11 @@ class UserRepository:
         return user
 
     @staticmethod
-    async def update_user_password(user: User, new_password: str) -> bool:
+    async def update_user_password(user: User, new_password: str) -> None:
         user.password = new_password
         await user.update()
-        return True
 
     @staticmethod
-    async def delete_user(user: User) -> bool:
+    async def delete_user(user: User) -> None:
         await user.delete()
-        return True
+

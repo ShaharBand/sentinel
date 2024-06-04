@@ -6,7 +6,7 @@ from src.config.manager import ConfigManager
 def run_server():
     app_config = ConfigManager.get_app_config()
     uvicorn.run("main:app",
-                reload=False,
+                reload=False,  # TODO: environment test/integration = true
                 host=app_config.ip,
                 port=app_config.port,
                 workers=app_config.workers)

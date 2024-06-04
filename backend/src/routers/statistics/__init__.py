@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from .devices import router as devices_statistics_router
+from .device import router as devices_statistics_router
 
 router = APIRouter(prefix="/statistics",
                    tags=["statistics"])

@@ -5,8 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.config.manager import ConfigManager
 from src.middleware.db import init_db
-from src.routers.users import router as users_router
-from src.routers.devices import router as devices_router
+from src.routers.user import router as users_router
+from src.routers.device import router as devices_router
 from src.routers.statistics import router as statistics_router
 
 

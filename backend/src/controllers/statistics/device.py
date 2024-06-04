@@ -1,16 +1,15 @@
-# TODO: statistics collection with a dal and model to save on expensive calculations
+# TODO: statistics collection with a 24h cache
 from src.models.device import DeviceModel
 
 
-class DevicesStatisticsController:
-    def __init__(self):
-        self.device_model = DeviceModel()
-
-    async def get_devices_count(self) -> int:
-        devices = await self.device_model.get_all_devices()
+class DeviceStatisticsController:
+    @staticmethod
+    async def get_devices_count() -> int:
+        devices = await DeviceModel.get_all_devices()
         return len(devices)
 
-    def get_os_distribution(self) -> dict:
+    @staticmethod
+    def get_os_distribution() -> dict:
         # TODO: collect real data
         os_distribution = {
             "windows": 100,
@@ -19,7 +18,8 @@ class DevicesStatisticsController:
         }
         return os_distribution
 
-    def get_security_software_coverage(self) -> dict:
+    @staticmethod
+    def get_security_software_coverage() -> dict:
         # TODO: collect real data
         security_software_coverage = {
             "sentinel": 1200,
