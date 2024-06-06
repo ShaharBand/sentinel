@@ -75,10 +75,16 @@ npm install
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
-
 **4. Modify the configuration settings:**
 
-Update the configuration settings in `app.py` `db.py` located in the backend `config` directory.
+**Environment Variables**
+To configure the application, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
+
+The application supports different environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, located within the backend config directory.
+
+Each configuration has its respective environment file named as follows: `.env.app`, `.env.db`, `.env.metadata`.
+The system will check for corresponding production files such as `.env.app.prod` to determine if the environment is a production environment. This allows for overriding of normal settings and the setup of workers as necessary.
+
 <br><br>
 
 **5. Run Backend**
@@ -89,7 +95,7 @@ In the `backend` directory, run the FastAPI backend using the following command:
 python src/app/run.py
 ```
 
-* There is also Dockerfile in the backend directory if you want to try running it through Docker. 
+- There is also **Dockerfile** in the `backend` directory if you want to try running it through Docker.
 
 <br>
 
