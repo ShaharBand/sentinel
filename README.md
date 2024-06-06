@@ -75,9 +75,10 @@ npm install
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
+
 **4. Modify the configuration settings:**
 
-Update the configuration settings in `config.py` located in the backend directory.
+Update the configuration settings in `app.py` `db.py` located in the backend `config` directory.
 <br><br>
 
 **5. Run Backend**
@@ -85,8 +86,10 @@ Update the configuration settings in `config.py` located in the backend director
 In the `backend` directory, run the FastAPI backend using the following command:
 
 ```commandline
-python main.py
+python app/run.py
 ```
+
+* There is also Dockerfile in the backend directory if you want to try running it through Docker. 
 
 <br>
 
