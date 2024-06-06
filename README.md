@@ -86,7 +86,7 @@ Update the configuration settings in `app.py` `db.py` located in the backend `co
 In the `backend` directory, run the FastAPI backend using the following command:
 
 ```commandline
-python app/run.py
+python src/app/run.py
 ```
 
 * There is also Dockerfile in the backend directory if you want to try running it through Docker. 
