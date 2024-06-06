@@ -1,28 +1,22 @@
 from functools import lru_cache
 
 from src.config.app import AppConfig
-from src.config.db import IntegrationDBConfig, ProductionDBConfig, DBConfig
-from src.config.environment import Environment
+from src.config.db import DBConfig
 from src.config.metadata import Metadata
-
-ENVIRONMENT_TO_DB_CONFIG = {
-    Environment.integration: IntegrationDBConfig(),
-    Environment.production: ProductionDBConfig(),
-}
 
 
 class ConfigManager:
-    @classmethod
+    @staticmethod
     @lru_cache(maxsize=1)
-    def get_app_config(cls) -> AppConfig:
+    def get_app_config() -> AppConfig:
         return AppConfig()
 
-    @classmethod
+    @staticmethod
     @lru_cache(maxsize=1)
-    def get_db_config(cls) -> DBConfig:
-        return ENVIRONMENT_TO_DB_CONFIG.get(cls.get_app_config().environment)
+    def get_db_config() -> DBConfig:
+        return DBConfig()
 
-    @classmethod
+    @staticmethod
     @lru_cache(maxsize=1)
-    def get_metadata(cls) -> Metadata:
+    def get_metadata() -> Metadata:
         return Metadata()
