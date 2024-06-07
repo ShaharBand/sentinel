@@ -66,7 +66,11 @@ The code checks for the `APP_ENVIRONMENT` environment variable to determine if t
 
 **Docker Integration**
 
-If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
+If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. 
+
+This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. 
+
+You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
 <br><br>
 
 ### 3. Running the Backend
@@ -86,7 +90,7 @@ Run the FastAPI backend:
 python src/app/run.py
 ```
 
-<br><br>
+<br>
 
 **Option 2: Docker Compose** 
 
