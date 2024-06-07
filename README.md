@@ -40,7 +40,7 @@ Agents Implementation: not implemented yet.
 
 ## 🌱 Getting Started:
 
-**1. Clone the repository:**
+### 1. Clone the repository:
 
 ```commandline
 https://github.com/ShaharBand/Sentinel.git
@@ -48,18 +48,57 @@ https://github.com/ShaharBand/Sentinel.git
 
 <br>
 
-**2. Install Backend Dependencies:**
+### 2. Backend Configuration:
+
+To configure the application backend, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
+<br><br>
+
+
+**Environment Settings:**
+
+The application supports different environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, located within the backend `config` directory.
+
+Each configuration has its respective environment file named as follows: 
+`.env.app`, `.env.db`, `.env.metadata`.
+<br><br>
+The code checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
+<br><br>
+
+**Docker Integration**
+
+If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
+<br><br>
+
+### 3. Running the Backend
+
+You have two options to run the FastAPI backend:
+<br><br>
+
+**Option 1: Python Run**
 
 Navigate to the `backend` directory and install the backend dependencies using the following command:
+```commandline
+pip install -r requirements.txt
+```
+
+Run the FastAPI backend:
+```commandline
+python src/app/run.py
+```
+
+<br><br>
+
+**Option 2: Docker Compose** 
+
+If you prefer using Docker, you can run the application with Docker Compose. Ensure you have Docker installed on your system.
 
 ```commandline
-cd backend
-pip install -r requirements.txt
+docker-compose up --build
 ```
 
 <br>
 
-**3. Install Frontend Dependencies:**
+### 4. Install Frontend Dependencies: 
 
 Before installing the Node Package Manager (NPM), you need to install Node.js.
 You can download the latest version of Node.js from the official Node.js website.
@@ -75,40 +114,7 @@ npm install
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
-**4. Modify the Configuration with Environment Variables:**
-
-To configure the application, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
-
-**Environment Settings:**
-The application supports different environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, located within the backend `config` directory.
-
-Each configuration has its respective environment file named as follows: `.env.app`, `.env.db`, `.env.metadata`.
-
-**Production Environment Setup:**
-The system checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
-
-**Docker Integration**
-If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
-<br><br>
-
-**5. Run Backend**
-You have two options to run the FastAPI backend:
-
-In the `backend` directory, run the FastAPI backend using the following command:
-
-```commandline
-python src/app/run.py
-```
-
-Alternatively, if you prefer using Docker, you can use Docker Compose to run the application. Ensure you have Docker installed on your system.
-
-```commandline
-docker-compose up --build
-```
-
-<br>
-
-**6. Run Frontend:**
+### 5. Run Frontend: 
 
 In the `frontend` directory, run the Vite.js frontend using the following command:
 
