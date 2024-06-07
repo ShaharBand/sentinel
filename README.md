@@ -75,18 +75,24 @@ npm install
 This command installs the necessary Node.js packages specified in your project's `package.json` file.
 <br><br>
 
-**4. Modify the configuration settings:**
+**4. Modify the Configuration with Environment Variables:**
 
-**Environment Variables**: 
 To configure the application, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
 
-The application supports different environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, located within the backend config directory.
+**Environment Settings:**
+The application supports different environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, located within the backend `config` directory.
 
 Each configuration has its respective environment file named as follows: `.env.app`, `.env.db`, `.env.metadata`.
-The system will check for corresponding production files such as `.env.app.prod` to determine if the environment is a production environment. This allows for overriding of normal settings and the setup of workers as necessary.
+
+**Production Environment Setup:**
+The system checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
+
+**Docker Integration**
+If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
 <br><br>
 
 **5. Run Backend**
+You have two options to run the FastAPI backend:
 
 In the `backend` directory, run the FastAPI backend using the following command:
 
@@ -94,7 +100,11 @@ In the `backend` directory, run the FastAPI backend using the following command:
 python src/app/run.py
 ```
 
-- There is also **Dockerfile** in the `backend` directory if you want to try running it through Docker.
+Alternatively, if you prefer using Docker, you can use Docker Compose to run the application. Ensure you have Docker installed on your system.
+
+```commandline
+docker-compose up --build
+```
 
 <br>
 

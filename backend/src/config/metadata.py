@@ -7,6 +7,7 @@ class Metadata(BaseSettings):
     author: str = "Shahar Band"
     version: str = "1.0.0"
 
-    model_config = SettingsConfigDict(env_file=('.env.metadata', '.env.metadata.prod'),
+    model_config = SettingsConfigDict(env_file=('.env.metadata'),
                                       env_file_encoding='utf-8',
-                                      env_prefix='metadata_')
+                                      env_prefix='metadata_',
+                                      case_sensitive=False)
