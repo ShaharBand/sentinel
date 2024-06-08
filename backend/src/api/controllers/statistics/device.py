@@ -1,5 +1,5 @@
 # TODO: statistics collection with a 24h cache
-from src.models.device import DeviceModel
+from src.api.models.device import DeviceModel
 
 
 class DeviceStatisticsController:

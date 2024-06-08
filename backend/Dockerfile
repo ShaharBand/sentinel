@@ -23,4 +23,4 @@ USER appuser
 ENV PYTHONPATH="/backend"
 EXPOSE 5000
 
-CMD ["python", "src/app/run.py"]
+CMD ["python", "src/main.py"]

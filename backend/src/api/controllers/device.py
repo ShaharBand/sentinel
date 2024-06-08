@@ -1,6 +1,6 @@
 from beanie import PydanticObjectId
 
-from src.models.device import DeviceModel
+from src.api.models.device import DeviceModel
 from src.dal.entities.device import Device
 
 

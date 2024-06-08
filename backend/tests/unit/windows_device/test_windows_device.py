@@ -2,10 +2,8 @@ import pytest
 from pydantic import ValidationError
 
 from src.dal.entities.devices.windows import WindowsDevice
-from src.middleware.db import init_db
-from src.models.device import DeviceModel
-
-from fixtures import windows_device_data, missing_required_fields_device, invalid_windows_device
+from src.core.db import init_db
+from src.api.models.device import DeviceModel
 
 
 @pytest.mark.asyncio

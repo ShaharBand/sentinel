@@ -1,9 +1,4 @@
 __pycache__/
 .idea/
 .pytest_cache/
-.env.app
-.env.db
-.env.metadata
-.env.app.prod
-.env.db.prod
-.env.metadata.prod
+.env

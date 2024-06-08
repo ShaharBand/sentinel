@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from src.controllers.auth import AuthController
-from src.controllers.user import UserController
+from src.api.controllers.auth import AuthController
+from src.api.controllers.user import UserController
 from src.dal.entities.user import User
 
 router = APIRouter(prefix="/user",

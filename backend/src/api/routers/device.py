@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from beanie import PydanticObjectId
 
-from src.controllers.device import DeviceController
+from src.api.controllers.device import DeviceController
 from src.dal.entities.device import Device
 
 

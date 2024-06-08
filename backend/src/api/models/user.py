@@ -5,7 +5,7 @@ from fastapi import HTTPException, status
 
 from src.dal.repositories.user import UserRepository
 from src.dal.entities.user import User
-from src.utils.password import hash_password
+from src.core.security.password import hash_password
 
 
 class UserModel:

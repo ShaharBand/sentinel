@@ -3,10 +3,10 @@ from datetime import timedelta
 from fastapi import HTTPException, status, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
-from src.utils.password import verify_password
-from src.middleware.token import Token, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES, \
-    oauth2_scheme, decode_jwt_token
-from src.models.user import UserModel
+from src.api.routers.auth import oauth2_scheme
+from src.core.security.password import verify_password
+from src.core.security.token import decode_jwt_token, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES, Token
+from src.api.models.user import UserModel
 from src.dal.entities.user import User
 
 
@@ -26,8 +26,8 @@ class AuthController:
 
     @staticmethod
     async def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
-        decoded_token = await decode_jwt_token(token)
-        user = await UserModel.get_user_by_username(decoded_token.username)
+        decoded_token_username = await decode_jwt_token(token)
+        user = await UserModel.get_user_by_username(decoded_token_username)
         if user is None:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                 detail=f"Authentication failed invalid credentials")

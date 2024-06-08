@@ -1,6 +1,6 @@
 from beanie import PydanticObjectId
 
-from src.models.user import UserModel
+from src.api.models.user import UserModel
 from src.dal.entities.user import User
 
 
