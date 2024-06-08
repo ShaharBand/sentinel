@@ -86,7 +86,7 @@ pip install -r requirements.txt
 
 Run the FastAPI backend:
 ```commandline
-python src/app/run.py
+python src/main.py
 ```
 
 <br>
