@@ -1,9 +1,9 @@
-from beanie import init_beanie
 import motor.motor_asyncio
+from beanie import init_beanie
 
 from src.core.config.provider import ConfigProvider
-from src.dal.entities.user import User
 from src.dal.entities.device import Device
+from src.dal.entities.user import User
 
 
 async def init_db():

@@ -3,16 +3,17 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.core.config.provider import ConfigProvider
-from src.core.db import init_db
-from src.api.routers.user import router as users_router
+from src.api.routers.auth import router as auth_router
 from src.api.routers.device import router as devices_router
 from src.api.routers.statistics import router as statistics_router
-from src.api.routers.auth import router as auth_router
+from src.api.routers.user import router as users_router
+from src.core.config.provider import ConfigProvider
+from src.core.db import init_db
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(instance: FastAPI):
+    _ = instance
     await init_db()
     yield
 

@@ -1,9 +1,9 @@
 import pytest
 from pydantic import ValidationError
 
-from src.dal.entities.devices.windows import WindowsDevice
-from src.core.db import init_db
 from src.api.models.device import DeviceModel
+from src.core.db import init_db
+from src.dal.entities.devices.windows import WindowsDevice
 
 
 @pytest.mark.asyncio

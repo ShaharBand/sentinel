@@ -3,9 +3,9 @@ from datetime import datetime
 from beanie import PydanticObjectId
 from fastapi import HTTPException, status
 
-from src.dal.repositories.user import UserRepository
-from src.dal.entities.user import User
 from src.core.security.password import hash_password
+from src.dal.entities.user import User
+from src.dal.repositories.user import UserRepository
 
 
 class UserModel:

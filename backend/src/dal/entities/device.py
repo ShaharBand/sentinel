@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from beanie import Document
-from pydantic import StrictStr, IPvAnyAddress
+from pydantic import IPvAnyAddress, StrictStr
 
 
 class Device(Document):

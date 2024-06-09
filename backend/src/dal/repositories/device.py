@@ -1,9 +1,8 @@
 from beanie import PydanticObjectId
 
 from src.dal.entities.device import Device
-from src.dal.entities.devices.windows import WindowsDevice
 from src.dal.entities.devices.linux import LinuxDevice
-
+from src.dal.entities.devices.windows import WindowsDevice
 
 DEVICE_NAME_TO_TYPE = {
     "windows": WindowsDevice,

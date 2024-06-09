@@ -1,9 +1,8 @@
-from fastapi import APIRouter
 from beanie import PydanticObjectId
+from fastapi import APIRouter
 
 from src.api.controllers.device import DeviceController
 from src.dal.entities.device import Device
-
 
 router = APIRouter(prefix="/device",
                    tags=["device"])

@@ -1,7 +1,7 @@
 from beanie import PydanticObjectId
 
-from src.dal.repositories.device import DeviceRepository
 from src.dal.entities.device import Device
+from src.dal.repositories.device import DeviceRepository
 
 
 class DeviceModel:

@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 import jwt
-from jwt import InvalidTokenError, DecodeError
+from jwt import DecodeError, InvalidTokenError
 from pydantic import BaseModel
 
 from src.core.config.provider import ConfigProvider

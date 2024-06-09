@@ -1,6 +1,6 @@
 import os
 import secrets
-from typing import Any, Annotated, Literal
+from typing import Annotated, Any, Literal
 
 from pydantic import AnyUrl, BeforeValidator
 from pydantic_settings import BaseSettings, SettingsConfigDict
