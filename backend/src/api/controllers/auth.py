@@ -1,13 +1,14 @@
 from datetime import timedelta
 
 from fastapi import HTTPException, status, Depends
-from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 
-from src.api.routers.auth import oauth2_scheme
 from src.core.security.password import verify_password
 from src.core.security.token import decode_jwt_token, create_access_token, ACCESS_TOKEN_EXPIRE_MINUTES, Token
 from src.api.models.user import UserModel
 from src.dal.entities.user import User
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token/")
 
 
 class AuthController:

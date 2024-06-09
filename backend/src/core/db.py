@@ -13,4 +13,8 @@ async def init_db():
         db_settings.MONGO_DATABASE_URI
     )
 
-    await init_beanie(database=client.db_name, document_models=[Device, User])
+    await init_beanie(database=client.db_name,
+                      document_models=[
+                          Device,
+                          User
+                      ])

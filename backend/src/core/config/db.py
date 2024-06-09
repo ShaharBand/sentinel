@@ -12,10 +12,9 @@ class DBSettings(BaseSettings):
     PORT: int = 27017
     USER: str
     PASSWORD: str
-    DATABASE: str = ""
 
     @computed_field
     @property
     def MONGO_DATABASE_URI(self) -> str:
-        uri = f"mongodb://{self.USER}:{self.PASSWORD}@{self.SERVER}:{self.PORT}/{self.DATABASE}"
+        uri = f"mongodb://{self.USER}:{self.PASSWORD}@{self.SERVER}:{self.PORT}/"
         return uri
