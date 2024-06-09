@@ -12,6 +12,7 @@ class DBSettings(BaseSettings):
     PORT: int = 27017
     USER: str
     PASSWORD: str
+    NAME: str
 
     @computed_field
     @property
