@@ -60,9 +60,7 @@ jobs:
       - name: Lint with ruff
         run: |
           cd backend/
-          ruff check . \
-            --select "E,W,F,I,B,C4,UP,ARG001" \
-            --ignore "E501,B008,W191,B904"
+          ruff check .
 
       - name: Run tests
         run: |
