@@ -63,6 +63,7 @@ https://github.com/ShaharBand/Sentinel.git
 **2. Configure**
 
 You can then update configs in the `.env` files to customize your configurations.
+
 Before deploying it, make sure you change at least the values for:
 
 - `APP_ENVIRONMENT`
