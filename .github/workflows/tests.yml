@@ -46,10 +46,9 @@ jobs:
 
       - name: Install Poetry
         run: |
-          curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
-          cd /usr/local/bin && \
-          ln -s /opt/poetry/bin/poetry && \
-          poetry config virtualenvs.create false
+            curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
+            export PATH="/opt/poetry/bin:$PATH" && \
+            poetry config virtualenvs.create false
 
       - name: Install dependencies
         run: |
@@ -59,7 +58,7 @@ jobs:
       - name: Lint with ruff
         run: |
           cd backend/
-          ruff lint
+          ruff check .
             --select "E,W,F,I,B,C4,UP,ARG001"
             --ignore "E501,B008,W191,B904"
 
