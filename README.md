@@ -66,24 +66,26 @@ You can then update configs in the .env files to customize your configurations.
 
 Before deploying it, make sure you change at least the values for:
 
-APP_ENVIRONMENT
-DB_USER
-DB_PASSWORD
-DB_SERVER
-DB_PORT
-DB_NAME
+- `APP_ENVIRONMENT`
+- `DB_USER`
+- `DB_PASSWORD`
+- `DB_SERVER`
+- `DB_PORT`
+- `DB_NAME`
 
 You can (and should) pass the database password as environment variable from secrets.
 
-<br><br>
+<br>
 
 ## Backend Development
 
 Backend docs: [backend/README.md](backend/README.md).
+<br><br>
 
 ## Frontend Development
 
 Frontend docs: frontend/README.md. -- TO DO
+<br><br>
 
 ## Deployment
 

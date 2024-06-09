@@ -2,8 +2,8 @@
 
 ## Requirements
 
-    - 🐋 [Docker](https://github.com/docker/compose): for development and production.
-    - 📦 [Poetry](https://github.com/python-poetry/poetry): for Python package and environment management.
+- 🐋 [Docker](https://github.com/docker/compose): for development and production.
+- 📦 [Poetry](https://github.com/python-poetry/poetry): for Python package and environment management.
 
 ## Local Development
 
