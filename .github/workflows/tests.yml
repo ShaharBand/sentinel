@@ -62,8 +62,7 @@ jobs:
           cd backend/
           ruff check . \
             --select "E,W,F,I,B,C4,UP,ARG001" \
-            --ignore "E501,B008,W191,B904" \
-            --no-fail
+            --ignore "E501,B008,W191,B904"
 
       - name: Run tests
         run: |
