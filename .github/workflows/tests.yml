@@ -55,7 +55,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd backend/
-          poetry install
+          poetry install --no-root
 
       - name: Lint with ruff
         run: |
