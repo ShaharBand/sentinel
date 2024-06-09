@@ -17,6 +17,8 @@ def parse_cors(v: Any) -> list[str] | str:
 
 
 def parse_environment(v: str) -> Environment:
+    if isinstance(v, Environment):
+        return v
     if isinstance(v, str):
         return Environment(v.lower())
     raise ValueError(v)
