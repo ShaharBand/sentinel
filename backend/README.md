@@ -1,4 +1,4 @@
-# FastAPI Project - Backend
+# Sentinel - Backend
 
 ## Requirements
 
@@ -6,6 +6,18 @@
 - 📦 [Poetry](https://github.com/python-poetry/poetry): for Python package and environment management.
 
 ## Local Development
+
+You have two options to run the FastAPI backend:
+
+**Option 1: Python Run**
+
+Navigate to the `backend` directory and use the following command:
+
+```commandline
+python src/main.py
+```
+
+**Option 2: Docker Compose**
 
 Start the stack with Docker Compose:
 
@@ -17,7 +29,7 @@ docker compose up -d
 
 If your Docker is not running in localhost (the URLs above wouldn't work) you would need to use the IP or domain where your Docker is running.
 
-### General workflow
+## General workflow
 
 By default, the dependencies are managed with [Poetry](https://github.com/python-poetry/poetry), go there and install it.
 
