@@ -129,7 +129,7 @@ npm run dev
 
 ## 👨‍💻 Contributions:
 
-We welcome contributions to this project! Please feel free to fork the repository and create pull requests.
+I welcome contributions to this project! Please feel free to fork the repository and create pull requests.
 <br><br>
 
 ## 💼 License:
