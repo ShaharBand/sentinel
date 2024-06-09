@@ -1,4 +1,4 @@
-from pydantic import MongoDsn, computed_field
+from pydantic import computed_field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 

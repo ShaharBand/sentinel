@@ -17,12 +17,12 @@ class AuthController:
         user = await UserModel.get_user_by_username(username)
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                                detail=f"Authentication failed invalid credentials")
+                                detail="Authentication failed invalid credentials")
 
         hashed_password = user.hashed_password
         if not verify_password(password, hashed_password):
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                                detail=f"Authentication failed invalid credentials")
+                                detail="Authentication failed invalid credentials")
         return user
 
     @staticmethod
@@ -31,7 +31,7 @@ class AuthController:
         user = await UserModel.get_user_by_username(decoded_token_username)
         if user is None:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-                                detail=f"Authentication failed invalid credentials")
+                                detail="Authentication failed invalid credentials")
         return user
 
     @staticmethod
