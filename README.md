@@ -60,27 +60,26 @@ https://github.com/ShaharBand/Sentinel.git
 
 <br>
 
-**2. Modify the Configuration with Environment Variables:**
+**2. Configure**
 
-To configure the application, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
+You can then update configs in the .env files to customize your configurations.
 
-**Environment Settings:**
-The application supports configuration based on environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, all residing within the directory `backend/src/core/config/`.
+Before deploying it, make sure you change at least the values for:
 
-Each configuration is designated with a distinct environment variable prefix: `APP_`, `DB_`, `METADATA_`.
+APP_ENVIRONMENT
+DB_USER
+DB_PASSWORD
+DB_SERVER
+DB_PORT
+DB_NAME
 
-**Production Environment Setup:**
-The system checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
+You can (and should) pass the database password as environment variable from secrets.
 
-**Docker Integration**
-If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
-
-Before deploying it, make sure you change at least the values for the database.
 <br><br>
 
 ## Backend Development
 
-Backend docs: backend/README.md. -- TO DO
+Backend docs: [backend/README.md](backend/README.md).
 
 ## Frontend Development
 
