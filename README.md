@@ -60,34 +60,7 @@ https://github.com/ShaharBand/Sentinel.git
 
 <br>
 
-**2. Install Backend Dependencies:**
-
-Navigate to the `backend` directory and install the backend dependencies using the following command:
-
-```commandline
-cd backend
-pip install -r requirements.txt
-```
-
-<br>
-
-**3. Install Frontend Dependencies:**
-
-Before installing the Node Package Manager (NPM), you need to install Node.js.
-You can download the latest version of Node.js from the official Node.js website.
-<br>
-
-Navigate to the frontend directory and install the frontend dependencies using the following command:
-
-```commandline
-cd frontend
-npm install
-```
-
-This command installs the necessary Node.js packages specified in your project's `package.json` file.
-<br><br>
-
-**4. Modify the Configuration with Environment Variables:**
+**2. Modify the Configuration with Environment Variables:**
 
 To configure the application, utilize environment files (`.env`) to specify settings such as database connection details, application port, and other environment-specific configurations.
 
@@ -101,34 +74,22 @@ The system checks for the `APP_ENVIRONMENT` environment variable to determine if
 
 **Docker Integration**
 If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
+
+Before deploying it, make sure you change at least the values for the database.
 <br><br>
 
-**5. Run Backend**
-You have two options to run the FastAPI backend:
+## Backend Development
 
-In the `backend` directory, run the FastAPI backend using the following command:
+Backend docs: backend/README.md. -- TO DO
 
-```commandline
-python src/main.py
-```
+## Frontend Development
 
-Alternatively, if you prefer using Docker, you can use Docker Compose to run the application. Ensure you have Docker installed on your system.
+Frontend docs: frontend/README.md. -- TO DO
 
-```commandline
-docker-compose up --build
-```
+## Deployment
 
-<br>
-
-**6. Run Frontend:**
-
-In the `frontend` directory, run the Vite.js frontend using the following command:
-
-```commandline
-npm run dev
-```
-
-<br>
+Deployment docs: deployment.md. -- TO DO
+<br><br>
 
 ## 👨‍💻 Contributions:
 
