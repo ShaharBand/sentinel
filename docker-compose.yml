@@ -18,6 +18,12 @@ services:
       APP_PORT: ${APP_PORT}
       APP_ENVIRONMENT: ${APP_ENVIRONMENT}
       APP_BACKEND_CORS_ORIGINS: ${APP_BACKEND_CORS_ORIGINS}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_SERVER: ${DB_SERVER}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+
     build:
       context: ./backend
       args:
@@ -30,6 +36,7 @@ services:
     restart: always
     volumes:
       - mongo-data:/data/db
+      - ./scripts:/scripts
     env_file:
       - .env
     environment:
