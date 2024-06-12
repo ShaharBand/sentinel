@@ -23,7 +23,7 @@ But you have to configure a couple things first. 🤓
 * `BACKEND_CORS_ORIGINS`: A list of allowed CORS origins separated by commas.
 * `BACKEND_ACCESS_TOKEN_EXPIRE_MINUTES`: Define the token expiration time in minutes (Default value is `7 days`).
 * `BACKEND_SECRET_KEY`: The secret key for the backend, used to sign tokens (Default value is `randomly generated`).
-* `BACKEND_WORKER_COUNT`: The backend workers count (Default recommended value is `2x CPU cores + 1`)
+* `BACKEND_WORKER_COUNT`: The backend workers count (Default recommended value is `2x CPU cores + 1`).
 * `DB_USER`: The MongoDB user, you must set a value because the URI depends on it.
 * `DB_PASSWORD`: The MongoDB user password.
 * `DB_SERVER`: The hostname of the MongoDB server. You can leave the default of db, provided by the same Docker Compose. You normally wouldn't need to change this unless you are using a third-party provider.
