@@ -3,7 +3,7 @@ services:
     build:
       context: ./frontend
       args:
-        INSTALL_DEV: ${INSTALL_DEV-false}
+        NODE_ENV: production
     restart: always
     depends_on:
       - backend
