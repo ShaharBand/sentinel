@@ -7,7 +7,7 @@
 
 ## Local Development
 
-You have two options to run the FastAPI backend:
+You have several options to run the FastAPI backend:
 
 **Option 1: Python Run**
 
