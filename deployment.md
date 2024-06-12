@@ -16,10 +16,8 @@ But you have to configure a couple things first. 🤓
 * `METADATA_PROJECT_DESCRIPTION`: The description of the project, used in the API for the docs.
 * `METADATA_MAINTAINER`: The project maintainer (currently unused).
 * `METADATA_VERSION`:  The version of the project, used in the API for the docs.
-
 * `BACKEND_ENVIRONMENT`: The environment setup configuration. It can be either `development` or `production` *it is important to set correctly*.
 * The `NODE_ENV` and `INSTALL_DEV` arguments in Docker Compose are also required to be setup according to this setting.
-
 * `BACKEND_DOMAIN`: The backend host (Default value is `0.0.0.0`).
 * `BACKEND_PORT`: The backend api port.
 * `BACKEND_CORS_ORIGINS`: A list of allowed CORS origins separated by commas.
@@ -32,9 +30,8 @@ But you have to configure a couple things first. 🤓
 * `DB_PORT`: The port of the MongoDB server. You can leave the default. You normally wouldn't need to change this unless you are using a third-party provider.
 * `DB_NAME`: The database name to use for this application. You can leave the default of `sentinel`.
 
-<br>
+You can (and should) pass passwords and secret keys as environment variables from secrets.
 
-* You can (and should) pass passwords and secret keys as environment variables from secrets.
 
 # Initalizing MongoDB User
 
