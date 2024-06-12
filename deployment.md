@@ -11,10 +11,12 @@ But you have to configure a couple things first. 🤓
 * Create and configure the MongoDB database user.
 
 # Environment Variables
+
 * `METADATA_PROJECT_NAME`: The name of the project, used in the API for the docs.
 * `METADATA_PROJECT_DESCRIPTION`: The description of the project, used in the API for the docs.
 * `METADATA_MAINTAINER`: The project maintainer (currently unused).
 * `METADATA_VERSION`:  The version of the project, used in the API for the docs.
+
 * `BACKEND_ENVIRONMENT`: The environment setup configuration. It can be either `development` or `production` *it is important to set correctly*.
 * The `NODE_ENV` and `INSTALL_DEV` arguments in Docker Compose are also required to be setup according to this setting.
 
@@ -31,6 +33,7 @@ But you have to configure a couple things first. 🤓
 * `DB_NAME`: The database name to use for this application. You can leave the default of `sentinel`.
 
 <br>
+
 * You can (and should) pass passwords and secret keys as environment variables from secrets.
 
 # Initalizing MongoDB User
