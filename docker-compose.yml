@@ -19,10 +19,10 @@ services:
     env_file:
       - .env
     environment:
-      APP_DOMAIN: ${APP_DOMAIN}
-      APP_PORT: ${APP_PORT}
-      APP_ENVIRONMENT: ${APP_ENVIRONMENT}
-      APP_BACKEND_CORS_ORIGINS: ${APP_BACKEND_CORS_ORIGINS}
+      BACKEND_DOMAIN: ${BACKEND_DOMAIN}
+      BACKEND_PORT: ${BACKEND_PORT}
+      BACKEND_ENVIRONMENT: ${BACKEND_ENVIRONMENT}
+      BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_SERVER: db
@@ -33,7 +33,7 @@ services:
       args:
         INSTALL_DEV: ${INSTALL_DEV-false}
     ports:
-      - ${APP_PORT}:5000
+      - ${BACKEND_PORT}:5000
     networks:
       - default
 

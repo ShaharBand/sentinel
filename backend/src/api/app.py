@@ -28,11 +28,11 @@ app = FastAPI(root_path="/api",
               lifespan=lifespan,
               responses={404: {"description": "Not found"}})
 
-if app_config.BACKEND_CORS_ORIGINS:
+if app_config.CORS_ORIGINS:
     app.add_middleware(
         CORSMiddleware,
         allow_origins=[
-            str(origin).strip("/") for origin in app_config.BACKEND_CORS_ORIGINS
+            str(origin).strip("/") for origin in app_config.CORS_ORIGINS
         ],
         allow_credentials=True,
         allow_methods=["GET", "POST", "PUT", "DELETE"],

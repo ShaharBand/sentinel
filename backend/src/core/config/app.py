@@ -26,14 +26,13 @@ def parse_environment(v: str) -> Environment:
 
 class AppSettings(BaseSettings):
     model_config = SettingsConfigDict(env_file='.env',
-                                      env_prefix='APP_',
+                                      env_prefix='BACKEND_',
                                       env_ignore_empty=True,
                                       extra="ignore")
 
     DOMAIN: str = "0.0.0.0"
     PORT: int = 5000
-    BACKEND_CORS_ORIGINS: Annotated[list[AnyUrl]
-                                    | str, BeforeValidator(parse_cors)] = []
+    CORS_ORIGINS: Annotated[list[AnyUrl] | str, BeforeValidator(parse_cors)] = []
     ENVIRONMENT: Annotated[
         Literal[Environment.DEVELOPMENT, Environment.PRODUCTION],
         BeforeValidator(parse_environment)

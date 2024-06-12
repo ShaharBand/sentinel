@@ -12,7 +12,7 @@ class DBSettings(BaseSettings):
     PORT: int = 27017
     USER: str
     PASSWORD: str
-    NAME: str
+    NAME: str = "sentinel"
 
     @computed_field
     @property
