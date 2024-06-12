@@ -72,6 +72,8 @@ Before deploying it, make sure you change at least the values for:
 
 You can (and should) pass the database password as environment variable from secrets.
 
+Read the [deployment.md](deployment.md) docs for more details.
+
 <br>
 
 ## Backend Development
@@ -82,11 +84,6 @@ Backend docs: [backend/README.md](backend/README.md).
 ## Frontend Development
 
 Frontend docs: [frontend/README.md](frontend/README.md).
-<br><br>
-
-## Deployment
-
-Deployment docs: [deployment.md](deployment.md).
 <br><br>
 
 ## 👨‍💻 Contributions:
