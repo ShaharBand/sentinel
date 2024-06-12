@@ -1,5 +1,5 @@
-# Stage 1: Build stage
-FROM python:3.12.3-alpine3.20 AS builder
+# Stage 0, "build-stage", based on Python 3.12.3.
+FROM python:3.12.3-alpine3.20 as build-stage
 
 WORKDIR /backend
 
@@ -16,14 +16,14 @@ COPY ./pyproject.toml ./poetry.lock* ./
 ARG INSTALL_DEV=false
 RUN if [ "$INSTALL_DEV" = "true" ]; then poetry install --no-root; else poetry install --no-root --only main; fi
 
-# Stage 2: Final stage
+# Stage 1, Final stage, to have only the compiled dependencies.
 FROM python:3.12.3-alpine3.20
 
 LABEL maintainer="Shahar Band <shahar1531@gmail.com>"
 
 WORKDIR /backend
 
-COPY --from=builder /usr/local/lib/python3.12/site-packages/ /usr/local/lib/python3.12/site-packages/
+COPY --from=build-stage /usr/local/lib/python3.12/site-packages/ /usr/local/lib/python3.12/site-packages/
 COPY src/ ./src
 
 RUN adduser -D appuser
