@@ -32,14 +32,18 @@ But you have to configure a couple things first. 🤓
 - `DB_PORT`: The port of the MongoDB server. You can leave the default. You normally wouldn't need to change this unless you are using a third-party provider.
 - `DB_NAME`: The database name to use for this application. You can leave the default of `sentinel`.
 
+* You can (and should) pass passwords and secret keys as environment variables from secrets.
+
 # Initalizing MongoDB User
 
 You can initialize the MongoDB user by either:
 
 - Running the provided setup script on the MongoDB container:
+
   ```bash
   sh scripts/mongo-setup.sh
   ```
+
 - Manually creating a user using the mongosh CLI.
 
 # URLs
