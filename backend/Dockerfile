@@ -31,6 +31,5 @@ RUN chown appuser /backend
 USER appuser
 
 ENV PYTHONPATH="/backend"
-EXPOSE 5000
 
 CMD ["python", "src/main.py"]

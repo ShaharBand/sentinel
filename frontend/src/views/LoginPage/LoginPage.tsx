@@ -3,13 +3,17 @@ import { Box, Button, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 import axios from "axios";
 
+interface PersonData {
+  results: any[];
+}
+
 export const LoginPage: FC = () => {
   const theme = useTheme();
   const classes = getClasses(theme);
 
-  const [counter, setCounter] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [personData, setPersonData] = useState(null);
+  const [counter, setCounter] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [personData, setPersonData] = useState<PersonData | null>(null);
 
   useEffect(() => {
     fetchUsersData(currentPage);
@@ -21,10 +25,10 @@ export const LoginPage: FC = () => {
         setPersonData(response.data);
         setCurrentPage(page);
       })
-      .catch((error) => {
+      .catch(() => {
         setPersonData(null);
       });
-  }
+  };
 
   const handleNextPage = () => {
     fetchUsersData(currentPage + 1);
@@ -41,7 +45,7 @@ export const LoginPage: FC = () => {
       {/* counter code */}
       <Box className={classes.container}>
         <p>{counter}</p>
-        <Button onClick={() => { setCounter(counter + 1); }}>Add To Counter</Button>
+        <Button onClick={() => setCounter(counter + 1)}>Add To Counter</Button>
       </Box>
       {/* fetch code */}
       <Box className={classes.container}>

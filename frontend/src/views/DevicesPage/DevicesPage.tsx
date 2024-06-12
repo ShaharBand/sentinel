@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { getClasses } from "./style";
 
 import { NavBar } from "../../components/NavBar/NavBar";
@@ -18,8 +18,7 @@ import DeviceOSPieChart from "../../components/Devices/DeviceOSPieChart/DeviceOS
 import DeviceCoverageGraph from "../../components/Devices/DeviceCoverageGraph/DeviceCoverageGraph";
 
 export const DevicesPage: FC = () => {
-  const theme = useTheme();
-  const classes = getClasses(theme);
+  const classes = getClasses();
 
   return (
     <Box className={classes.container}>

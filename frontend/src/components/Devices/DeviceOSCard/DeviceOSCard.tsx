@@ -2,10 +2,12 @@ import { Card, Stack, Box, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
 import windows from "../../../assets/images/os/windows.png";
 
+/*
 import ios from "../../../assets/images/os/ios.png";
 import linux from "../../../assets/images/os/linux.png";
 import macos from "../../../assets/images/os/macos.png";
 import android from "../../../assets/images/os/android.png";
+*/
 import InfoModal from "../../InfoModal/InfoModal";
 
 const DeviceOSCard = () => {

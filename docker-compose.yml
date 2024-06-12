@@ -1,11 +1,14 @@
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        INSTALL_DEV: ${INSTALL_DEV-false}
     restart: always
     depends_on:
       - backend
     ports:
-      - 5173:5173
+      - 80:80
     networks:
       - default
 

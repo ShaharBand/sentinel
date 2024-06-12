@@ -54,7 +54,7 @@ export const DevicesTable: FC<{}> = ({}) => {
       field: "actions",
       headerName: "Actions",
       flex: 0.5,
-      renderCell: (params) => (
+      renderCell: () => (
         <Link href="#" className={classes.link}>
           More
         </Link>

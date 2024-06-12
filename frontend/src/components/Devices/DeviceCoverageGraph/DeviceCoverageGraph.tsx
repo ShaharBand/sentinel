@@ -1,8 +1,7 @@
 import useSWR from "swr";
 import { Card, Stack, Typography, useTheme } from "@mui/material";
 import { getClasses } from "./style";
-import { BarChart } from "@mui/x-charts";
-import ErrorIcon from "@mui/icons-material/Error";
+//import { BarChart } from "@mui/x-charts";
 
 const fetcher = async (url: string, ...args: RequestInit[]): Promise<any> => {
   const response = await fetch(url, ...args);
@@ -46,7 +45,7 @@ const DeviceCoverageGraph: React.FC = () => {
           <>
             {Object.entries(chartData).map(([software, coverage], index) => (
               <Typography key={index}>
-                {software}: {coverage}
+                {`${software}: ${coverage}`}
               </Typography>
             ))}
           </>

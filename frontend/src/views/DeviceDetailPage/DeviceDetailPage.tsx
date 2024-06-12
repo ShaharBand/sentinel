@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { getClasses } from "./style";
 
 import { NavBar } from "../../components/NavBar/NavBar";
@@ -12,8 +12,7 @@ import DeviceTapsCard from "../../components/Devices/DeviceTapsCard/DeviceTapsCa
 import DeviceAgentTapsCard from "../../components/Devices/DeviceAgentTapsCard/DeviceAgentTapsCard";
 
 export const DeviceDetailPage: FC = () => {
-  const theme = useTheme();
-  const classes = getClasses(theme);
+  const classes = getClasses();
 
   return (
     <Box className={classes.container}>
