@@ -8,7 +8,7 @@ class DBSettings(BaseSettings):
                                       env_ignore_empty=True,
                                       extra="ignore")
 
-    SERVER: str
+    SERVER: str = "localhost"
     PORT: int = 27017
     USER: str
     PASSWORD: str
@@ -17,5 +17,5 @@ class DBSettings(BaseSettings):
     @computed_field
     @property
     def MONGO_DATABASE_URI(self) -> str:
-        uri = f"mongodb://{self.USER}:{self.PASSWORD}@{self.SERVER}:{self.PORT}/"
+        uri = f"mongodb://{self.USER}:{self.PASSWORD}@{self.SERVER}:{self.PORT}/{self.NAME}"
         return uri

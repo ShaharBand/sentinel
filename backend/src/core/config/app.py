@@ -30,9 +30,10 @@ class AppSettings(BaseSettings):
                                       env_ignore_empty=True,
                                       extra="ignore")
 
-    DOMAIN: str = "localhost"
+    DOMAIN: str = "0.0.0.0"
     PORT: int = 5000
-    BACKEND_CORS_ORIGINS: Annotated[list[AnyUrl] | str, BeforeValidator(parse_cors)] = []
+    BACKEND_CORS_ORIGINS: Annotated[list[AnyUrl]
+                                    | str, BeforeValidator(parse_cors)] = []
     ENVIRONMENT: Annotated[
         Literal[Environment.DEVELOPMENT, Environment.PRODUCTION],
         BeforeValidator(parse_environment)
