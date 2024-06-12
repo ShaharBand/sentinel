@@ -20,9 +20,9 @@ jobs:
     timeout-minutes: 20
 
     env:
-      DB_HOST: ${{ secrets.DB_HOST }}
+      DB_SERVER: ${{ secrets.DB_SERVER }}
       DB_PORT: ${{ secrets.DB_PORT }}
-      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }}
       PAT: ${{ secrets.PAT }}
@@ -31,7 +31,7 @@ jobs:
       - name: Set up MongoDB CLI
         uses: supercharge/mongodb-github-action@1.10.0
         with:           
-            mongodb-username: ${{ env.DB_USERNAME }}
+            mongodb-username: ${{ env.DB_USER }}
             mongodb-password: ${{ env.DB_PASSWORD }} 
             mongodb-db: ${{ env.DB_NAME }}
             mongodb-port: ${{ env.DB_PORT }}
