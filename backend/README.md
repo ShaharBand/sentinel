@@ -54,7 +54,7 @@ To configure the application, utilize environment files (`.env`) to specify sett
 **Environment Settings:**
 The application supports configuration based on environment settings for both development and production environments. You can find the configuration settings in `app.py`, `db.py`, and `metadata.py`, all residing within the directory `backend/src/core/config/`.
 
-Each configuration is designated with a distinct environment variable prefix: `APP_`, `DB_`, `METADATA_`.
+Each configuration is designated with a distinct environment variable prefix: `BACKEND_`, `DB_`, `METADATA_`.
 
 **Production Environment Setup:**
 The system checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
