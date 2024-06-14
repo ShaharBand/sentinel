@@ -57,7 +57,7 @@ The application supports configuration based on environment settings for both de
 Each configuration is designated with a distinct environment variable prefix: `BACKEND_`, `DB_`, `METADATA_`.
 
 **Production Environment Setup:**
-The system checks for the `APP_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
+The system checks for the `BACKEND_ENVIRONMENT` environment variable to determine if the environment is a production environment. This allows for overriding of reload settings and the setup of workers as necessary.
 
 **Docker Integration**
 If you plan on using Docker, the `.dockerignore` file is configured to ignore the environment files. This setup allows you to load the environment variables specifically for Docker Compose usage, providing flexibility for both development and production environments. You can also set up separate Docker Compose files for development and production (`docker-compose.dev.yml` and `docker-compose.prod.yml`) to ensure consistency across environments.
