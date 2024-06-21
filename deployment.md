@@ -43,6 +43,13 @@ You can initialize the MongoDB user by either:
   sh scripts/mongo-setup.sh
   ```
 
+  If the setup script has incorrect line endings (`CRLF`) and you want to convert them to Unix (`LF`), you can use a tool or command to do so:
+
+  ```bash
+  sed -i 's/\r$//' ./scripts/mongo-setup.sh
+  ```
+  afterwards you can run the shell file again.
+
 - Manually creating a user using the mongosh CLI.
 
 # URLs

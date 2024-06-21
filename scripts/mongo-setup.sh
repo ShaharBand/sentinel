@@ -5,7 +5,7 @@ if [ -z "$DB_USER" ] || [ -z "$DB_PASSWORD" ] || [ -z "$DB_SERVER" ] || [ -z "$D
     exit 1
 fi
 
-mongosh --host $DB_SERVER --port $DB_PORT -u $DB_USER -p $DB_PASSWORD --authenticationDatabase admin <<EOF
+mongosh --host $DB_SERVER --port $DB_PORT --authenticationDatabase admin <<EOF
 use $DB_NAME
 db.dropUser("$DB_USER")
 db.createUser({
