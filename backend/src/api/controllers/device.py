@@ -1,17 +1,14 @@
 from beanie import PydanticObjectId
 
-from src.api.models.device import DeviceModel
+import src.api.models.device as device_model
 from src.dal.entities.device import Device
 
 
-class DeviceController:
+async def get_all_devices() -> list[Device]:
+    devices = await device_model.get_all_devices()
+    return devices
 
-    @staticmethod
-    async def get_all_devices() -> list[Device]:
-        devices = await DeviceModel.get_all_devices()
-        return devices
 
-    @staticmethod
-    async def get_device(device_id: PydanticObjectId) -> Device:
-        device = await DeviceModel.get_device_by_id(device_id)
-        return device
+async def get_device(device_id: PydanticObjectId) -> Device:
+    device = await device_model.get_device_by_id(device_id)
+    return device
