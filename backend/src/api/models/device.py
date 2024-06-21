@@ -1,7 +1,7 @@
 from beanie import PydanticObjectId
 
-from src.dal.entities.device import Device
 import src.dal.repositories.device as device_repository
+from src.dal.entities.device import Device
 
 
 async def create_device(device_data: dict) -> Device:

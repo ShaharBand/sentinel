@@ -3,9 +3,9 @@ from datetime import datetime
 from beanie import PydanticObjectId
 from fastapi import HTTPException, status
 
+import src.dal.repositories.user as user_repository
 from src.core.security.password import hash_password
 from src.dal.entities.user import User
-import src.dal.repositories.user as user_repository
 
 
 async def create_user(username: str, password: str) -> User:
