@@ -33,10 +33,7 @@ class AppSettings(BaseSettings):
     DOMAIN: str = "0.0.0.0"
     PORT: int = 5000
     CORS_ORIGINS: Annotated[list[AnyUrl] | str, BeforeValidator(parse_cors)] = []
-    ENVIRONMENT: Annotated[
-        Literal[Environment.DEVELOPMENT, Environment.PRODUCTION],
-        BeforeValidator(parse_environment)
-    ] = Environment.DEVELOPMENT
+    ENVIRONMENT: Annotated[Environment, BeforeValidator(parse_environment)] = Environment.DEVELOPMENT
     WORKER_COUNT: int = os.cpu_count() * 2 + 1
 
     SECRET_KEY: str = secrets.token_urlsafe(32)

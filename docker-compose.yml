@@ -19,15 +19,7 @@ services:
     env_file:
       - .env
     environment:
-      BACKEND_DOMAIN: ${BACKEND_DOMAIN}
-      BACKEND_PORT: ${BACKEND_PORT}
-      BACKEND_ENVIRONMENT: ${BACKEND_ENVIRONMENT}
-      BACKEND_CORS_ORIGINS: ${BACKEND_CORS_ORIGINS}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
       DB_SERVER: db
-      DB_PORT: ${DB_PORT}
-      DB_NAME: ${DB_NAME}
     build:
       context: ./backend
       args:
