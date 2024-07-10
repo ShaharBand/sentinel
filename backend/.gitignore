@@ -1,5 +1,4 @@
 __pycache__
-__pycache__/
 *.pyc
 .pytest_cache
 
@@ -7,6 +6,3 @@ __pycache__/
 venv/
 
 .ruff_cache
-
-.idea
-.vscode
