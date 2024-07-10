@@ -88,7 +88,7 @@ Frontend docs: [frontend/README.md](frontend/README.md).
 
 ## Gallery Images
 
-Gallery Images: [gallery.md](gallery.md).
+You can see the images of the frontend here: [gallery.md](gallery.md).
 <br><br>
 
 ## 👨‍💻 Contributions:
