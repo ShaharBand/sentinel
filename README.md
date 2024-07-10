@@ -86,6 +86,11 @@ Backend docs: [backend/README.md](backend/README.md).
 Frontend docs: [frontend/README.md](frontend/README.md).
 <br><br>
 
+## Gallery Images
+
+Gallery Images: [gallery.md](gallery.md).
+<br><br>
+
 ## 👨‍💻 Contributions:
 
 We welcome contributions to this project! Please feel free to fork the repository and create pull requests.
