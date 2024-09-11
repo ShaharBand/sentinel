@@ -1,6 +1,6 @@
 <div align="center">
   <img src="./img/logo.png" width="250px" alt="Sentinel Logo" title="Sentinel Logo">
-</div>
+
 
 # Sentinel
 
@@ -11,6 +11,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![last commit](https://img.shields.io/github/last-commit/ShaharBand/Sentinel.svg)](https://github.com/ShaharBand/Sentinel/commits/main)
 [![Tests](https://github.com/ShaharBand/sentinel/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/ShaharBand/sentinel/actions/workflows/tests.yml)
+</div>
 
 A user-friendly Command & Control (C&C) web platform for remote monitoring, management, and task automation across multiple devices.
 Equipped with agents, it enables users to seamlessly execute scripted tasks on target devices, empowering efficient data retrieval and remote actions.
