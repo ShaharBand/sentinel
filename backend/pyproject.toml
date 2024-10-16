@@ -1,34 +1,27 @@
-[tool.poetry]
+[project]
 name = "backend"
 version = "0.1.0"
 description = ""
-authors = ["Shahar Band <shahar1531@gmail.com>"]
-license = "MIT"
-readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "uvicorn<1.0.0,>=0.30.1",
+    "fastapi[standard]<1.0.0,>=0.111.0",
+    "python-multipart<1.0.0,>=0.0.7",
+    "pydantic-settings<3.0.0,>=2.2.0",
+    "pydantic<3.0.0,>=2.0",
+    "pyjwt<3.0.0,>=2.8.0",
+    "passlib[bcrypt]<2.0.0,>=1.7.4",
+    "bcrypt==4.0.1",
+    # Pin bcrypt until passlib supports the latest
+    "beanie<2.0.0,>=1.26.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-uvicorn = "^0.30.1"
-fastapi = "^0.111.0"
-beanie = "^1.26.0"
-python-multipart = "^0.0.7"
-passlib = {extras = ["bcrypt"], version = "^1.7.4"}
-pydantic = "^2.7.3"
-bcrypt = "4.0.1" # Pin bcrypt until passlib supports the latest
-pydantic-settings = "^2.3.1"
-pyjwt = "^2.8.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-ruff = "^0.4.8"
-setuptools = "66.1.1"
-pytest-asyncio = "^0.23.7"
-trio = "^0.25.1"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.uv]
+dev-dependencies = [
+    "pytest-asyncio>=0.24.0",
+    "pytest<9.0.0,>=7.4.3",
+    "ruff<1.0.0,>=0.6.9",
+]
 
 [tool.ruff]
 target-version = "py310"

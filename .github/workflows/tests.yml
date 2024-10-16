@@ -9,60 +9,29 @@ on:
 
 jobs:
   test:
-    name: Run Tests
-    strategy:
-      matrix:
-        platform: [ ubuntu-latest ]
-        python-version: [ '3.10', '3.11', '3.12' ]
-        mongodb-version: [ '5.0', '6.0' ]
- 
-    runs-on: ${{ matrix.platform }}
-    timeout-minutes: 20
-
-    env:
-      DB_SERVER: ${{ secrets.DB_SERVER }}
-      DB_PORT: ${{ secrets.DB_PORT }}
-      DB_USER: ${{ secrets.DB_USER }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_NAME: ${{ secrets.DB_NAME }}
-      PAT: ${{ secrets.PAT }}
+    runs-on: ubuntu-latest
+    name: tests
 
     steps:
-      - name: Set up MongoDB CLI
-        uses: supercharge/mongodb-github-action@1.10.0
-        with:           
-            mongodb-username: ${{ env.DB_USER }}
-            mongodb-password: ${{ env.DB_PASSWORD }} 
-            mongodb-db: ${{ env.DB_NAME }}
-            mongodb-port: ${{ env.DB_PORT }}
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-      - name: Set Up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+      - name: Cache Docker layers
+        uses: actions/cache@v2
         with:
-          python-version: ${{ matrix.python-version }}
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
 
-      - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.8.3 python3 - && \
-          POETRY_HOME=/opt/poetry python && \
-          cd /usr/local/bin && \
-          ln -s /opt/poetry/bin/poetry && \
-          poetry config virtualenvs.create false
+      - name: Build Docker image
+        run: docker build ./backend -t backend-app
 
-      - name: Install dependencies
-        run: |
-          cd backend/
-          poetry install --no-root
+      - name: Run linter with ruff
+        run: docker run --rm backend-app sh -c "cd /backend && ruff check ."
 
-      - name: Lint with ruff
-        run: |
-          cd backend/
-          ruff check .
-
-      - name: Run tests
-        run: |
-          cd backend/
-          python -m pytest
+      - name: Run tests with pytest
+        run: docker run --rm backend-app sh -c "cd /backend && python -m pytest"

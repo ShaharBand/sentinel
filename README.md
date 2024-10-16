@@ -26,7 +26,7 @@ Equipped with agents, it enables users to seamlessly execute scripted tasks on t
   - 🧰 [Beanie](https://github.com/roman-right/beanie): for the Python MongoDB database interactions (ODM).
   - 🔍 [Pydantic](https://github.com/samuelcolvin/pydantic): used by FastAPI, for the data validation and settings management.
   - 💾 [MongoDB](https://github.com/mongodb/mongo): as the NoSQL database.
-  - 📦 [Poetry](https://github.com/python-poetry/poetry): A dependency management and packaging tool for Python.
+  - 📦 [UV](https://github.com/astral-sh/uv): An extremely fast Python package and project manager.
 
 ### Frontend
 

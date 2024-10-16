@@ -22,8 +22,6 @@ services:
       DB_SERVER: db
     build:
       context: ./backend
-      args:
-        INSTALL_DEV: ${INSTALL_DEV-false}
     ports:
       - ${BACKEND_PORT}:5000
     networks:
