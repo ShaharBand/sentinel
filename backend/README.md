@@ -3,7 +3,7 @@
 ## Requirements
 
 - 🐋 [Docker](https://github.com/docker/compose): for development and production.
-- 📦 [Poetry](https://github.com/python-poetry/poetry): for Python package and environment management.
+  - 📦 [UV](https://github.com/astral-sh/uv): An extremely fast Python package and project manager.
 
 ## Local Development
 
@@ -11,7 +11,7 @@ You have several options to run the FastAPI backend:
 
 **Option 1: Python Run**
 
-Navigate to the `backend` directory and use the following command:
+Navigate to the `backend` directory and use the following command (make sure your working dir is the `backend`):
 
 ```commandline
 python src/main.py
@@ -31,21 +31,32 @@ If your Docker is not running in localhost (the URLs above wouldn't work) you wo
 
 ## General workflow
 
-By default, the dependencies are managed with [Poetry](https://github.com/python-poetry/poetry), go there and install it.
+By default, the dependencies are managed with [UV](https://github.com/astral-sh/uv),
+Installation can be found from standalone installers or from [PyPI](https://pypi.org/project/uv/):
+```commandline
+# On macOS and Linux.
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows.
+$ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# With pip.
+$ pip install uv
+```
 
 From `./backend/` you can install all the dependencies with:
 
 ```commandline
-$ poetry install
+$ uv sync
 ```
 
-Then you can start a shell session with the new environment with:
+Then you can activate the virtual environment with:
 
 ```commandline
-$ poetry shell
+$ source .venv/bin/activate
 ```
 
-Make sure your editor is using the correct Python virtual environment.
+Make sure your editor is using the correct Python virtual environment, with the interpreter at `backend/.venv/bin/python`.
 
 ## Modify the Configuration with Environment Variables:
 
