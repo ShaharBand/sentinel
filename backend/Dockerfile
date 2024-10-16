@@ -21,7 +21,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Copy the necessary files
 COPY pyproject.toml uv.lock ./
 COPY src/ ./src/
-# COPY tests/ ./tests/
+COPY tests/ ./tests/
 
 # Sync the project
 # Ref: https://docs.astral.sh/uv/guides/integration/docker/#intermediate-layers
