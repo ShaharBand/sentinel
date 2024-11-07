@@ -67,7 +67,6 @@ You can then update configs in the `.env` files to customize your configurations
 
 Before deploying it, make sure you change at least the values for:
 
-- `BACKEND_ENVIRONMENT`
 - `DB_USER`
 - `DB_PASSWORD`
 
