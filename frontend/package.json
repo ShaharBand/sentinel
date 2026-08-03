@@ -8,15 +8,15 @@
     "@mui/material": "^5.15.15",
     "@mui/x-charts": "^7.1.1",
     "@mui/x-data-grid": "^6.19.3",
-    "axios": "^1.7.4",
-    "lodash": "^4.17.21",
+    "axios": "^1.18.0",
+    "lodash": "^4.18.1",
     "nginx": "^1.0.8",
     "react-router-dom": "^6.22.0",
     "react-virtuoso": "^4.6.3",
     "swr": "^2.2.5",
     "typescript": "^5.4.5",
     "use-local-storage": "^3.0.0",
-    "vite": "^5.4.6"
+    "vite": "^8.2.0"
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -26,6 +26,6 @@
   "devDependencies": {
     "@types/lodash": "^4.17.0",
     "@types/react-dom": "^18.2.23",
-    "@vitejs/plugin-react": "^4.2.1"
+    "@vitejs/plugin-react": "^6.0.5"
   }
 }
