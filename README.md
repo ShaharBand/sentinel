@@ -16,6 +16,7 @@
 A user-friendly Command & Control (C&C) web platform for remote monitoring, management, and task automation across multiple devices.
 Equipped with agents, it enables users to seamlessly execute scripted tasks on target devices, empowering efficient data retrieval and remote actions.
 
+** Note: Its incomplete: one day i will come back to finish it but it needs some backend-frontend integration and i think some refactors..
 <br>
 
 ## 🖥️ Technology Stack and Features
